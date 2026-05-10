@@ -44,7 +44,7 @@ from harness import (
 )
 
 ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY", "").strip()
-ANTHROPIC_MODEL = os.getenv("ANTHROPIC_MODEL", "claude-sonnet-4-5").strip()
+ANTHROPIC_MODEL = os.getenv("ANTHROPIC_MODEL", "claude-sonnet-4-6").strip()
 MAX_TOKENS = int(os.getenv("MAX_TOKENS", "8192"))
 TEMPERATURE = float(os.getenv("TEMPERATURE", "0.7"))
 
