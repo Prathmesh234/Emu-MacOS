@@ -45,6 +45,17 @@ class Buffer:
     def __init__(self):
         with _LOCK:
             self.state = _load()
+            # Auto-recover entries stranded by Ctrl+C / crash mid-generation.
+            # `next()` only picks up `pending`, so without this any in-flight
+            # entry would be skipped forever after a kill.
+            recovered = 0
+            for meta in self.state.get("trajs", {}).values():
+                if meta.get("status") == "in_progress":
+                    meta["status"] = "pending"
+                    recovered += 1
+            if recovered:
+                self._flush()
+                print(f"[buffer] recovered {recovered} stranded in_progress entr{'y' if recovered == 1 else 'ies'}")
 
     def _flush(self):
         _save(self.state)
