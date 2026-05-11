@@ -175,19 +175,52 @@ coworker mode. Therefore:
 
 {EMU_TOOL_CATALOG}
 
-ACTION TRANSLATION (from the real trajectory's "computer" tool calls to emu):
-  left_click [x,y]             -> navigate_and_click   {{x,y normalized}}
-  right_click [x,y]            -> navigate_and_right_click
-  double_click [x,y]           -> navigate_and_click then double_click
-  triple_click [x,y]           -> navigate_and_triple_click
-  left_click_drag [a]->[b]     -> drag {{coordinates: a, end_coordinates: b}}
-  type "..."                   -> type_text
-  key "Return"                 -> key_press {{"key": "enter"}}
-  key "ctrl+c"                 -> key_press {{"key": "c", "modifiers": ["ctrl"]}}
-  scroll                       -> scroll
-  screenshot                   -> screenshot
-Coords: divide by screen size 1920x1080 unless trajectory says otherwise.
-Round to 3 decimal places.
+ACTION TRANSLATION (from the real trajectory's recorded actions to emu).
+The OSWorld trajectories we feed you ship as one of two shapes; both map
+to the same emu output vocabulary:
+
+  (A) Agent-S2 pyautogui code (gemini, qwen, opencua, ui-tars runs) —
+      e.g. "import pyautogui; pyautogui.click(35, 675, button='left')":
+        pyautogui.click(x, y)                 -> navigate_and_click {{x/1920, y/1080}}
+        pyautogui.click(x, y, button='right') -> navigate_and_right_click
+        pyautogui.doubleClick(x, y)           -> navigate_and_click then double_click
+        pyautogui.tripleClick(x, y)           -> navigate_and_triple_click
+        pyautogui.rightClick(x, y)            -> navigate_and_right_click
+        pyautogui.moveTo(x, y)                -> mouse_move
+        pyautogui.dragTo(x, y) (after moveTo) -> drag {{coordinates: prev, end_coordinates: x,y}}
+        pyautogui.write("...") / typewrite(...)-> type_text
+        pyautogui.press("enter")              -> key_press {{"key": "enter"}}
+        pyautogui.press("tab")                -> key_press {{"key": "tab"}}
+        pyautogui.hotkey("ctrl", "c")         -> key_press {{"key": "c", "modifiers": ["ctrl"]}}
+        pyautogui.hotkey("ctrl","shift","t")  -> key_press {{"key": "t", "modifiers": ["ctrl","shift"]}}
+        pyautogui.scroll(N)                   -> scroll {{direction: "up" if N>0 else "down", amount: abs(N)}}
+        pyautogui.hscroll(N)                  -> scroll {{direction: "right" if N>0 else "left", amount: abs(N)}}
+        pyautogui.screenshot()                -> screenshot
+        DONE / FAIL / WAIT (control tokens)   -> end the trajectory with a done action
+        import time; time.sleep(N)            -> wait {{ms: N*1000}} (cap at 30000)
+      Treat the high-level "// plan: ..." annotation we attach to each step
+      as the agent's natural-language intent for that action — use it to
+      pick the right emu tool (raise_app vs navigate_and_click, etc.) and
+      to write the short reasoning text on each assistant turn.
+
+  (B) Anthropic computer-use format (legacy Claude runs) —
+      step["action"] = {{"name":"computer", "input":{{"action":"left_click",
+      "coordinate":[x,y], ...}}}}:
+        left_click [x,y]             -> navigate_and_click   {{x,y normalized}}
+        right_click [x,y]            -> navigate_and_right_click
+        double_click [x,y]           -> navigate_and_click then double_click
+        triple_click [x,y]           -> navigate_and_triple_click
+        left_click_drag [a]->[b]     -> drag {{coordinates: a, end_coordinates: b}}
+        type "..."                   -> type_text
+        key "Return"                 -> key_press {{"key": "enter"}}
+        key "ctrl+c"                 -> key_press {{"key": "c", "modifiers": ["ctrl"]}}
+        scroll                       -> scroll
+        screenshot                   -> screenshot
+
+Coords: divide raw pixel x/y by screen size 1920x1080 unless the trajectory
+metadata says otherwise. Round to 3 decimal places. If a pyautogui call
+omits coordinates (e.g. pyautogui.write after a previous click set focus),
+emit the corresponding emu action without coordinates (type_text, etc.).
 
 PLATFORM TRANSLATION: OSWorld ran on Ubuntu but Emu's personas run on
 macOS. Translate keyboard shortcuts to their macOS-native equivalents
@@ -490,9 +523,22 @@ def build_user_prompt(real: dict) -> str:
     steps = real.get("steps", [])
     instruction = ""
     if steps:
-        first_resp = steps[0].get("response", "") or ""
-        raw = (steps[0].get("action", {}) or {}).get("raw_response", "") or ""
-        for hay in (raw, first_resp):
+        # Both trajectory shapes are supported (Anthropic dict vs gemini
+        # string action). For Agent-S2 the natural-language intent lives in
+        # `full_plan` / `plan_code`; for Claude's runs it's `response` /
+        # `action.raw_response`.
+        s0 = steps[0]
+        candidates: list[str] = []
+        for key in ("full_plan", "plan_code", "executor_plan", "response"):
+            v = s0.get(key)
+            if isinstance(v, str) and v.strip():
+                candidates.append(v)
+        a0 = s0.get("action")
+        if isinstance(a0, dict):
+            raw = a0.get("raw_response", "")
+            if isinstance(raw, str) and raw.strip():
+                candidates.append(raw)
+        for hay in candidates:
             if "user wants" in hay.lower() or "user asked" in hay.lower():
                 instruction = hay.strip().split("\n", 1)[0][:400]
                 break
