@@ -79,12 +79,65 @@ def relevant_skills_for(zip_or_path: str) -> list[str]:
 
 
 # ── real-trajectory step summary ─────────────────────────────────────────────
+# OSWorld trajectories ship in two shapes:
+#   (a) Anthropic computer-use format used by Claude's runs — `step["action"]`
+#       is a dict like {"name":"computer", "input":{"action":"left_click",
+#       "coordinate":[x,y]}}.
+#   (b) Agent-S2 / pyautogui format used by gemini, qwen, opencua, ui-tars —
+#       `step["action"]` is a STRING of executable Python (e.g.
+#       "import pyautogui; pyautogui.click(35, 675, button='left')").
+# Our gemini filter in dataset.py only keeps (b), but we keep (a) working so
+# old caches don't blow up.
+import re as _re
+
+_PYAUTOGUI_CALL_RE = _re.compile(
+    r"pyautogui\.(?P<fn>click|doubleClick|rightClick|tripleClick|write|"
+    r"typewrite|press|hotkey|keyDown|keyUp|moveTo|moveRel|dragTo|dragRel|"
+    r"mouseDown|mouseUp|scroll|hscroll|vscroll)\((?P<args>[^)]*)\)"
+)
+
+
+def _summarize_pyautogui_action(action: str) -> str:
+    """Compress a multi-line pyautogui snippet into a one-line summary."""
+    s = " ".join(action.split())  # collapse whitespace
+    calls = _PYAUTOGUI_CALL_RE.findall(s)
+    if calls:
+        return "; ".join(f"pyautogui.{fn}({args.strip()})" for fn, args in calls)[:240]
+    return s[:240]
+
+
 def summarize_step(step: dict) -> str:
-    """Compact one-line summary of a real-trajectory step for the prompt."""
-    act = step.get("action", {}) or {}
+    """Compact one-line summary of a real-trajectory step for the prompt.
+
+    Handles both Anthropic computer-use (dict) and Agent-S2 / pyautogui
+    (string) action shapes. Falls back to whatever scalar fields are
+    available so a malformed step never crashes prompt construction.
+    """
+    step_num = step.get("step_num", "?")
+    raw_action = step.get("action")
+
+    # (b) gemini / Agent-S2: action is a python-code string
+    if isinstance(raw_action, str):
+        body = _summarize_pyautogui_action(raw_action) if raw_action.strip() else "(empty)"
+        parts = [f"#{step_num} {body}"]
+        # Agent-S2 puts a high-level natural-language plan in `plan_code` —
+        # it's the most useful single line for the LLM.
+        plan_code = (step.get("plan_code") or "").strip().splitlines()
+        if plan_code:
+            line = plan_code[0].strip()
+            if line:
+                parts.append(f"// plan: {line[:160]}")
+        if step.get("done"):
+            parts.append("[DONE]")
+        return " ".join(parts)
+
+    # (a) Anthropic computer-use: action is a dict
+    act = raw_action or {}
+    if not isinstance(act, dict):
+        return f"#{step_num} (unparseable action: {type(act).__name__})"
     inp = act.get("input", {}) or {}
     name = inp.get("action") or act.get("name") or "?"
-    parts = [f"#{step.get('step_num', '?')} {name}"]
+    parts = [f"#{step_num} {name}"]
     for k in ("coordinate", "start_coordinate", "text", "key", "scroll_direction"):
         if k in inp:
             v = inp[k]
