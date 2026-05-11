@@ -17,6 +17,10 @@ Output: JSONL, one line per trajectory. Each line is harness-compatible
 Usage:
     uv run python synth.py --count 10
     uv run python synth.py --count 10 --out data/synthetic/run1.jsonl
+    # Auto-pull 50 gemini+pyautogui trajectories from HF if buffer is short:
+    uv run python synth.py --count 5 --batches 10 --auto-fetch 50
+    # Push every batch's commit (only on a machine with GitHub write auth):
+    uv run python synth.py --count 5 --batches 10 --push
 """
 from __future__ import annotations
 
@@ -752,10 +756,22 @@ def main():
     ap.add_argument("--out", type=Path, default=None,
                     help="output path. Without --batches>1 a single file is written; "
                          "with multiple batches this is used as a stem and -bNN is appended")
+    ap.add_argument("--auto-fetch", type=int, default=0, metavar="N",
+                    help="if the buffer has fewer than N pending trajectories, "
+                         "run dataset.fetch (gemini + pyautogui filters on) to "
+                         "top it up before starting. 0 = off. Recommended: "
+                         "--auto-fetch $((--count * --batches)).")
     ap.add_argument("--no-git", action="store_true",
                     help="disable git commit/push between batches")
-    ap.add_argument("--no-push", action="store_true",
-                    help="commit but do not push (still runs git add/commit)")
+    # Pushing requires a write-capable git remote. Default is OFF so the
+    # default flow always works (commit locally, user pushes manually).
+    # Flip on with --push when running on a machine with valid GitHub auth.
+    push_grp = ap.add_mutually_exclusive_group()
+    push_grp.add_argument("--push", dest="push", action="store_true", default=False,
+                          help="push the per-batch commit to --git-remote/--git-branch "
+                               "(default: off; commit locally only)")
+    push_grp.add_argument("--no-push", dest="push", action="store_false",
+                          help="(legacy) explicitly disable pushing — same as the default")
     ap.add_argument("--git-remote", default="origin")
     ap.add_argument("--git-branch", default=None,
                     help="branch to push (defaults to the current branch)")
@@ -780,6 +796,29 @@ def main():
     if added:
         print(f"[synth] indexed {added} new real trajectories")
 
+    # Auto-top-up the buffer from HF when --auto-fetch is requested. Only
+    # pulls additional trajectories if the current pending count is below
+    # the requested floor, so re-running with the same flag is idempotent.
+    if args.auto_fetch > 0:
+        pending = buf.status()["by_status"].get("pending", 0)
+        deficit = args.auto_fetch - pending
+        if deficit > 0:
+            print(f"[synth] buffer has {pending} pending, --auto-fetch={args.auto_fetch} "
+                  f"-> pulling {deficit} more from HF (gemini + pyautogui)")
+            try:
+                import dataset
+                dataset.fetch(zip_name=None, limit=deficit,
+                              gemini_only=True, pyautogui_only=True)
+            except Exception as e:  # noqa: BLE001
+                print(f"[synth] auto-fetch failed: {e}", file=sys.stderr)
+            else:
+                added = buf.scan()
+                if added:
+                    print(f"[synth] indexed {added} newly-fetched trajectories")
+        else:
+            print(f"[synth] buffer has {pending} pending (>= --auto-fetch={args.auto_fetch}); "
+                  f"no fetch needed")
+
     run_stamp = datetime.utcnow().strftime("%Y%m%dT%H%M%S")
     base_out = args.out or (SYNTH_DIR / f"synth-{run_stamp}.jsonl")
     base_out.parent.mkdir(parents=True, exist_ok=True)
@@ -802,7 +841,7 @@ def main():
                 out_path,
                 batch_num=b,
                 batch_count=n,
-                push=not args.no_push,
+                push=args.push,
                 remote=args.git_remote,
                 branch=args.git_branch,
             )
