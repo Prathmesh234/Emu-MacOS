@@ -1,5 +1,8 @@
 .env
-data/
+# Real-trajectory cache pulled from Hugging Face is huge; never commit it.
+data/real_trajs/
+# Anything else under data/ (synthetic SFT outputs, buffer state) is intentionally
+# tracked so batched commits in synth.py actually push something.
 __pycache__/
 *.pyc
 .venv/
