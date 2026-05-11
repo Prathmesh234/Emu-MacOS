@@ -28,7 +28,7 @@ import time
 from datetime import datetime
 from pathlib import Path
 
-from anthropic import Anthropic
+from openai import OpenAI
 from dotenv import load_dotenv
 from tqdm import tqdm
 
@@ -38,45 +38,34 @@ from buffer import Buffer
 from harness import (
     PERSONAS,
     build_full_system_prompt,
-    get_persona_memory,
     get_skills_catalog,
     tools_for_remote,
 )
+from synth_utils import (
+    extract_json,
+    git_commit_and_push,
+    relevant_skills_for,
+    substitute_persona_memory,
+    summarize_step,
+)
 
-ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY", "").strip()
-ANTHROPIC_MODEL = os.getenv("ANTHROPIC_MODEL", "claude-sonnet-4-6").strip()
-MAX_TOKENS = int(os.getenv("MAX_TOKENS", "8192"))
+# We access Claude Sonnet 4.6 through OpenRouter's chat.completions endpoint
+# (OpenAI-compatible), and enable Anthropic prompt caching via explicit
+# per-block `cache_control` breakpoints on the large, stable system prompt.
+# See: https://openrouter.ai/docs/features/prompt-caching#anthropic-claude
+OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY", "").strip()
+OPENROUTER_MODEL = os.getenv("OPENROUTER_MODEL", "anthropic/claude-sonnet-4.6").strip()
+OPENROUTER_BASE_URL = os.getenv("OPENROUTER_BASE_URL", "https://openrouter.ai/api/v1").strip()
+OPENROUTER_SITE_URL = os.getenv("OPENROUTER_SITE_URL", "").strip()
+OPENROUTER_APP_NAME = os.getenv("OPENROUTER_APP_NAME", "emu-training-synth").strip()
+MAX_TOKENS = int(os.getenv("MAX_TOKENS", "32768"))
 TEMPERATURE = float(os.getenv("TEMPERATURE", "0.7"))
+# Retries for transient API failures (rate limits, 5xx, network blips).
+MAX_RETRIES = int(os.getenv("SYNTH_MAX_RETRIES", "3"))
+RETRY_BASE_DELAY = float(os.getenv("SYNTH_RETRY_BASE_DELAY", "4.0"))
 
 SYNTH_DIR = Path(__file__).parent / "data" / "synthetic"
 SYNTH_DIR.mkdir(parents=True, exist_ok=True)
-
-
-# ── skill routing ────────────────────────────────────────────────────────────
-_APP_TO_SKILLS: dict[str, list[str]] = {
-    "chrome":              ["google-chrome", "web-search"],
-    "vscode":              ["vscode-open-repo", "file-manager"],
-    "libreoffice_calc":    ["libreoffice-open", "microsoft-excel"],
-    "libreoffice_writer":  ["libreoffice-open", "microsoft-word"],
-    "libreoffice_impress": ["libreoffice-open", "microsoft-powerpoint"],
-    "thunderbird":         ["microsoft-outlook", "gmail"],
-    "vlc":                 ["vlc-play-file"],
-    "gimp":                ["file-manager", "app-launcher"],
-    "os":                  ["app-launcher", "system-info", "file-manager"],
-    "multi_apps":          ["app-launcher"],
-}
-
-
-def relevant_skills_for(zip_or_path: str) -> list[str]:
-    """The HF zip stem / step paths embed the OSWorld app folder; sniff it."""
-    out: list[str] = []
-    s = (zip_or_path or "").lower()
-    for app, skills in _APP_TO_SKILLS.items():
-        if app in s:
-            out.extend(sk for sk in skills if sk not in out)
-    if "app-launcher" not in out:
-        out.append("app-launcher")
-    return out
 
 
 # ── emu tool catalog (must match backend/providers/agent_tools.py for
@@ -114,11 +103,12 @@ them as desktop-action JSON):
 
   Shell:
     - shell_exec(command)
-        Sandboxed: cwd is .emu, only paths under .emu allowed. BLOCKED:
-        curl, wget, ssh, scp, nc, rsync, sudo, rm -rf, chmod, chown, kill,
-        pkill, launchctl, systemctl, mount, mkfs, dd, pipe-to-shell (| bash),
-        eval, source. 30s timeout, 100 KB output cap. For .emu files prefer
-        the dedicated tools (read_plan / read_memory / read_session_file).
+        FUNCTION TOOL (not a desktop action). Sandboxed: cwd is .emu, only
+        paths under .emu allowed. BLOCKED: curl, wget, ssh, scp, nc, rsync,
+        sudo, rm -rf, chmod, chown, kill, pkill, launchctl, systemctl,
+        mount, mkfs, dd, pipe-to-shell (| bash), eval, source. 30s timeout,
+        100 KB output cap. For .emu files prefer the dedicated tools
+        (read_plan / read_memory / read_session_file).
 
   Hermes (heavy non-GUI delegation, async):
     - invoke_hermes(goal, context, file_paths?, output_target?, constraints?)
@@ -157,6 +147,8 @@ JSON (no markdown fences, no prose). Coordinates are normalized [0,1] floats:
   {"action": {"type": "done"}, "done": true, "final_message": "..."}
 
   Modifiers: cmd, ctrl, alt, shift (use "cmd" — NEVER meta/super/win).
+  Valid key names: enter, tab, escape, space, backspace, delete, insert,
+    up, down, left, right, home, end, pageup, pagedown, f1–f12, a–z, 0–9.
   Prefer navigate_and_click over bare left_click unless the cursor is already
   on the target (e.g. immediately after mouse_move).
   `confidence` is OPTIONAL on non-done actions; `final_message` is REQUIRED
@@ -213,10 +205,14 @@ it's plausibly useful for THIS task):
 
   2. update_plan(content="...") for any 3+ step task, called BEFORE any
      desktop action. After update_plan the agent's turn ends; the next
-     user turn will be the literal text "[PLAN APPROVED]" (or a refine
-     request). Only after [PLAN APPROVED] does the agent take its first
-     desktop action. As progress is made, mark steps [x] with another
-     update_plan call once or twice; do not spam updates every step.
+     user turn will be the literal text "[PLAN APPROVED] The user has
+     accepted the plan. Proceed with execution — take a screenshot to
+     orient yourself and begin from step 1." Use that EXACT string
+     verbatim — it is what production injects after every approved plan
+     update. Only after that text appears does the agent take its first
+     desktop action (typically a screenshot, then raise_app + work).
+     As progress is made, mark steps [x] with another update_plan call
+     once or twice; do not spam updates every step.
 
   3. raise_app(app_name="<exact macOS app name>") — MANDATORY before ANY
      interaction with an app other than the one currently focused. The
@@ -246,10 +242,15 @@ it's plausibly useful for THIS task):
   6. compact_context(focus="...") if the real trajectory had ~20+ steps
      and you can mark a clean midpoint. Insert exactly once.
 
-  7. shell_exec(command) for safe file-backed work the real trajectory
-     achieved with many GUI clicks — find / cat / grep / python3 -c /
-     ls under .emu only. NEVER curl, wget, ssh, sudo, rm -rf, kill, pkill,
-     chmod, chown, launchctl, systemctl, mount, dd, pipe-to-shell, eval.
+  7. shell_exec(command) is a FUNCTION TOOL (NOT a desktop action) for
+     safe file-backed work the real trajectory achieved with many GUI
+     clicks — find / cat / grep / python3 -c / ls under .emu only.
+     NEVER curl, wget, ssh, sudo, rm -rf, kill, pkill, chmod, chown,
+     launchctl, systemctl, mount, dd, pipe-to-shell, eval. The model
+     calls it via tool_use; the response is a normal tool_result whose
+     `content` is the captured stdout (or stderr on failure). Do NOT
+     emit shell_exec as a desktop-action JSON — the validator rejects it
+     with a hard error.
 
   8. invoke_hermes(goal, context, ...) for HEAVY non-GUI work the real
      trajectory accomplished with many GUI clicks (building a .pptx from
@@ -335,15 +336,11 @@ SFT distribution lines up with inference-time behavior):
     if the trajectory needed an anti-loop pivot).
 
   • shell_exec(command="...") →
-    Return the raw stdout the command would produce. The frontend's
-    /action/complete pipeline then injects it as a user-turn text block:
-        "[shell_exec output]\\n<stdout>"
-    On failure that ALSO appends:
-        "[shell_exec error]\\n<stderr>"
-    NOTE: shell_exec is delivered through the desktop-action pipeline, not
-    as a tool_result. Treat it as a desktop action: emit it via the
-    function-tool channel, and the next user turn carries the
-    [shell_exec output] text block.
+    A normal tool_result whose `content` is the command's captured stdout
+    (truncated to 100 KB). On nonzero exit the content is the captured
+    stderr instead. shell_exec is a FUNCTION TOOL, so you call it via a
+    tool_use block and receive a tool_result like every other agent tool —
+    do NOT emit it as a desktop-action JSON.
 
   • invoke_hermes(goal=..., context=..., ...) →
         "Hermes job started: job_id=`hermes-<8 hex>` (timeout 1800s).\\n
@@ -408,7 +405,7 @@ OUTPUT FORMAT — RETURN ONE JSON OBJECT, NOTHING ELSE:
     {{"role": "user", "content": [
         {{"type": "tool_result", "tool_use_id": "toolu_002",
          "content": "Plan updated successfully."}},
-        {{"type": "text", "text": "[PLAN APPROVED]"}}
+        {{"type": "text", "text": "[PLAN APPROVED] The user has accepted the plan. Proceed with execution — take a screenshot to orient yourself and begin from step 1."}}
     ]}},
     {{"role": "assistant", "content": [
         {{"type": "text", "text": "<reasoning>"}},
@@ -437,16 +434,32 @@ HARD RULES:
   - This is REMOTE MODE only. NEVER emit cua_*, list_running_apps,
     bring_app_frontmost, or any other coworker-only tool. NEVER reference
     pid/window_id/element_index.
-  - Function tools (the catalog above) MUST be Anthropic tool_use /
-    tool_result blocks. NEVER stringify them as desktop-action JSON.
+  - CHANNELS: per assistant turn emit EITHER one tool_use OR one desktop
+    action JSON — never both, never neither. Never put a tool name inside
+    an action JSON; never wrap a desktop action as a tool_use.
+  - Function tools (the catalog above, INCLUDING shell_exec) MUST be
+    Anthropic tool_use / tool_result blocks. NEVER stringify them as
+    desktop-action JSON.
   - Desktop actions MUST be a single assistant text block containing raw
     JSON (no fences, no commentary). NEVER as tool_use blocks.
-  - Coordinates normalized [0,1], 3 decimals.
+  - Coordinates normalized [0,1], 3 decimals. Treat any value > 1.5 as a
+    bug — the production validator rejects it as raw-pixel coordinates.
+  - NEVER click / mouse_move to (0.0, 0.0) — the validator rejects this
+    as a default/error coordinate.
+  - NEVER emit two consecutive mouse_move actions targeting the same
+    coordinates (within 0.01) — the validator treats it as a no-op.
+  - Anti-loop: NEVER repeat the same action type more than 4 times
+    consecutively (the validator rejects the 5th). screenshot, scroll,
+    and done are exempt; everything else (click family, type_text,
+    key_press, mouse_move, drag, wait) must change strategy by repeat 5.
+  - wait actions: `ms` must be ≤ 30000 (30s cap).
   - One desktop action per assistant message. Each is followed by a user
     turn with the [screenshot] placeholder on success, or
     [ACTION FAILED: <type>] ... on failure. NEVER emit "[ACTION OK]".
-  - update_plan must be followed by a user turn whose text contains
-    "[PLAN APPROVED]" before the agent emits any desktop action.
+  - update_plan must be followed by a user turn whose text is the EXACT
+    production string "[PLAN APPROVED] The user has accepted the plan.
+    Proceed with execution — take a screenshot to orient yourself and
+    begin from step 1." before the agent emits any desktop action.
   - raise_app must precede the first desktop interaction with any app and
     must be re-issued whenever the agent switches apps.
   - Tool result `content` strings MUST match the TOOL_RESULT FORMAT shapes
@@ -464,24 +477,6 @@ HARD RULES:
     includes "done": true and a final_message.
   - Output ONLY the JSON object. No markdown fences, no commentary.
 """
-
-
-def _summarize_step(step: dict) -> str:
-    """Compact one-line summary of a real-trajectory step for the prompt."""
-    act = step.get("action", {}) or {}
-    inp = act.get("input", {}) or {}
-    name = inp.get("action") or act.get("name") or "?"
-    parts = [f"#{step.get('step_num', '?')} {name}"]
-    for k in ("coordinate", "start_coordinate", "text", "key", "scroll_direction"):
-        if k in inp:
-            v = inp[k]
-            if isinstance(v, str) and len(v) > 80:
-                v = v[:80] + "..."
-            parts.append(f"{k}={v}")
-    resp = (step.get("response") or "").strip().replace("\n", " ")
-    if resp:
-        parts.append(f"// {resp[:140]}")
-    return " ".join(parts)
 
 
 def build_user_prompt(real: dict) -> str:
@@ -502,7 +497,7 @@ def build_user_prompt(real: dict) -> str:
                 instruction = hay.strip().split("\n", 1)[0][:400]
                 break
 
-    step_lines = "\n".join(_summarize_step(s) for s in steps)
+    step_lines = "\n".join(summarize_step(s) for s in steps)
 
     return f"""\
 Rewrite this REAL OSWorld trajectory as an EMU REMOTE-MODE trajectory.
@@ -532,116 +527,154 @@ Now produce the JSON emu trajectory object as specified.
 """
 
 
-def _strip_fences(s: str) -> str:
-    s = s.strip()
-    if s.startswith("```"):
-        s = s.split("\n", 1)[1] if "\n" in s else s
-        if s.endswith("```"):
-            s = s.rsplit("```", 1)[0]
-    return s.strip()
+def generate_one(client: OpenAI, real: dict) -> dict:
+    # Anthropic prompt caching via OpenRouter: mark the large, stable SYNTH_SYSTEM
+    # block with an explicit ephemeral cache breakpoint. The per-trajectory user
+    # prompt is left uncached (it changes every request). 5-minute TTL is fine
+    # for a tight generation loop; bump to "1h" if running long jobs.
+    last_err: Exception | None = None
+    for attempt in range(1, MAX_RETRIES + 1):
+        try:
+            resp = client.chat.completions.create(
+                model=OPENROUTER_MODEL,
+                max_tokens=MAX_TOKENS,
+                temperature=TEMPERATURE,
+                messages=[
+                    {
+                        "role": "system",
+                        "content": [
+                            {
+                                "type": "text",
+                                "text": SYNTH_SYSTEM,
+                                "cache_control": {"type": "ephemeral"},
+                            }
+                        ],
+                    },
+                    {"role": "user", "content": build_user_prompt(real)},
+                ],
+            )
+            break
+        except Exception as e:  # noqa: BLE001 — broad on purpose, classify by message.
+            msg = str(e).lower()
+            transient = (
+                "429" in msg
+                or "rate limit" in msg
+                or "timeout" in msg
+                or "timed out" in msg
+                or "temporarily" in msg
+                or any(code in msg for code in ("500", "502", "503", "504"))
+            )
+            last_err = e
+            if not transient or attempt == MAX_RETRIES:
+                raise
+            delay = RETRY_BASE_DELAY * (2 ** (attempt - 1))
+            print(f"[synth] transient error (attempt {attempt}/{MAX_RETRIES}): {e}"
+                  f" — retrying in {delay:.1f}s", file=sys.stderr)
+            time.sleep(delay)
+    else:  # pragma: no cover — loop always either breaks or raises.
+        raise last_err if last_err else RuntimeError("generate_one: unreachable")
 
+    # Loud failure on truncation / refusal: silently parsing a half JSON object
+    # is what produced phantom "failed" entries before. Surface the reason.
+    finish_reason = None
+    if resp.choices:
+        finish_reason = getattr(resp.choices[0], "finish_reason", None)
+    if finish_reason and finish_reason not in ("stop", "end_turn", "tool_calls"):
+        raise RuntimeError(
+            f"model stopped with finish_reason={finish_reason!r} "
+            f"(MAX_TOKENS={MAX_TOKENS}); raise MAX_TOKENS env var or shorten input"
+        )
 
-def _extract_json(text: str) -> dict:
-    text = _strip_fences(text)
-    try:
-        return json.loads(text)
-    except json.JSONDecodeError:
-        start, end = text.find("{"), text.rfind("}")
-        if start >= 0 and end > start:
-            return json.loads(text[start:end + 1])
-        raise
+    text = resp.choices[0].message.content or ""
+    traj = extract_json(text)
 
-
-def generate_one(client: Anthropic, real: dict) -> dict:
-    resp = client.messages.create(
-        model=ANTHROPIC_MODEL,
-        max_tokens=MAX_TOKENS,
-        temperature=TEMPERATURE,
-        system=SYNTH_SYSTEM,
-        messages=[{"role": "user", "content": build_user_prompt(real)}],
-    )
-    text = "".join(b.text for b in resp.content if getattr(b, "type", "") == "text")
-    traj = _extract_json(text)
-    traj.setdefault("task_id", real.get("task_id"))
-    traj["_meta"] = {
-        "model": ANTHROPIC_MODEL,
-        "generated_at": datetime.utcnow().isoformat() + "Z",
-        "source_zip": real.get("zip"),
+    # OSWorld identifiers. `task_id` is the per-example UUID OSWorld uses in
+    # its public registry (evaluation_examples/examples/<app>/<UUID>.json) and
+    # it is also the namespace HF uses inside the verified-trajs zip
+    # (.../trajectories/<UUID>/step_*.png). We re-surface it at the top level
+    # of every generated record AND inside `_meta.osworld` so downstream SFT
+    # code can locate the original screenshots regardless of nesting.
+    osworld_task_id = real.get("task_id")
+    osworld_zip = real.get("zip")
+    traj["task_id"] = osworld_task_id
+    traj["osworld_task_id"] = osworld_task_id
+    usage = getattr(resp, "usage", None)
+    cache_info: dict = {}
+    if usage is not None:
+        details = getattr(usage, "prompt_tokens_details", None)
+        if details is not None:
+            # `prompt_tokens_details` is a pydantic model on openai>=1.51; coerce to dict.
+            as_dict = details.model_dump() if hasattr(details, "model_dump") else dict(details)
+            cache_info = {
+                "cached_tokens": as_dict.get("cached_tokens", 0),
+                "cache_write_tokens": as_dict.get("cache_write_tokens", 0),
+            }
+    # Pointer back to the OSWorld benchmark example and to the HF zip that
+    # holds the original screenshots. `screenshot_path_glob` is the in-zip
+    # path pattern (any entry containing the UUID); _extract_one() in
+    # dataset.py currently strips images on download, so to recover them at
+    # SFT time you re-open the zip and read entries matching this glob.
+    osworld_meta = {
+        "task_id": osworld_task_id,
+        "benchmark": "osworld",
+        "example_registry_path": (
+            f"evaluation_examples/examples/*/{osworld_task_id}.json"
+            if osworld_task_id else None
+        ),
+        "source_zip": osworld_zip,
+        "source_zip_hf_url": (
+            f"https://huggingface.co/datasets/xlangai/ubuntu_osworld_verified_trajs/"
+            f"resolve/main/{osworld_zip}.zip" if osworld_zip else None
+        ),
+        "screenshot_path_glob": (
+            f"*{osworld_task_id}*.png" if osworld_task_id else None
+        ),
         "source_steps": len(real.get("steps", [])),
         "source_result": real.get("result"),
     }
+    traj["_meta"] = {
+        "model": OPENROUTER_MODEL,
+        "provider": "openrouter",
+        "generated_at": datetime.utcnow().isoformat() + "Z",
+        "osworld": osworld_meta,
+        # legacy / convenience aliases kept for the previous schema:
+        "source_zip": osworld_zip,
+        "source_steps": osworld_meta["source_steps"],
+        "source_result": osworld_meta["source_result"],
+        "cache": cache_info,
+    }
     return traj
-
-
-PERSONA_MEMORY_TOKEN = "<<PERSONA_MEMORY/>>"
-
-
-def _substitute_persona_memory(messages: list, persona_idx: int) -> int:
-    """Replace the literal <<PERSONA_MEMORY/>> token in tool_result content
-    with the persona's actual MEMORY.md body. Returns the count of
-    substitutions made (typically 1, occasionally 0 if Claude omitted it).
-    """
-    body = get_persona_memory(persona_idx).strip()
-    n = 0
-    for msg in messages or []:
-        content = msg.get("content")
-        if not isinstance(content, list):
-            continue
-        for block in content:
-            if not isinstance(block, dict):
-                continue
-            if block.get("type") != "tool_result":
-                continue
-            text = block.get("content")
-            if isinstance(text, str) and PERSONA_MEMORY_TOKEN in text:
-                block["content"] = text.replace(PERSONA_MEMORY_TOKEN, body)
-                n += 1
-            elif isinstance(text, list):
-                for sub in text:
-                    if isinstance(sub, dict) and isinstance(sub.get("text"), str) \
-                            and PERSONA_MEMORY_TOKEN in sub["text"]:
-                        sub["text"] = sub["text"].replace(PERSONA_MEMORY_TOKEN, body)
-                        n += 1
-    return n
 
 
 def attach_harness_prompt(traj: dict, persona_idx: int) -> dict:
     traj["system"] = build_full_system_prompt(persona_idx=persona_idx)
     traj["tools"] = tools_for_remote()
-    substitutions = _substitute_persona_memory(traj.get("messages", []), persona_idx)
+    substitutions = substitute_persona_memory(traj.get("messages", []), persona_idx)
     traj.setdefault("_meta", {})
     traj["_meta"]["persona_idx"] = persona_idx
-    traj["_meta"]["persona_name"] = (
-        PERSONAS[persona_idx % len(PERSONAS)]["USER.md"]
-        .splitlines()[1].split(":", 1)[-1].strip()
-    )
+    # Defensive: a malformed PERSONAS entry must not discard an otherwise valid
+    # trajectory. Fall back to a generic label if the USER.md header is unusual.
+    persona_name = f"persona_{persona_idx}"
+    try:
+        lines = PERSONAS[persona_idx % len(PERSONAS)]["USER.md"].splitlines()
+        if len(lines) >= 2 and ":" in lines[1]:
+            persona_name = lines[1].split(":", 1)[-1].strip() or persona_name
+    except Exception:  # noqa: BLE001
+        pass
+    traj["_meta"]["persona_name"] = persona_name
     traj["_meta"]["persona_memory_substitutions"] = substitutions
     return traj
 
 
-def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--count", type=int, default=10)
-    ap.add_argument("--out", type=Path, default=None)
-    args = ap.parse_args()
-
-    if not ANTHROPIC_API_KEY:
-        print("ERROR: ANTHROPIC_API_KEY not set in training/.env", file=sys.stderr)
-        sys.exit(1)
-
-    out_path = args.out or (SYNTH_DIR / f"synth-{datetime.utcnow():%Y%m%dT%H%M%S}.jsonl")
-    out_path.parent.mkdir(parents=True, exist_ok=True)
-
-    client = Anthropic(api_key=ANTHROPIC_API_KEY)
-    buf = Buffer()
-    added = buf.scan()
-    if added:
-        print(f"[synth] indexed {added} new real trajectories")
-
+def _run_batch(client: OpenAI, buf: Buffer, out_path: Path, target: int,
+               start_persona_idx: int) -> int:
+    """Generate up to `target` synthetic trajectories into `out_path`.
+    Returns the number successfully written.
+    """
     written = 0
     with open(out_path, "a", encoding="utf-8") as f:
-        pbar = tqdm(total=args.count, desc="synth")
-        while written < args.count:
+        pbar = tqdm(total=target, desc=f"batch -> {out_path.name}")
+        while written < target:
             entry = buf.next()
             if entry is None:
                 print("[synth] no pending real trajectories -- run dataset.py fetch first",
@@ -649,7 +682,8 @@ def main():
                 break
             try:
                 traj = generate_one(client, entry["real"])
-                traj = attach_harness_prompt(traj, persona_idx=written)
+                traj = attach_harness_prompt(traj,
+                                             persona_idx=start_persona_idx + written)
                 f.write(json.dumps(traj, ensure_ascii=False) + "\n")
                 f.flush()
                 buf.mark_done(entry["task_id"])
@@ -660,8 +694,79 @@ def main():
                 buf.mark_failed(entry["task_id"], str(e))
                 time.sleep(2)
         pbar.close()
+    return written
 
-    print(f"\n[synth] wrote {written} trajectories -> {out_path}")
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--count", type=int, default=10,
+                    help="trajectories per batch (default: 10)")
+    ap.add_argument("--batches", type=int, default=1,
+                    help="number of batches to run; git commit + push after each")
+    ap.add_argument("--out", type=Path, default=None,
+                    help="output path. Without --batches>1 a single file is written; "
+                         "with multiple batches this is used as a stem and -bNN is appended")
+    ap.add_argument("--no-git", action="store_true",
+                    help="disable git commit/push between batches")
+    ap.add_argument("--no-push", action="store_true",
+                    help="commit but do not push (still runs git add/commit)")
+    ap.add_argument("--git-remote", default="origin")
+    ap.add_argument("--git-branch", default=None,
+                    help="branch to push (defaults to the current branch)")
+    args = ap.parse_args()
+
+    if not OPENROUTER_API_KEY:
+        print("ERROR: OPENROUTER_API_KEY not set in training/.env", file=sys.stderr)
+        sys.exit(1)
+
+    default_headers: dict[str, str] = {}
+    if OPENROUTER_SITE_URL:
+        default_headers["HTTP-Referer"] = OPENROUTER_SITE_URL
+    if OPENROUTER_APP_NAME:
+        default_headers["X-Title"] = OPENROUTER_APP_NAME
+    client = OpenAI(
+        api_key=OPENROUTER_API_KEY,
+        base_url=OPENROUTER_BASE_URL,
+        default_headers=default_headers or None,
+    )
+    buf = Buffer()
+    added = buf.scan()
+    if added:
+        print(f"[synth] indexed {added} new real trajectories")
+
+    run_stamp = datetime.utcnow().strftime("%Y%m%dT%H%M%S")
+    base_out = args.out or (SYNTH_DIR / f"synth-{run_stamp}.jsonl")
+    base_out.parent.mkdir(parents=True, exist_ok=True)
+
+    total_written = 0
+    persona_cursor = 0
+    for b in range(1, args.batches + 1):
+        if args.batches == 1 and args.out is not None:
+            out_path = base_out
+        else:
+            out_path = base_out.with_name(f"{base_out.stem}-b{b:02d}{base_out.suffix}")
+        print(f"\n[synth] === batch {b}/{args.batches} -> {out_path} ===")
+        n = _run_batch(client, buf, out_path, args.count, persona_cursor)
+        persona_cursor += n
+        total_written += n
+        print(f"[synth] batch {b}: wrote {n} trajectories -> {out_path}")
+
+        if not args.no_git:
+            git_commit_and_push(
+                out_path,
+                batch_num=b,
+                batch_count=n,
+                push=not args.no_push,
+                remote=args.git_remote,
+                branch=args.git_branch,
+            )
+
+        if n == 0:
+            print("[synth] batch produced 0 trajectories; stopping early.",
+                  file=sys.stderr)
+            break
+
+    print(f"\n[synth] DONE -- {total_written} trajectories across {args.batches} batch(es)")
 
 
 if __name__ == "__main__":
