@@ -47,11 +47,13 @@ from harness import (
     tools_for_remote,
 )
 from synth_utils import (
+    SynthValidationError,
     extract_json,
     git_commit_and_push,
     relevant_skills_for,
     substitute_persona_memory,
     summarize_step,
+    validate_synth_trajectory,
 )
 
 # We access DeepSeek V4 Pro through OpenRouter's chat.completions endpoint
@@ -69,6 +71,12 @@ TEMPERATURE = float(os.getenv("TEMPERATURE", "0.7"))
 # Retries for transient API failures (rate limits, 5xx, network blips).
 MAX_RETRIES = int(os.getenv("SYNTH_MAX_RETRIES", "3"))
 RETRY_BASE_DELAY = float(os.getenv("SYNTH_RETRY_BASE_DELAY", "4.0"))
+
+# Strict trajectory validation gate. ON by default -- malformed action JSON
+# or missing scaffolding (raise_app, read_memory, terminating done, ...)
+# rejects the trajectory before it gets written. Set SYNTH_VALIDATE=0 (or
+# pass --no-validate on the CLI) to bypass for debugging.
+VALIDATE_TRAJECTORIES = os.getenv("SYNTH_VALIDATE", "1").strip() not in ("0", "false", "False", "no")
 
 SYNTH_DIR = Path(__file__).parent / "data" / "synthetic"
 SYNTH_DIR.mkdir(parents=True, exist_ok=True)
@@ -633,6 +641,23 @@ def generate_one(client: OpenAI, real: dict) -> dict:
     text = resp.choices[0].message.content or ""
     traj = extract_json(text)
 
+    # Strict structural validation BEFORE we attach harness scaffolding or
+    # write to disk. Catches malformed desktop-action JSON ('{}'s that don't
+    # parse, missing fields, pixel-scale coords, function-tool names wrongly
+    # stringified as actions) and missing emu scaffolding (raise_app,
+    # read_memory, update_plan on complex tasks, terminating done action).
+    # Failure raises SynthValidationError; the surrounding _run_batch loop
+    # catches it and marks the trajectory as failed in the buffer (same
+    # path as an API error), so the bad row never lands in the JSONL.
+    if VALIDATE_TRAJECTORIES:
+        v_errors = validate_synth_trajectory(traj)
+        if v_errors:
+            bullet_list = "\n  - " + "\n  - ".join(v_errors)
+            raise SynthValidationError(
+                f"trajectory failed {len(v_errors)} validation check(s):"
+                f"{bullet_list}"
+            )
+
     # OSWorld identifiers. `task_id` is the per-example UUID OSWorld uses in
     # its public registry (evaluation_examples/examples/<app>/<UUID>.json) and
     # it is also the namespace HF uses inside the verified-trajs zip
@@ -758,6 +783,11 @@ def main():
                          "--auto-fetch $((--count * --batches)).")
     ap.add_argument("--no-git", action="store_true",
                     help="disable git commit/push between batches")
+    ap.add_argument("--no-validate", action="store_true",
+                    help="skip the per-trajectory structural validator "
+                         "(JSON well-formedness + raise_app/read_memory/done "
+                         "scaffolding checks). Equivalent to SYNTH_VALIDATE=0. "
+                         "On by default; only disable for debugging.")
     # Pushing requires a write-capable git remote. Default is OFF so the
     # default flow always works (commit locally, user pushes manually).
     # Flip on with --push when running on a machine with valid GitHub auth.
@@ -775,6 +805,12 @@ def main():
     if not OPENROUTER_API_KEY:
         print("ERROR: OPENROUTER_API_KEY not set in training/.env", file=sys.stderr)
         sys.exit(1)
+
+    if args.no_validate:
+        global VALIDATE_TRAJECTORIES
+        VALIDATE_TRAJECTORIES = False
+        print("[synth] WARNING: trajectory validation disabled (--no-validate)",
+              file=sys.stderr)
 
     client = OpenAI(
         api_key=OPENROUTER_API_KEY,
