@@ -1,0 +1,34 @@
+{
+  "trajs": {
+    "00fa164e-2612-4439-992e-157d019a8436": {
+      "path": "/Applications/Emu-MacOS/training/data/real_trajs/results_agent_s2_gemini_15steps/00fa164e-2612-4439-992e-157d019a8436",
+      "zip": "results_agent_s2_gemini_15steps",
+      "status": "done",
+      "error": null
+    },
+    "01b269ae-2111-4a07-81fd-3fcd711993b0": {
+      "path": "/Applications/Emu-MacOS/training/data/real_trajs/results_agent_s2_gemini_15steps/01b269ae-2111-4a07-81fd-3fcd711993b0",
+      "zip": "results_agent_s2_gemini_15steps",
+      "status": "done",
+      "error": null
+    },
+    "02ce9a50-7af2-47ed-8596-af0c230501f8": {
+      "path": "/Applications/Emu-MacOS/training/data/real_trajs/results_agent_s2_gemini_15steps/02ce9a50-7af2-47ed-8596-af0c230501f8",
+      "zip": "results_agent_s2_gemini_15steps",
+      "status": "done",
+      "error": null
+    },
+    "030eeff7-b492-4218-b312-701ec99ee0cc": {
+      "path": "/Applications/Emu-MacOS/training/data/real_trajs/results_agent_s2_gemini_15steps/030eeff7-b492-4218-b312-701ec99ee0cc",
+      "zip": "results_agent_s2_gemini_15steps",
+      "status": "done",
+      "error": null
+    },
+    "04578141-1d42-4146-b9cf-6fab4ce5fd74": {
+      "path": "/Applications/Emu-MacOS/training/data/real_trajs/results_agent_s2_gemini_15steps/04578141-1d42-4146-b9cf-6fab4ce5fd74",
+      "zip": "results_agent_s2_gemini_15steps",
+      "status": "done",
+      "error": null
+    }
+  }
+}

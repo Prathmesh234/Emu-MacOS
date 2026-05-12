@@ -2,7 +2,8 @@
 training/synth.py
 
 Take a REAL OSWorld agent trajectory (from data/real_trajs/, pulled via
-dataset.py) and ask Claude to rewrite it as a synthetic EMU trajectory --
+dataset.py) and ask the LLM (DeepSeek V4 Pro via OpenRouter, by default) to
+rewrite it as a synthetic EMU trajectory --
 same task, same general action sequence, but in emu's exact format with
 emu's scaffolding (raise_app, plan.md, read_memory, use_skill,
 write_session_file, compact_context, invoke_hermes when appropriate).
@@ -53,15 +54,16 @@ from synth_utils import (
     summarize_step,
 )
 
-# We access Claude Sonnet 4.6 through OpenRouter's chat.completions endpoint
-# (OpenAI-compatible), and enable Anthropic prompt caching via explicit
-# per-block `cache_control` breakpoints on the large, stable system prompt.
-# See: https://openrouter.ai/docs/features/prompt-caching#anthropic-claude
+# We access DeepSeek V4 Pro through OpenRouter's chat.completions endpoint
+# (OpenAI-compatible). DeepSeek uses AUTOMATIC prefix caching — there are no
+# explicit `cache_control` breakpoints; the model caches the longest stable
+# prefix of the prompt on its own. OpenRouter still surfaces a cache-hit
+# token count via `usage.prompt_tokens_details.cached_tokens` after the
+# first request warms the cache. See:
+# https://openrouter.ai/docs/features/prompt-caching#deepseek
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY", "").strip()
-OPENROUTER_MODEL = os.getenv("OPENROUTER_MODEL", "anthropic/claude-sonnet-4.6").strip()
+OPENROUTER_MODEL = os.getenv("OPENROUTER_MODEL", "deepseek/deepseek-v4-pro").strip()
 OPENROUTER_BASE_URL = os.getenv("OPENROUTER_BASE_URL", "https://openrouter.ai/api/v1").strip()
-OPENROUTER_SITE_URL = os.getenv("OPENROUTER_SITE_URL", "").strip()
-OPENROUTER_APP_NAME = os.getenv("OPENROUTER_APP_NAME", "emu-training-synth").strip()
 MAX_TOKENS = int(os.getenv("MAX_TOKENS", "32768"))
 TEMPERATURE = float(os.getenv("TEMPERATURE", "0.7"))
 # Retries for transient API failures (rate limits, 5xx, network blips).
@@ -578,10 +580,12 @@ Now produce the JSON emu trajectory object as specified.
 
 
 def generate_one(client: OpenAI, real: dict) -> dict:
-    # Anthropic prompt caching via OpenRouter: mark the large, stable SYNTH_SYSTEM
-    # block with an explicit ephemeral cache breakpoint. The per-trajectory user
-    # prompt is left uncached (it changes every request). 5-minute TTL is fine
-    # for a tight generation loop; bump to "1h" if running long jobs.
+    # DeepSeek V4 prompt caching via OpenRouter: caching is AUTOMATIC on the
+    # longest stable prompt prefix — no explicit `cache_control` breakpoints
+    # are needed (and DeepSeek silently ignores Anthropic-style typed-content
+    # cache_control blocks). The large, stable SYNTH_SYSTEM is the prefix;
+    # the per-trajectory user prompt changes every request and is left
+    # uncached. We still surface the hit count via `cached_tokens` below.
     last_err: Exception | None = None
     for attempt in range(1, MAX_RETRIES + 1):
         try:
@@ -590,16 +594,7 @@ def generate_one(client: OpenAI, real: dict) -> dict:
                 max_tokens=MAX_TOKENS,
                 temperature=TEMPERATURE,
                 messages=[
-                    {
-                        "role": "system",
-                        "content": [
-                            {
-                                "type": "text",
-                                "text": SYNTH_SYSTEM,
-                                "cache_control": {"type": "ephemeral"},
-                            }
-                        ],
-                    },
+                    {"role": "system", "content": SYNTH_SYSTEM},
                     {"role": "user", "content": build_user_prompt(real)},
                 ],
             )
@@ -781,15 +776,9 @@ def main():
         print("ERROR: OPENROUTER_API_KEY not set in training/.env", file=sys.stderr)
         sys.exit(1)
 
-    default_headers: dict[str, str] = {}
-    if OPENROUTER_SITE_URL:
-        default_headers["HTTP-Referer"] = OPENROUTER_SITE_URL
-    if OPENROUTER_APP_NAME:
-        default_headers["X-Title"] = OPENROUTER_APP_NAME
     client = OpenAI(
         api_key=OPENROUTER_API_KEY,
         base_url=OPENROUTER_BASE_URL,
-        default_headers=default_headers or None,
     )
     buf = Buffer()
     added = buf.scan()

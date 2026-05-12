@@ -245,7 +245,7 @@ SKILLS_BLOCK = (
 
 
 def get_all_skill_names() -> list[str]:
-    """Public accessor used by synth.py to teach Claude the skill vocabulary."""
+    """Public accessor used by synth.py to teach the synth LLM the skill vocabulary."""
     return [n for n, _ in _ALL_SKILLS]
 
 
