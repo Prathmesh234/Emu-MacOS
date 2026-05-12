@@ -16,6 +16,7 @@ can be unit-tested in isolation.
 from __future__ import annotations
 
 import json
+import re as _re
 import subprocess
 import sys
 from pathlib import Path
@@ -47,6 +48,46 @@ def extract_json(text: str) -> dict:
         if start >= 0 and end > start:
             return json.loads(text[start:end + 1])
         raise
+
+
+# ── trajectory validator ─────────────────────────────────────────────────────
+# Lightweight sanity check on a generated synthetic trajectory before we
+# write it to disk. JSON well-formedness only -- DeepSeek V4 is notorious
+# for dropping closing braces, so every assistant text block that starts
+# with '{' must round-trip through json.loads.
+class SynthValidationError(ValueError):
+    """Raised when a generated synthetic trajectory fails validation."""
+
+
+def validate_synth_trajectory(traj: dict) -> list[str]:
+    """Return a list of human-readable error strings. Empty == clean."""
+    errors: list[str] = []
+
+    msgs = traj.get("messages") if isinstance(traj, dict) else None
+    if not isinstance(msgs, list) or not msgs:
+        return ["messages must be a non-empty list"]
+
+    for i, msg in enumerate(msgs):
+        if not isinstance(msg, dict) or msg.get("role") != "assistant":
+            continue
+        content = msg.get("content") or []
+        if not isinstance(content, list):
+            continue
+        for j, block in enumerate(content):
+            if not isinstance(block, dict) or block.get("type") != "text":
+                continue
+            text = (block.get("text") or "").lstrip()
+            if not text.startswith("{"):
+                continue  # plain reasoning prose -- ignore
+            try:
+                json.loads(text)
+            except json.JSONDecodeError as e:
+                errors.append(
+                    f"messages[{i}].content[{j}] desktop-action JSON failed "
+                    f"to parse: {e.msg} (line {e.lineno}, col {e.colno})"
+                )
+
+    return errors
 
 
 # ── skill routing ────────────────────────────────────────────────────────────
@@ -88,8 +129,6 @@ def relevant_skills_for(zip_or_path: str) -> list[str]:
 #       "import pyautogui; pyautogui.click(35, 675, button='left')").
 # Our gemini filter in dataset.py only keeps (b), but we keep (a) working so
 # old caches don't blow up.
-import re as _re
-
 _PYAUTOGUI_CALL_RE = _re.compile(
     r"pyautogui\.(?P<fn>click|doubleClick|rightClick|tripleClick|write|"
     r"typewrite|press|hotkey|keyDown|keyUp|moveTo|moveRel|dragTo|dragRel|"
