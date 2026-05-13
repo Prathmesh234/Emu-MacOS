@@ -102,6 +102,11 @@ APP_TO_SKILLS: dict[str, list[str]] = {
     "gimp":                ["file-manager", "app-launcher"],
     "os":                  ["app-launcher", "system-info", "file-manager"],
     "multi_apps":          ["app-launcher"],
+    # Computer Agent Arena trajectories (dataset.py: ARENA_DIR_STEM) cover
+    # broad real-user tasks not tied to a single OSWorld snapshot, so route
+    # them through the generic launcher / search / file skills and let
+    # synth.py's per-trajectory skill selection do the rest.
+    "agent-arena-gemini":  ["app-launcher", "web-search", "file-manager"],
 }
 
 

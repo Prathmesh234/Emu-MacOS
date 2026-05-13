@@ -1,26 +1,38 @@
 """
 training/dataset.py
 
-Pull real OSWorld agent trajectories from Hugging Face
-(xlangai/ubuntu_osworld_verified_trajs). These are real recorded action
-sequences from running computer-use agents (Claude, GPT, etc.) on the
-OSWorld benchmark — they're the skeletons that synth.py turns into
-emu-format trajectories.
+Pull real agent trajectories from Hugging Face for synth.py to rewrite.
+Two source families are supported:
 
-Streams individual files out of the multi-GB zips via HTTP range requests,
-so we never download the full archives. Cache layout:
+  (A) xlangai/ubuntu_osworld_verified_trajs — recorded agent runs on the
+      OSWorld benchmark (Claude, GPT, Gemini, Qwen, …). Streamed straight
+      out of multi-GB zips via HTTP range requests so we never download
+      the full archive.
 
-    data/real_trajs/<zip_stem>/<task_uuid>/
-        traj.jsonl      one step per line (action + reasoning + reward)
-        result.txt      "1" pass / "0" fail on the OSWorld evaluator
-        runtime.log     env logs (ignored)
-        _files.json     local manifest
+  (B) xlangai/computer-agent-arena — crowdsourced real-user tasks evaluated
+      by many agents. A single 49 MB JSONL contains 4,641 trajectories,
+      including ~502 Gemini ones — every row a distinct task_id, in the
+      same pyautogui step shape Agent-S2 uses, so the existing synth.py
+      translator works without changes. See DATA_COLLECTION.md.
 
-DEFAULT FILTERS (synth.py only knows how to convert pyautogui actions today):
+Cache layout (identical for both sources):
+
+    data/real_trajs/<source_stem>/<task_uuid>/
+        traj.jsonl       one step per line (action + reasoning + reward)
+        result.txt       "1" pass / "0" fail
+        runtime.log      env logs (ignored, OSWorld only)
+        _files.json      local manifest
+        _arena_meta.json arena only — original instruction + model + correctness
+
+DEFAULT FILTERS for OSWorld fetches (synth.py only knows how to convert
+pyautogui actions today):
   * gemini-only  -> only zips whose name contains "gemini" are listed/fetched
   * pyautogui-only -> a trajectory is cached only if EVERY useful action is a
                       pyautogui call (no LibreOffice UNO / macro tool calls).
 Use --all-models / --all-actions to bypass either filter.
+
+Arena fetches are gemini-filtered at the row level (by `model` field) and
+already use the pyautogui step shape, so the OSWorld filters do not apply.
 
 Usage:
     uv run python dataset.py list-runs                      # gemini zips only
@@ -28,6 +40,8 @@ Usage:
     uv run python dataset.py inspect-zip <zip_name>
     uv run python dataset.py fetch --limit 100              # gemini + pyautogui
     uv run python dataset.py fetch --zip <zip_name> --all-actions
+    uv run python dataset.py arena --limit 200              # Computer Agent Arena, gemini-only
+    uv run python dataset.py arena --limit 50 --model gemini-2.5-pro --passed-only
     uv run python dataset.py show <task_id>
 """
 from __future__ import annotations
@@ -49,6 +63,14 @@ load_dotenv(Path(__file__).parent / ".env")
 
 HF_TOKEN = os.getenv("HF_TOKEN", "").strip()
 HF_TRAJ_REPO = "xlangai/ubuntu_osworld_verified_trajs"
+
+# Computer Agent Arena — same XLang lab as OSWorld, but crowdsourced
+# real-user tasks instead of the fixed OSWorld benchmark. Single 49 MB
+# JSONL contains 4,641 trajectories; 502 of them are Gemini, every one a
+# distinct task. See DATA_COLLECTION.md for the full survey.
+HF_ARENA_REPO = "xlangai/computer-agent-arena"
+HF_ARENA_FILE = "agent_arena_data.jsonl"
+ARENA_DIR_STEM = "agent-arena-gemini"
 
 REAL_TRAJS_DIR = Path(__file__).parent / "data" / "real_trajs"
 REAL_TRAJS_DIR.mkdir(parents=True, exist_ok=True)
@@ -272,6 +294,207 @@ def iter_cached() -> list[Path]:
     return [d for d in sorted(REAL_TRAJS_DIR.glob("*/*")) if d.is_dir()]
 
 
+# ---------- Computer Agent Arena ingest ----------
+# Arena rows look like:
+#   {"task_id": "...", "instruction": "...", "human_eval_correctness": 0|1,
+#    "model": "gemini/gemini-2.5-pro-exp-03-25 (base_agent)",
+#    "traj": [{"index": 1, "image": "...", "value": {"thought": "...",
+#              "code": "import pyautogui\npyautogui.click(160, 700)"}}, ...]}
+# The `value.code` is the same pyautogui shape Agent-S2 uses, so we project
+# each step into the dict shape `summarize_step()` already understands:
+#   {"step_num": int, "action": <code>, "plan_code": <thought>, "done": bool}
+ARENA_MODEL_ALIASES: dict[str, str] = {
+    "gemini-2.5-pro": "gemini/gemini-2.5-pro-exp-03-25",
+    "gemini-2.0-flash": "gemini/gemini-2.0-flash",
+    "gemini-1.5-pro": "gemini/gemini-1.5-pro",
+    "gemini-1.5-flash": "gemini/gemini-1.5-flash",
+}
+
+
+def _arena_url() -> str:
+    return f"https://huggingface.co/datasets/{HF_ARENA_REPO}/resolve/main/{HF_ARENA_FILE}"
+
+
+def _arena_step_to_agent_s2(step: dict, total_steps: int) -> dict | None:
+    """Project one Arena step into the dict shape `summarize_step()` reads.
+
+    Returns None for malformed entries so the caller can skip them.
+    """
+    if not isinstance(step, dict):
+        return None
+    idx = step.get("index")
+    value = step.get("value") or {}
+    if isinstance(value, str):
+        try:
+            value = json.loads(value)
+        except json.JSONDecodeError:
+            value = {}
+    code = (value.get("code") or "").strip()
+    thought = (value.get("thought") or "").strip()
+    if not code and not thought:
+        return None
+    return {
+        "step_num": idx,
+        "action": code,
+        # `plan_code` is what summarize_step / build_user_prompt look at for
+        # the agent's natural-language intent on Agent-S2 / pyautogui rows.
+        "plan_code": thought,
+        "done": isinstance(idx, int) and total_steps and idx >= total_steps,
+    }
+
+
+def _arena_select(model_filter: str, passed_only: bool):
+    """Return a row predicate matching the requested filters."""
+    needle = (model_filter or "").lower()
+
+    def keep(row: dict) -> bool:
+        m = (row.get("model") or "").lower()
+        if needle and needle not in m:
+            return False
+        if passed_only:
+            c = row.get("human_eval_correctness")
+            try:
+                if int(c) != 1:
+                    return False
+            except (TypeError, ValueError):
+                return False
+        return True
+
+    return keep
+
+
+def _write_arena_traj(out_dir: Path, row: dict) -> bool:
+    """Materialize one Arena row into the OSWorld-shaped cache directory.
+    Returns True if a usable trajectory was written.
+    """
+    raw_steps = row.get("traj") or []
+    if not isinstance(raw_steps, list) or not raw_steps:
+        return False
+    steps: list[dict] = []
+    for s in raw_steps:
+        projected = _arena_step_to_agent_s2(s, total_steps=len(raw_steps))
+        if projected is not None:
+            steps.append(projected)
+    if not steps:
+        return False
+    out_dir.mkdir(parents=True, exist_ok=True)
+
+    # `traj.jsonl` — one projected step per line, exact shape consumed by
+    # `dataset.load_traj()` -> `synth_utils.summarize_step()`.
+    with (out_dir / "traj.jsonl").open("w", encoding="utf-8") as f:
+        for s in steps:
+            f.write(json.dumps(s, ensure_ascii=False) + "\n")
+
+    correctness = row.get("human_eval_correctness")
+    try:
+        result = "1" if int(correctness) == 1 else "0"
+    except (TypeError, ValueError):
+        result = "0"
+    (out_dir / "result.txt").write_text(result, encoding="utf-8")
+
+    # The original user instruction is the cleanest signal of intent — far
+    # better than the agent's first-step thought. Stash it so synth.py can
+    # pick it up via the existing "user asked" / "user wants" inference path
+    # in `build_user_prompt`, AND keep a structured copy for future use.
+    instruction = (row.get("instruction") or "").strip()
+    if instruction and steps:
+        steps[0]["plan_code"] = (
+            f"User asked: {instruction}\n{steps[0].get('plan_code', '')}"
+        ).strip()
+        # Re-flush traj.jsonl so the prompt-side instruction inference works.
+        with (out_dir / "traj.jsonl").open("w", encoding="utf-8") as f:
+            for s in steps:
+                f.write(json.dumps(s, ensure_ascii=False) + "\n")
+
+    (out_dir / "_arena_meta.json").write_text(
+        json.dumps(
+            {
+                "source": HF_ARENA_REPO,
+                "task_id": row.get("task_id"),
+                "model": row.get("model"),
+                "instruction": instruction,
+                "human_eval_correctness": correctness,
+                "n_steps": len(steps),
+            },
+            indent=2,
+            ensure_ascii=False,
+        ),
+        encoding="utf-8",
+    )
+    (out_dir / "_files.json").write_text(
+        json.dumps(["traj.jsonl", "result.txt", "_arena_meta.json"], indent=2),
+        encoding="utf-8",
+    )
+    return True
+
+
+def fetch_arena(
+    limit: int = 200,
+    model: str = "gemini",
+    passed_only: bool = False,
+    skip_existing: bool = True,
+) -> list[Path]:
+    """Stream `xlangai/computer-agent-arena/agent_arena_data.jsonl` and
+    materialize each matching row as a synth-ready trajectory under
+    `data/real_trajs/agent-arena-gemini/<task_id>/`.
+
+    `model` is matched as a case-insensitive substring against the row's
+    `model` field (default "gemini" matches every Gemini variant). Pass an
+    `ARENA_MODEL_ALIASES` key (e.g. "gemini-2.5-pro") for a specific
+    Gemini, or any literal substring of the field. Set `passed_only=True`
+    to keep only `human_eval_correctness == 1` rows.
+    """
+    needle = ARENA_MODEL_ALIASES.get(model.lower(), model)
+    keep = _arena_select(needle, passed_only)
+
+    out_root = REAL_TRAJS_DIR / ARENA_DIR_STEM
+    out_root.mkdir(parents=True, exist_ok=True)
+    written: list[Path] = []
+    seen_existing = skipped_filter = malformed = 0
+
+    print(f"[arena] streaming {HF_ARENA_FILE} from {HF_ARENA_REPO}"
+          f" (model~={needle!r}, passed_only={passed_only}, limit={limit})")
+    sess = _hf_session()
+    with sess.get(_arena_url(), stream=True, timeout=120) as resp:
+        resp.raise_for_status()
+        # `iter_lines` decodes each newline-delimited JSON record without
+        # buffering the full 49 MB into memory.
+        bar = tqdm(desc=f"arena:{needle[:20]}",
+                   total=limit if limit else None, unit="traj")
+        for line in resp.iter_lines(decode_unicode=True):
+            if limit and len(written) >= limit:
+                break
+            if not line or not line.strip():
+                continue
+            try:
+                row = json.loads(line)
+            except json.JSONDecodeError:
+                malformed += 1
+                continue
+            if not keep(row):
+                skipped_filter += 1
+                continue
+            tid = row.get("task_id")
+            if not tid:
+                malformed += 1
+                continue
+            out_dir = out_root / tid
+            if skip_existing and (out_dir / "traj.jsonl").exists():
+                seen_existing += 1
+                continue
+            if _write_arena_traj(out_dir, row):
+                written.append(out_dir)
+                bar.update(1)
+            else:
+                malformed += 1
+        bar.close()
+
+    print(f"[arena] kept={len(written)} already_cached={seen_existing} "
+          f"filtered_out={skipped_filter} malformed={malformed}")
+    return written
+
+
+# ---------- shared loaders ----------
 def load_traj(traj_dir: Path) -> dict:
     """Load one cached trajectory: {task_id, zip, steps, result}."""
     steps = []
@@ -330,6 +553,22 @@ def main():
     f.add_argument("--all-actions", action="store_true",
                    help="bypass the pure-pyautogui trajectory filter")
     s = sub.add_parser("show"); s.add_argument("task_id")
+    a = sub.add_parser(
+        "arena",
+        help="ingest gemini trajectories from xlangai/computer-agent-arena",
+    )
+    a.add_argument("--limit", type=int, default=200,
+                   help="max trajectories to ingest (default 200, 0 = all)")
+    a.add_argument("--model", default="gemini",
+                   help="case-insensitive substring matched against the row's "
+                        "`model` field; aliases: "
+                        + ", ".join(sorted(ARENA_MODEL_ALIASES))
+                        + " (default 'gemini' = every Gemini variant)")
+    a.add_argument("--passed-only", action="store_true",
+                   help="only keep rows where human_eval_correctness == 1")
+    a.add_argument("--no-skip-existing", dest="skip_existing",
+                   action="store_false", default=True,
+                   help="re-write task dirs even if traj.jsonl already exists")
     args = ap.parse_args()
 
     if args.cmd == "list-runs":
@@ -345,6 +584,15 @@ def main():
             pyautogui_only=not args.all_actions,
         )
         print(f"\n[hf] cached {len(paths)} trajectories -> {REAL_TRAJS_DIR}")
+    elif args.cmd == "arena":
+        paths = fetch_arena(
+            limit=args.limit,
+            model=args.model,
+            passed_only=args.passed_only,
+            skip_existing=args.skip_existing,
+        )
+        print(f"\n[arena] cached {len(paths)} trajectories -> "
+              f"{REAL_TRAJS_DIR / ARENA_DIR_STEM}")
     elif args.cmd == "show":
         show(args.task_id)
 
