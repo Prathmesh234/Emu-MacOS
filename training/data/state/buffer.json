@@ -333,25 +333,25 @@
     "236833a3-5704-47fc-888c-4f298f09f799": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/results_agent_s2_gemini_15steps/236833a3-5704-47fc-888c-4f298f09f799",
       "zip": "results_agent_s2_gemini_15steps",
-      "status": "pending",
+      "status": "done",
       "error": null
     },
     "2373b66a-092d-44cb-bfd7-82e86e7a3b4d": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/results_agent_s2_gemini_15steps/2373b66a-092d-44cb-bfd7-82e86e7a3b4d",
       "zip": "results_agent_s2_gemini_15steps",
-      "status": "pending",
+      "status": "done",
       "error": null
     },
     "26150609-0da3-4a7d-8868-0faf9c5f01bb": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/results_agent_s2_gemini_15steps/26150609-0da3-4a7d-8868-0faf9c5f01bb",
       "zip": "results_agent_s2_gemini_15steps",
-      "status": "pending",
+      "status": "done",
       "error": null
     },
     "26660ad1-6ebb-4f59-8cba-a8432dfe8d38": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/results_agent_s2_gemini_15steps/26660ad1-6ebb-4f59-8cba-a8432dfe8d38",
       "zip": "results_agent_s2_gemini_15steps",
-      "status": "pending",
+      "status": "done",
       "error": null
     },
     "276cc624-87ea-4f08-ab93-f770e3790175": {
@@ -567,6 +567,3018 @@
     "3f05f3b9-29ba-4b6b-95aa-2204697ffc06": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/results_gemini_50_steps_aws/3f05f3b9-29ba-4b6b-95aa-2204697ffc06",
       "zip": "results_gemini_50_steps_aws",
+      "status": "pending",
+      "error": null
+    },
+    "0022789c-d827-4d5a-8247-fc08f534a25c": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/0022789c-d827-4d5a-8247-fc08f534a25c",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "01a5be38-d64b-4f15-82e2-e80e2c7b2394": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/01a5be38-d64b-4f15-82e2-e80e2c7b2394",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "01cf24b1-2538-41bf-993b-6d3c92a3b364": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/01cf24b1-2538-41bf-993b-6d3c92a3b364",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "02061a1f-8237-4e0b-9c8b-c8109059f5d7": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/02061a1f-8237-4e0b-9c8b-c8109059f5d7",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "0224ae51-5cdb-4bf8-89fe-765cb9426880": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/0224ae51-5cdb-4bf8-89fe-765cb9426880",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "022b4583-1acb-4092-88ca-a750ba42f190": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/022b4583-1acb-4092-88ca-a750ba42f190",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "03cb8c0f-17c5-49dd-90c0-24dfe7b7e125": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/03cb8c0f-17c5-49dd-90c0-24dfe7b7e125",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "03da14ec-1e82-4444-b639-f3449e511296": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/03da14ec-1e82-4444-b639-f3449e511296",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "0413e59a-10a7-4ec2-b3f8-1f785b3a64b1": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/0413e59a-10a7-4ec2-b3f8-1f785b3a64b1",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "04225faf-4289-49c4-9ad8-931b4bf40ec0": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/04225faf-4289-49c4-9ad8-931b4bf40ec0",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "053428aa-a793-4bce-b6e5-9062af220a8b": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/053428aa-a793-4bce-b6e5-9062af220a8b",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "053d52b6-0bd8-45fa-8c65-bc56e5c8dabf": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/053d52b6-0bd8-45fa-8c65-bc56e5c8dabf",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "067002a4-d49c-4c20-89f0-be7f02a40927": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/067002a4-d49c-4c20-89f0-be7f02a40927",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "06c4f0c8-79c8-4112-b147-f18b40a60e57": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/06c4f0c8-79c8-4112-b147-f18b40a60e57",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "06ef2479-f145-42f9-a8d8-ff1684b0e780": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/06ef2479-f145-42f9-a8d8-ff1684b0e780",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "0743ec30-36d8-4e74-91cb-034c902d1c56": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/0743ec30-36d8-4e74-91cb-034c902d1c56",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "075f9107-2b1a-4b4f-9ba6-a2684a9f5397": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/075f9107-2b1a-4b4f-9ba6-a2684a9f5397",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "07d7ac41-acd2-4cc7-b315-b9d52057adfc": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/07d7ac41-acd2-4cc7-b315-b9d52057adfc",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "080e9f07-36d9-4a5b-a4e4-8da0dda5c8df": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/080e9f07-36d9-4a5b-a4e4-8da0dda5c8df",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "08853d6e-f991-4fc9-b142-6125764c78f9": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/08853d6e-f991-4fc9-b142-6125764c78f9",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "093442ef-df47-438a-8139-091f1108ef6d": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/093442ef-df47-438a-8139-091f1108ef6d",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "09e02ef0-591e-46a4-af69-9ca45e9ab2b4": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/09e02ef0-591e-46a4-af69-9ca45e9ab2b4",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "0abd0b03-06b6-4202-98b4-4ec8123d8ee9": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/0abd0b03-06b6-4202-98b4-4ec8123d8ee9",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "0b23fad8-0500-405f-9821-7ce4a9a64010": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/0b23fad8-0500-405f-9821-7ce4a9a64010",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "0bddf283-d281-42e4-809d-07a822b2d1bd": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/0bddf283-d281-42e4-809d-07a822b2d1bd",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "0bf26a9b-17f8-4303-afda-8780387fe9bb": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/0bf26a9b-17f8-4303-afda-8780387fe9bb",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "0c78159a-afd9-42d9-b65a-ebf15bc311a7": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/0c78159a-afd9-42d9-b65a-ebf15bc311a7",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "0ce252d2-4a60-435b-80cd-f49308a0b9d6": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/0ce252d2-4a60-435b-80cd-f49308a0b9d6",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "0e19efe7-b94e-4aa2-b783-12728aa48b4b": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/0e19efe7-b94e-4aa2-b783-12728aa48b4b",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "0e25b810-d39b-4868-8d95-807af74a8841": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/0e25b810-d39b-4868-8d95-807af74a8841",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "0f02197a-77ad-4cab-bf29-bf17883add46": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/0f02197a-77ad-4cab-bf29-bf17883add46",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "0fbba273-f3e1-43a8-b152-875c42c1020e": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/0fbba273-f3e1-43a8-b152-875c42c1020e",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "109be6a0-ed70-4905-8c83-f3bdec9a5555": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/109be6a0-ed70-4905-8c83-f3bdec9a5555",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "10c03fbe-21eb-45c7-924a-fbf0d723d96b": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/10c03fbe-21eb-45c7-924a-fbf0d723d96b",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "110a011b-80fb-4da3-b2fc-2fd1163345e0": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/110a011b-80fb-4da3-b2fc-2fd1163345e0",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "112f37ac-1bb9-48c5-8ac5-a179917f2699": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/112f37ac-1bb9-48c5-8ac5-a179917f2699",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "13c2b031-98ae-4106-8911-caae87cc460a": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/13c2b031-98ae-4106-8911-caae87cc460a",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "141f62c4-6475-4cef-966b-cdc7227197ce": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/141f62c4-6475-4cef-966b-cdc7227197ce",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "142e6a9b-508d-41cb-a4a2-f0e6c08ea600": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/142e6a9b-508d-41cb-a4a2-f0e6c08ea600",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "14e9712e-8100-4d16-8cb0-16797ccf7ef8": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/14e9712e-8100-4d16-8cb0-16797ccf7ef8",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "14f785b9-ce23-4f22-b465-a11c4058783c": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/14f785b9-ce23-4f22-b465-a11c4058783c",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "1567a780-dd9a-4ebe-ae01-87cf1c306eaa": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/1567a780-dd9a-4ebe-ae01-87cf1c306eaa",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "15cc7350-4df6-48e8-962a-380148d44d95": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/15cc7350-4df6-48e8-962a-380148d44d95",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "16a72a92-3613-4c02-97c6-13141878625f": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/16a72a92-3613-4c02-97c6-13141878625f",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "172dd68b-13e7-4284-9750-4b75ff46bcb9": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/172dd68b-13e7-4284-9750-4b75ff46bcb9",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "17c42439-b10c-4d6e-8a13-081a76b070ab": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/17c42439-b10c-4d6e-8a13-081a76b070ab",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "181910fa-aaee-4f1a-9952-6ba841169ddb": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/181910fa-aaee-4f1a-9952-6ba841169ddb",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "1835d26b-c204-4033-bf2b-378ccb7686ad": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/1835d26b-c204-4033-bf2b-378ccb7686ad",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "194d740f-9467-42e8-83f2-7a3421f68cef": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/194d740f-9467-42e8-83f2-7a3421f68cef",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "196a0dd6-bbe0-4489-af83-77d3f7d0e8c2": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/196a0dd6-bbe0-4489-af83-77d3f7d0e8c2",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "19bb9a34-5e7c-49a3-beb0-3f1cefb52864": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/19bb9a34-5e7c-49a3-beb0-3f1cefb52864",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "1a918a2b-0e23-49b6-adf5-809dc5fc29b9": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/1a918a2b-0e23-49b6-adf5-809dc5fc29b9",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "1aa6b09d-78dc-420c-afb3-216ca72be0a2": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/1aa6b09d-78dc-420c-afb3-216ca72be0a2",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "1b4ed6e8-d1fb-4f69-914c-b7db1b5429b7": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/1b4ed6e8-d1fb-4f69-914c-b7db1b5429b7",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "1d609cde-36bf-4e9f-9c1c-a666afdc7f2e": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/1d609cde-36bf-4e9f-9c1c-a666afdc7f2e",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "1d849f41-1f07-4f3c-bd5c-3fc1d6eea52e": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/1d849f41-1f07-4f3c-bd5c-3fc1d6eea52e",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "20e054f5-728a-425f-932c-1e799c8a030b": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/20e054f5-728a-425f-932c-1e799c8a030b",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "20ef9018-af35-4030-9767-0f8d3017e8cd": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/20ef9018-af35-4030-9767-0f8d3017e8cd",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "22097c07-8c4d-4edb-a952-41dd183f46b8": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/22097c07-8c4d-4edb-a952-41dd183f46b8",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "22337eac-3e84-4064-b663-b2003972d023": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/22337eac-3e84-4064-b663-b2003972d023",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "22401be4-218a-4aa1-954d-feac3e8e767a": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/22401be4-218a-4aa1-954d-feac3e8e767a",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "22c9d54e-e416-4881-80b1-64d2bd225c58": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/22c9d54e-e416-4881-80b1-64d2bd225c58",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "23e2a982-0957-40f6-9640-846cf90580d3": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/23e2a982-0957-40f6-9640-846cf90580d3",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "245c784b-54bc-4578-a0ac-1a1def2f7d7a": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/245c784b-54bc-4578-a0ac-1a1def2f7d7a",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "2498f9c7-46a2-4e86-b3a9-a612f5b8aa84": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/2498f9c7-46a2-4e86-b3a9-a612f5b8aa84",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "25464f7a-bb55-4d08-8599-84df58cda39f": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/25464f7a-bb55-4d08-8599-84df58cda39f",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "2555d621-a0f2-4134-b19e-ca2ca5ed708a": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/2555d621-a0f2-4134-b19e-ca2ca5ed708a",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "25730d2e-4209-42d0-9ca3-fe66f22fa023": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/25730d2e-4209-42d0-9ca3-fe66f22fa023",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "2588e45c-c03f-4c8a-8f9a-2e61268e335d": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/2588e45c-c03f-4c8a-8f9a-2e61268e335d",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "264e1f64-12c9-418a-8228-629899279647": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/264e1f64-12c9-418a-8228-629899279647",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "2782fd61-42f2-45d7-a66e-e7b1c18c075c": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/2782fd61-42f2-45d7-a66e-e7b1c18c075c",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "278fa403-2768-44ba-a05e-e31051aeaf5c": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/278fa403-2768-44ba-a05e-e31051aeaf5c",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "2801165e-18c3-43da-9d31-2b69c2fd65bd": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/2801165e-18c3-43da-9d31-2b69c2fd65bd",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "28915f7d-3a38-4636-8464-5d4ceed2db1a": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/28915f7d-3a38-4636-8464-5d4ceed2db1a",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "28af345f-af8f-47b3-af93-3a36e38d9a3d": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/28af345f-af8f-47b3-af93-3a36e38d9a3d",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "28cb9e8d-5ed5-4aba-b531-ddea00a48c50": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/28cb9e8d-5ed5-4aba-b531-ddea00a48c50",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "2988b0bc-9d15-426e-9d31-53dda8fdb575": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/2988b0bc-9d15-426e-9d31-53dda8fdb575",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "29b74473-ad3b-41f3-94c1-0ac7bbcddedf": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/29b74473-ad3b-41f3-94c1-0ac7bbcddedf",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "2a0c510d-bdb5-4578-98a6-6f4b2122152d": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/2a0c510d-bdb5-4578-98a6-6f4b2122152d",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "2a1b7d65-9f8d-476e-a0d8-04facdab7a68": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/2a1b7d65-9f8d-476e-a0d8-04facdab7a68",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "2ac17fd6-6253-4430-97c2-df009464ebc2": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/2ac17fd6-6253-4430-97c2-df009464ebc2",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "2b782412-ef95-4113-a40c-2c6d5ad2c244": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/2b782412-ef95-4113-a40c-2c6d5ad2c244",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "2c79e928-93c8-42a0-a27d-49b5e596f359": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/2c79e928-93c8-42a0-a27d-49b5e596f359",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "2dd8145f-f3d1-4642-afa5-3df27cb79447": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/2dd8145f-f3d1-4642-afa5-3df27cb79447",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "2ec0a295-c496-4c37-8d86-6eaa2a501943": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/2ec0a295-c496-4c37-8d86-6eaa2a501943",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "2f52b0b4-0697-48d0-8110-a3ff2a4f7620": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/2f52b0b4-0697-48d0-8110-a3ff2a4f7620",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "2ff01b94-fa49-4dd9-8571-3860d11703ea": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/2ff01b94-fa49-4dd9-8571-3860d11703ea",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "30b85877-451b-438b-bca5-e5684e196681": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/30b85877-451b-438b-bca5-e5684e196681",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "31e16e43-354c-468a-98cc-110867bf8248": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/31e16e43-354c-468a-98cc-110867bf8248",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "32a355d1-bd86-4d5d-a3db-0f16a84fcc89": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/32a355d1-bd86-4d5d-a3db-0f16a84fcc89",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "331014ab-06a2-4c18-97ff-76a24cce521b": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/331014ab-06a2-4c18-97ff-76a24cce521b",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "33207884-e38c-49ab-9a97-0da5b2166cb4": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/33207884-e38c-49ab-9a97-0da5b2166cb4",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "33b9f4aa-6e7e-4b0f-9a37-4463f7493077": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/33b9f4aa-6e7e-4b0f-9a37-4463f7493077",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "3479ce88-8590-4142-a5c0-93d1b87a5417": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/3479ce88-8590-4142-a5c0-93d1b87a5417",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "35274388-6ffc-47b1-bf40-e3c8972d2471": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/35274388-6ffc-47b1-bf40-e3c8972d2471",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "35a30bfe-79bf-4e37-8fe3-dbf869412f88": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/35a30bfe-79bf-4e37-8fe3-dbf869412f88",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "3732e04d-1977-4388-9a93-6debd01723bb": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/3732e04d-1977-4388-9a93-6debd01723bb",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "377261b2-a185-476c-8afd-28f7dd337878": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/377261b2-a185-476c-8afd-28f7dd337878",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "386e8c9e-a0dc-4a85-b033-32f33c8dc880": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/386e8c9e-a0dc-4a85-b033-32f33c8dc880",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "3885e65f-cfcb-4552-9ad0-1b5087b9ade8": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/3885e65f-cfcb-4552-9ad0-1b5087b9ade8",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "38da7175-b822-42f2-92a4-7b63b9758f23": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/38da7175-b822-42f2-92a4-7b63b9758f23",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "394ccfbf-0366-4bfd-8458-603a3f03e084": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/394ccfbf-0366-4bfd-8458-603a3f03e084",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "3990fe1b-1931-4d82-b77d-9dc0fbe24e7f": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/3990fe1b-1931-4d82-b77d-9dc0fbe24e7f",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "399d2abf-d063-432f-984d-05ddf5510bee": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/399d2abf-d063-432f-984d-05ddf5510bee",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "3a123f6d-8ea4-4139-81f5-03b896dbaa60": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/3a123f6d-8ea4-4139-81f5-03b896dbaa60",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "3a14262a-3360-469b-adfb-4c77b6d59ae8": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/3a14262a-3360-469b-adfb-4c77b6d59ae8",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "3a385466-77c4-490c-be08-7cebab041ed6": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/3a385466-77c4-490c-be08-7cebab041ed6",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "3a55d2ae-38df-4873-b3c0-28d5e904d309": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/3a55d2ae-38df-4873-b3c0-28d5e904d309",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "3a7b1f1f-4547-4570-989a-33bfe317a5ea": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/3a7b1f1f-4547-4570-989a-33bfe317a5ea",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "3ac6d755-63e0-43ff-ae3c-1ff0d0f018f7": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/3ac6d755-63e0-43ff-ae3c-1ff0d0f018f7",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "3b3c3656-90a9-4d48-beee-ea3c22cea697": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/3b3c3656-90a9-4d48-beee-ea3c22cea697",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "3b65bd67-b465-45fc-a5ff-5442ac080a3f": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/3b65bd67-b465-45fc-a5ff-5442ac080a3f",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "3b9e23a0-67f1-4b5c-b23f-bafffbdae248": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/3b9e23a0-67f1-4b5c-b23f-bafffbdae248",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "3be3201c-eb24-4470-8f07-eed7d4e1d19d": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/3be3201c-eb24-4470-8f07-eed7d4e1d19d",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "3c58cc2c-c053-43f4-a681-70fa105599d7": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/3c58cc2c-c053-43f4-a681-70fa105599d7",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "3c655a5a-e846-4739-90f8-9ca4446185b6": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/3c655a5a-e846-4739-90f8-9ca4446185b6",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "3c8861a3-22ed-4e8f-a5d2-6fb0b3bd85f2": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/3c8861a3-22ed-4e8f-a5d2-6fb0b3bd85f2",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "3d6105f0-23dd-4d37-8da0-9bb7c2a47caa": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/3d6105f0-23dd-4d37-8da0-9bb7c2a47caa",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "3db40cac-11d0-4a9f-a7e2-8b231fb0c292": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/3db40cac-11d0-4a9f-a7e2-8b231fb0c292",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "3ea2d80c-14db-479b-96ea-1720fd15f57d": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/3ea2d80c-14db-479b-96ea-1720fd15f57d",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "3f3f0e77-bcc8-44cb-93c2-ca74ce3c8cdf": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/3f3f0e77-bcc8-44cb-93c2-ca74ce3c8cdf",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "3f6a14e7-8fdd-438e-9fb7-7c7b1224593b": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/3f6a14e7-8fdd-438e-9fb7-7c7b1224593b",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "3f9e82af-51bc-4bba-b977-1aef42924c32": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/3f9e82af-51bc-4bba-b977-1aef42924c32",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "3fc166eb-75f3-432e-b064-23b78e79bba4": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/3fc166eb-75f3-432e-b064-23b78e79bba4",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "3fdf1d63-edcd-4cab-9310-14b3f38cfbe0": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/3fdf1d63-edcd-4cab-9310-14b3f38cfbe0",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "40a151f5-cff5-4872-92de-e49a3c0f2b22": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/40a151f5-cff5-4872-92de-e49a3c0f2b22",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "40cd03e5-2e34-4b7b-aed3-a4afb30f3044": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/40cd03e5-2e34-4b7b-aed3-a4afb30f3044",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "4227c91c-eb26-418b-97d6-e6a1b6e0cc8a": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/4227c91c-eb26-418b-97d6-e6a1b6e0cc8a",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "42bd0f47-5239-4ed8-bf92-414e0ac5fd25": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/42bd0f47-5239-4ed8-bf92-414e0ac5fd25",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "4318d1ea-bdf2-4645-8a99-3ba88f53927b": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/4318d1ea-bdf2-4645-8a99-3ba88f53927b",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "431b7766-666d-49f5-8f04-4f2d06258d28": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/431b7766-666d-49f5-8f04-4f2d06258d28",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "4346c078-d638-4faf-9221-0e1c4a3bd76d": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/4346c078-d638-4faf-9221-0e1c4a3bd76d",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "45482166-54a4-4a71-a498-0ac11cde8f34": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/45482166-54a4-4a71-a498-0ac11cde8f34",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "45c168ae-82ae-4691-beb9-5423a133e93c": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/45c168ae-82ae-4691-beb9-5423a133e93c",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "46448eb7-aadc-439d-b8f4-4f5cb5a76321": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/46448eb7-aadc-439d-b8f4-4f5cb5a76321",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "470234bb-21be-4d85-81a4-19485189cd4b": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/470234bb-21be-4d85-81a4-19485189cd4b",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "49cc0ba8-02cf-40e6-99dd-f4f035dc63dd": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/49cc0ba8-02cf-40e6-99dd-f4f035dc63dd",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "4b4c6dc1-9cea-418b-8253-6d1f61dd65e9": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/4b4c6dc1-9cea-418b-8253-6d1f61dd65e9",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "4c04d6eb-2d28-4970-aa36-aef299a939e0": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/4c04d6eb-2d28-4970-aa36-aef299a939e0",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "4d4381a8-ccc4-43e0-8b33-f802f27eb4b3": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/4d4381a8-ccc4-43e0-8b33-f802f27eb4b3",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "4d45859c-541c-40c8-80a8-deae31f51c2d": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/4d45859c-541c-40c8-80a8-deae31f51c2d",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "4df1fc99-1809-42f0-8662-a6c75e8bffe9": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/4df1fc99-1809-42f0-8662-a6c75e8bffe9",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "4df57980-63f9-445c-9c83-926ac82e8e17": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/4df57980-63f9-445c-9c83-926ac82e8e17",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "4ee0cfbc-d428-4e00-9b1b-75ced82d5448": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/4ee0cfbc-d428-4e00-9b1b-75ced82d5448",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "4ee5d4b8-3c7f-4931-8596-e4814af37b00": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/4ee5d4b8-3c7f-4931-8596-e4814af37b00",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "4eef3e77-3ba8-47f4-bba8-00590be249db": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/4eef3e77-3ba8-47f4-bba8-00590be249db",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "4f8edeca-f54f-4811-ba2f-49b2db9b1c82": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/4f8edeca-f54f-4811-ba2f-49b2db9b1c82",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "500aa8d0-8af1-4a89-9f83-2cf554a71065": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/500aa8d0-8af1-4a89-9f83-2cf554a71065",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "507189c1-1530-4230-93b1-a68fa1f708a5": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/507189c1-1530-4230-93b1-a68fa1f708a5",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "509257cc-5970-4226-b5ac-fc0dce082f5e": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/509257cc-5970-4226-b5ac-fc0dce082f5e",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "50e82fa1-cb19-4c61-bfdd-86e26c43e743": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/50e82fa1-cb19-4c61-bfdd-86e26c43e743",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "50fa8452-44e9-46d9-a636-48137042b8ad": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/50fa8452-44e9-46d9-a636-48137042b8ad",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "51127bc7-9915-4b3a-8a72-85b764fdf298": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/51127bc7-9915-4b3a-8a72-85b764fdf298",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "51b94450-9377-4a5b-9fb4-fbb6121cac97": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/51b94450-9377-4a5b-9fb4-fbb6121cac97",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "52a1a6fa-6868-4a23-9a14-42b55b750f66": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/52a1a6fa-6868-4a23-9a14-42b55b750f66",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "53cbc13e-b31c-41d1-9ba7-cdcd50c2f443": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/53cbc13e-b31c-41d1-9ba7-cdcd50c2f443",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "53e18063-add6-40cf-b29b-97c41e8d182a": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/53e18063-add6-40cf-b29b-97c41e8d182a",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "546d038f-0aa1-4008-82ed-24efd0de7a2e": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/546d038f-0aa1-4008-82ed-24efd0de7a2e",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "547d2f82-ef2b-4036-93f9-39c112b27ba3": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/547d2f82-ef2b-4036-93f9-39c112b27ba3",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "5502a9a2-2d9c-4320-b372-4df18182b7ee": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/5502a9a2-2d9c-4320-b372-4df18182b7ee",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "55440301-556e-4bb1-96a2-fff273ff7450": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/55440301-556e-4bb1-96a2-fff273ff7450",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "5551761f-b966-4b79-9554-ea5742fe4606": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/5551761f-b966-4b79-9554-ea5742fe4606",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "559514a4-04a8-4feb-a6e0-0483e6621d18": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/559514a4-04a8-4feb-a6e0-0483e6621d18",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "559b0a37-a8da-4d2e-a85e-8d640fa803be": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/559b0a37-a8da-4d2e-a85e-8d640fa803be",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "55dae896-dd29-4d6f-941e-d325c3d419bf": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/55dae896-dd29-4d6f-941e-d325c3d419bf",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "564d97dd-5b0c-448a-af09-1971e12124fb": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/564d97dd-5b0c-448a-af09-1971e12124fb",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "569ec2b3-9485-48a1-9bb4-ae7b1c03c4e4": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/569ec2b3-9485-48a1-9bb4-ae7b1c03c4e4",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "583b8cc1-a3a9-4f94-8f08-785a3b186f33": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/583b8cc1-a3a9-4f94-8f08-785a3b186f33",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "59dd5fde-dafe-4074-9e9e-7bf1ccf71c27": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/59dd5fde-dafe-4074-9e9e-7bf1ccf71c27",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "5ae569cc-02d9-40d1-bde0-720dc077d841": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/5ae569cc-02d9-40d1-bde0-720dc077d841",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "5b4618e7-82e4-49e2-80f3-54624dde17d0": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/5b4618e7-82e4-49e2-80f3-54624dde17d0",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "5b52596c-f6ec-4fdc-adf7-6ada75f10f44": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/5b52596c-f6ec-4fdc-adf7-6ada75f10f44",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "5b56ca8d-e64c-49b2-8af7-0c3e5c5da45c": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/5b56ca8d-e64c-49b2-8af7-0c3e5c5da45c",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "5b733312-313a-40e8-8f96-4be0729be21b": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/5b733312-313a-40e8-8f96-4be0729be21b",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "5ce6490d-8cf5-479b-96c7-28762fc87fdd": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/5ce6490d-8cf5-479b-96c7-28762fc87fdd",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "5d1eb225-8568-4889-ad90-3b7165ef5042": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/5d1eb225-8568-4889-ad90-3b7165ef5042",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "5d251cd4-66ff-465c-b103-6a4697686e65": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/5d251cd4-66ff-465c-b103-6a4697686e65",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "5d3cda8b-54f5-44e0-999c-390965da9205": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/5d3cda8b-54f5-44e0-999c-390965da9205",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "5da8a22a-62e5-49a2-8a32-b90e4a3a2912": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/5da8a22a-62e5-49a2-8a32-b90e4a3a2912",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "5de02db3-7f1a-409f-884c-6da5dcd17e58": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/5de02db3-7f1a-409f-884c-6da5dcd17e58",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "5e2b41ae-4e3c-4d0e-bf6d-0397229c11c3": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/5e2b41ae-4e3c-4d0e-bf6d-0397229c11c3",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "5eac756e-b7fb-451a-9e9f-cf20c6f2e57e": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/5eac756e-b7fb-451a-9e9f-cf20c6f2e57e",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "5ed415cc-74fa-4ae3-b667-298fb77327e5": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/5ed415cc-74fa-4ae3-b667-298fb77327e5",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "5f31c5b2-a2e8-4e3f-9694-c04dd9b9bd06": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/5f31c5b2-a2e8-4e3f-9694-c04dd9b9bd06",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "6004d0a4-d072-4ad0-b7a5-979a85de53e4": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/6004d0a4-d072-4ad0-b7a5-979a85de53e4",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "61b366a2-50ee-4548-8e88-9726a11a6318": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/61b366a2-50ee-4548-8e88-9726a11a6318",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "61ed030a-464c-4ff0-8a30-115ec2d862ca": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/61ed030a-464c-4ff0-8a30-115ec2d862ca",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "62251663-7e8a-4a8b-aabb-200131c46a8c": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/62251663-7e8a-4a8b-aabb-200131c46a8c",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "62856727-5dab-4461-870a-a231444f70b5": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/62856727-5dab-4461-870a-a231444f70b5",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "62ce5cc8-8838-4834-b3d0-9bf3b72b547c": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/62ce5cc8-8838-4834-b3d0-9bf3b72b547c",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "63031c62-a028-430a-84d3-965de28f508e": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/63031c62-a028-430a-84d3-965de28f508e",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "63b7f2ff-ccc6-463d-86bd-d42da233c1fd": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/63b7f2ff-ccc6-463d-86bd-d42da233c1fd",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "64adcd28-29b6-4ce5-8351-718737d18e78": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/64adcd28-29b6-4ce5-8351-718737d18e78",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "672a4fcc-f937-4752-9656-e6bcb837001f": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/672a4fcc-f937-4752-9656-e6bcb837001f",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "674a58c9-d5b4-4763-8ee2-d8447794d027": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/674a58c9-d5b4-4763-8ee2-d8447794d027",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "6856a3a5-b2d6-448f-a02d-3259facd3b4d": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/6856a3a5-b2d6-448f-a02d-3259facd3b4d",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "6a4abf01-cbcf-4da7-b937-06fb1a09a87b": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/6a4abf01-cbcf-4da7-b937-06fb1a09a87b",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "6c135f0f-9b4b-4e7d-972c-b7196079cdc4": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/6c135f0f-9b4b-4e7d-972c-b7196079cdc4",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "6d6f1e16-f5cb-4eab-8208-56f78733456f": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/6d6f1e16-f5cb-4eab-8208-56f78733456f",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "6da025cb-a03c-4488-9553-b1e0b22ef8f9": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/6da025cb-a03c-4488-9553-b1e0b22ef8f9",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "6da8b0dc-c9f8-4ec2-af8c-62ae7b7c9d9e": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/6da8b0dc-c9f8-4ec2-af8c-62ae7b7c9d9e",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "6e615779-f8cc-4db7-a583-be353e59b597": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/6e615779-f8cc-4db7-a583-be353e59b597",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "6f3c3233-ab46-46b2-9630-ccafdbd27265": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/6f3c3233-ab46-46b2-9630-ccafdbd27265",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "6f460b31-94c6-401f-b1db-aaa878ee60cf": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/6f460b31-94c6-401f-b1db-aaa878ee60cf",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "6f654bee-19e5-4b33-83ea-f8dea1ed5ea9": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/6f654bee-19e5-4b33-83ea-f8dea1ed5ea9",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "6f6de9ca-bc67-43ab-979c-4cd397759c35": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/6f6de9ca-bc67-43ab-979c-4cd397759c35",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "6f75974d-8bef-47e6-9d4b-18285664604e": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/6f75974d-8bef-47e6-9d4b-18285664604e",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "70968a9a-e352-4319-b8db-57e40bc53924": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/70968a9a-e352-4319-b8db-57e40bc53924",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "70a1dd27-fc46-4250-8dcb-2e183a00bd08": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/70a1dd27-fc46-4250-8dcb-2e183a00bd08",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "7100d1cb-6586-4def-99a6-813d859f458f": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/7100d1cb-6586-4def-99a6-813d859f458f",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "7102ff6d-beb9-43bb-bda4-325a6cf35a79": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/7102ff6d-beb9-43bb-bda4-325a6cf35a79",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "710fe7c4-ebc1-4293-9676-7269263fb6b1": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/710fe7c4-ebc1-4293-9676-7269263fb6b1",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "722d8edf-2fe2-4c3f-a85a-e693c055ffac": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/722d8edf-2fe2-4c3f-a85a-e693c055ffac",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "72400fab-a576-4238-ba29-d97121a4454a": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/72400fab-a576-4238-ba29-d97121a4454a",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "72479afc-ebb1-4c01-acd2-ef4c7ca152b7": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/72479afc-ebb1-4c01-acd2-ef4c7ca152b7",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "735a560f-f7ec-4df6-bdec-f22d7a8e0efd": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/735a560f-f7ec-4df6-bdec-f22d7a8e0efd",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "73e5fa5d-be7a-4cf4-ac62-0375fbbe628f": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/73e5fa5d-be7a-4cf4-ac62-0375fbbe628f",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "73f5a027-1667-462c-a8be-4df2001a300a": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/73f5a027-1667-462c-a8be-4df2001a300a",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "740c5e21-b6b3-497e-9894-1d808e146045": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/740c5e21-b6b3-497e-9894-1d808e146045",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "74a7f1e1-2813-46a4-a4d6-fcf3308765ef": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/74a7f1e1-2813-46a4-a4d6-fcf3308765ef",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "75e005f1-2c92-4268-940d-77500d7159c3": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/75e005f1-2c92-4268-940d-77500d7159c3",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "7634e333-5496-46d4-b366-27f614107f1f": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/7634e333-5496-46d4-b366-27f614107f1f",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "763de3b7-0859-4e65-b45a-276c37b98961": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/763de3b7-0859-4e65-b45a-276c37b98961",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "76a3200e-499c-47ea-b061-e490f3e08839": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/76a3200e-499c-47ea-b061-e490f3e08839",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "770aec72-1e6c-4793-9eb6-e0bb3a643a8a": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/770aec72-1e6c-4793-9eb6-e0bb3a643a8a",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "791e4e2a-11ba-40b2-ab0f-06ec6b0f04e6": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/791e4e2a-11ba-40b2-ab0f-06ec6b0f04e6",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "79932866-4f9c-49d9-a1bb-f054f695dc4a": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/79932866-4f9c-49d9-a1bb-f054f695dc4a",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "7a946a9b-1a7b-400a-8965-0a4fd4d35d9f": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/7a946a9b-1a7b-400a-8965-0a4fd4d35d9f",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "7ab785e3-4839-4876-962d-b14ad50028be": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/7ab785e3-4839-4876-962d-b14ad50028be",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "7ba5b403-338c-4bd9-a6c1-352876650cd5": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/7ba5b403-338c-4bd9-a6c1-352876650cd5",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "7bdd2899-7665-472e-848f-0e274e3ce5a8": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/7bdd2899-7665-472e-848f-0e274e3ce5a8",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "7cd859ce-fbdc-4caa-86fc-9d181e23117b": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/7cd859ce-fbdc-4caa-86fc-9d181e23117b",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "7da1f613-bd22-496f-a306-bf756c56e6dc": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/7da1f613-bd22-496f-a306-bf756c56e6dc",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "7dc2ab72-92ee-43e2-9627-39ca1fe2830e": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/7dc2ab72-92ee-43e2-9627-39ca1fe2830e",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "7e0883af-26b7-4b55-93b8-6c4ae65e5054": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/7e0883af-26b7-4b55-93b8-6c4ae65e5054",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "7eea464d-9275-4fe7-9a9f-87d7f2c745af": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/7eea464d-9275-4fe7-9a9f-87d7f2c745af",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "7f1720eb-bf67-47bf-b005-6943fb99b7ae": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/7f1720eb-bf67-47bf-b005-6943fb99b7ae",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "7f182360-ffc8-4975-9f50-0a86d361aca3": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/7f182360-ffc8-4975-9f50-0a86d361aca3",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "7f752f0f-cb5f-4e54-9a16-2a87108a9f1c": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/7f752f0f-cb5f-4e54-9a16-2a87108a9f1c",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "80252058-1cb1-4bbd-99f0-17324e1649be": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/80252058-1cb1-4bbd-99f0-17324e1649be",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "80ad72cf-fcab-4bd3-9f1c-3623d03700e2": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/80ad72cf-fcab-4bd3-9f1c-3623d03700e2",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "80c5b233-d55d-43d4-afc2-4340829aa88f": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/80c5b233-d55d-43d4-afc2-4340829aa88f",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "811303ae-36cb-4aba-9b32-68ea776aad8e": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/811303ae-36cb-4aba-9b32-68ea776aad8e",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "817453e3-bc89-45fc-9bd1-0f35aa757cc9": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/817453e3-bc89-45fc-9bd1-0f35aa757cc9",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "819db052-9191-4db5-adfe-3941aeed1fdc": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/819db052-9191-4db5-adfe-3941aeed1fdc",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "82ca50e4-9443-4597-b090-5897a9c8335b": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/82ca50e4-9443-4597-b090-5897a9c8335b",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "839df4e5-0bb0-4e6d-9a0c-e92fafb560dc": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/839df4e5-0bb0-4e6d-9a0c-e92fafb560dc",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "83fcab7d-dc9d-4c65-8615-7d2124943e80": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/83fcab7d-dc9d-4c65-8615-7d2124943e80",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "840bf18a-6ff6-4af8-bec2-303fbd82963a": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/840bf18a-6ff6-4af8-bec2-303fbd82963a",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "84a713ac-99e2-4a70-9be7-18ff99ad43fe": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/84a713ac-99e2-4a70-9be7-18ff99ad43fe",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "84d43cad-a4f6-4060-81ac-095f2621d443": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/84d43cad-a4f6-4060-81ac-095f2621d443",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "85ba841f-1277-44c4-b554-54088ac26e8a": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/85ba841f-1277-44c4-b554-54088ac26e8a",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "86777151-c011-4c6e-b6cd-46c7d35b361a": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/86777151-c011-4c6e-b6cd-46c7d35b361a",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "86eeaea6-c930-4dfd-8a3a-bf8c08b98531": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/86eeaea6-c930-4dfd-8a3a-bf8c08b98531",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "87988dec-4efe-4c61-905d-47604fa3d926": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/87988dec-4efe-4c61-905d-47604fa3d926",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "885c9bfa-0944-4e34-a221-88de0e13715c": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/885c9bfa-0944-4e34-a221-88de0e13715c",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "88a11598-ab0e-40bf-9082-50f5652ad599": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/88a11598-ab0e-40bf-9082-50f5652ad599",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "8904c5ab-dda8-4568-a03f-cf96204006e2": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/8904c5ab-dda8-4568-a03f-cf96204006e2",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "89891bb4-d7dc-4be9-9dce-021e0ef6359f": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/89891bb4-d7dc-4be9-9dce-021e0ef6359f",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "89b23df9-d365-4a41-88a1-40e9298122f8": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/89b23df9-d365-4a41-88a1-40e9298122f8",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "8a4424c5-ebb0-4d2d-938d-4e05ec54ad52": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/8a4424c5-ebb0-4d2d-938d-4e05ec54ad52",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "8a5e7580-3a5e-4a71-9fc7-5221b10d8d3f": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/8a5e7580-3a5e-4a71-9fc7-5221b10d8d3f",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "8a920f60-23f6-4160-a549-9f23d938d220": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/8a920f60-23f6-4160-a549-9f23d938d220",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "8a93628f-e3bc-4f7e-a9c1-91e4462a7e5b": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/8a93628f-e3bc-4f7e-a9c1-91e4462a7e5b",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "8adf6534-6511-4902-a631-5f12bbe4b247": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/8adf6534-6511-4902-a631-5f12bbe4b247",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "8af9e967-d30d-4f98-aa8f-77cd1751f3e0": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/8af9e967-d30d-4f98-aa8f-77cd1751f3e0",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "8b3afa31-1cab-474d-8f70-6370dfdfaa32": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/8b3afa31-1cab-474d-8f70-6370dfdfaa32",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "8cf6a336-28b1-4511-87c1-623027e2797e": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/8cf6a336-28b1-4511-87c1-623027e2797e",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "8d40df8a-1879-4ee7-829a-51d55915d6ad": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/8d40df8a-1879-4ee7-829a-51d55915d6ad",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "8d68b774-720b-4403-8066-bb4bb317e84a": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/8d68b774-720b-4403-8066-bb4bb317e84a",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "8dd22a9e-2c60-4958-a73b-1532fdca8215": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/8dd22a9e-2c60-4958-a73b-1532fdca8215",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "8e47bfd8-c4c8-469f-922d-f6bb5bd9a0d7": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/8e47bfd8-c4c8-469f-922d-f6bb5bd9a0d7",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "8e4ce775-5ba3-4ad2-a4c3-eebe696f4aab": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/8e4ce775-5ba3-4ad2-a4c3-eebe696f4aab",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "8e779584-d721-41f9-8e6f-caca1d86b3ea": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/8e779584-d721-41f9-8e6f-caca1d86b3ea",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "8ea9ef43-f262-4572-a85b-eb8d06568d64": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/8ea9ef43-f262-4572-a85b-eb8d06568d64",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "8eb49f99-7475-4d1a-bc14-c4a6fec7cef5": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/8eb49f99-7475-4d1a-bc14-c4a6fec7cef5",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "8ebfcb20-fc24-4d80-a472-d51a7f29e7ea": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/8ebfcb20-fc24-4d80-a472-d51a7f29e7ea",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "9027f9d8-3d9d-440b-955e-b34b41bff30d": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/9027f9d8-3d9d-440b-955e-b34b41bff30d",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "91272dd6-afba-4e68-a956-384c783fd080": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/91272dd6-afba-4e68-a956-384c783fd080",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "916239d7-adbb-438d-99ba-d70bed604344": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/916239d7-adbb-438d-99ba-d70bed604344",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "91da99d5-e7e9-4cff-b61f-ad3b7102591e": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/91da99d5-e7e9-4cff-b61f-ad3b7102591e",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "91eb8fb9-b7d2-41d3-9ee2-615e33d20180": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/91eb8fb9-b7d2-41d3-9ee2-615e33d20180",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "91f3ab73-c6a4-4bf0-a3f0-d9e677d0bd46": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/91f3ab73-c6a4-4bf0-a3f0-d9e677d0bd46",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "924d36ca-7cc1-4935-9e0d-65bff71e91d6": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/924d36ca-7cc1-4935-9e0d-65bff71e91d6",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "92757665-4848-49b3-91e8-316f35314173": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/92757665-4848-49b3-91e8-316f35314173",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "9277043e-12f4-4d59-82b9-ad0230c9d4fa": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/9277043e-12f4-4d59-82b9-ad0230c9d4fa",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "9296bbb8-35aa-41e5-9c69-dff58ce8a265": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/9296bbb8-35aa-41e5-9c69-dff58ce8a265",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "931b6725-da51-4c58-abb7-0697de796f78": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/931b6725-da51-4c58-abb7-0697de796f78",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "93713d68-101b-48cb-975c-8b6ba6a59994": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/93713d68-101b-48cb-975c-8b6ba6a59994",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "937af606-34bb-4a2e-95b7-a9339059d09d": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/937af606-34bb-4a2e-95b7-a9339059d09d",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "938a3963-9504-4e00-979b-bebfb6f3245b": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/938a3963-9504-4e00-979b-bebfb6f3245b",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "94124855-e9e0-4589-96c5-f0738d3b7db9": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/94124855-e9e0-4589-96c5-f0738d3b7db9",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "94959620-dc1f-43e2-9bba-26e39fb4541c": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/94959620-dc1f-43e2-9bba-26e39fb4541c",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "94de59b9-a27b-4177-aa0f-7b8186c0048a": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/94de59b9-a27b-4177-aa0f-7b8186c0048a",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "94ede138-763f-4482-9dc1-fde4640e6933": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/94ede138-763f-4482-9dc1-fde4640e6933",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "953970bd-9329-4a4d-ba7a-2c7b6f31c3d4": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/953970bd-9329-4a4d-ba7a-2c7b6f31c3d4",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "958bb081-0d31-4839-be8b-1c75a4c20d53": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/958bb081-0d31-4839-be8b-1c75a4c20d53",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "95e375b3-d856-4121-9eb8-ccf33cbf2f2d": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/95e375b3-d856-4121-9eb8-ccf33cbf2f2d",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "964015bc-f5d3-4413-9b47-83b65a8bac33": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/964015bc-f5d3-4413-9b47-83b65a8bac33",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "96c265cc-2a97-4068-8ce8-da48ab745e9f": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/96c265cc-2a97-4068-8ce8-da48ab745e9f",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "9801ac6f-acd7-4755-bf9a-055d41eee88f": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/9801ac6f-acd7-4755-bf9a-055d41eee88f",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "9894ce26-cb72-473c-ac3e-bd6aa858ab05": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/9894ce26-cb72-473c-ac3e-bd6aa858ab05",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "98ad559b-0ce8-4b5f-bcf8-c30badfec1ac": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/98ad559b-0ce8-4b5f-bcf8-c30badfec1ac",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "98e5e91d-231a-4374-8a8c-9767029f5e76": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/98e5e91d-231a-4374-8a8c-9767029f5e76",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "9917f5f2-ba09-442c-b3f7-14b937395343": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/9917f5f2-ba09-442c-b3f7-14b937395343",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "9920e44c-c716-41f9-b3df-157efa12591c": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/9920e44c-c716-41f9-b3df-157efa12591c",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "996acc37-3d6a-40b5-9bcc-dceb63edab09": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/996acc37-3d6a-40b5-9bcc-dceb63edab09",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "998d4972-7d68-4492-88b0-428b68c4d8ec": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/998d4972-7d68-4492-88b0-428b68c4d8ec",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "9999e090-e4d6-4669-93bd-8edd5b7dd14d": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/9999e090-e4d6-4669-93bd-8edd5b7dd14d",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "99bba006-cbb8-408d-b79c-48f39f9707f0": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/99bba006-cbb8-408d-b79c-48f39f9707f0",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "9a3571e0-39e1-451b-a89f-497fcddf4a87": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/9a3571e0-39e1-451b-a89f-497fcddf4a87",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "9a38b2fe-2be6-41d7-8f94-107de1a3bc46": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/9a38b2fe-2be6-41d7-8f94-107de1a3bc46",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "9c3c0f06-5b47-4d2a-a3ae-c667275b0cb2": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/9c3c0f06-5b47-4d2a-a3ae-c667275b0cb2",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "9ce18f89-7815-4689-a71e-171207c3def8": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/9ce18f89-7815-4689-a71e-171207c3def8",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "9da95508-291b-4c37-b225-254e95be05d7": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/9da95508-291b-4c37-b225-254e95be05d7",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "9e73b079-61f1-4cd2-8209-c3d730aaff40": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/9e73b079-61f1-4cd2-8209-c3d730aaff40",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "9f660854-32f0-46b9-9466-fa5bd3ec1838": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/9f660854-32f0-46b9-9466-fa5bd3ec1838",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "9f9de7a7-00df-40d0-b707-b79e8489681c": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/9f9de7a7-00df-40d0-b707-b79e8489681c",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "9fb1954c-b268-4cfa-9577-619889db74cc": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/9fb1954c-b268-4cfa-9577-619889db74cc",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "a0769f6a-d1e1-4686-a940-9bf51db16267": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/a0769f6a-d1e1-4686-a940-9bf51db16267",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "a0b15bc4-ef69-4cdb-b251-ea059c276299": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/a0b15bc4-ef69-4cdb-b251-ea059c276299",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "a1571aa0-69fb-45ed-8e4c-7b88c918c90f": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/a1571aa0-69fb-45ed-8e4c-7b88c918c90f",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "a2fcd106-06ee-4b7c-aa18-c767a253e5b6": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/a2fcd106-06ee-4b7c-aa18-c767a253e5b6",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "a308857c-b467-4588-9cd1-01d1baf220c1": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/a308857c-b467-4588-9cd1-01d1baf220c1",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "a3488881-043b-4373-917f-f5c1c1c997d8": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/a3488881-043b-4373-917f-f5c1c1c997d8",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "a541974d-5c9e-4037-8765-325516d9a829": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/a541974d-5c9e-4037-8765-325516d9a829",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "a58595c0-3de0-4e28-ae3f-79abaa3923ef": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/a58595c0-3de0-4e28-ae3f-79abaa3923ef",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "a72fd1c8-e621-4520-b6df-a91825dc9d5a": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/a72fd1c8-e621-4520-b6df-a91825dc9d5a",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "a765f73b-d7b3-453d-8581-2e3cc6731e91": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/a765f73b-d7b3-453d-8581-2e3cc6731e91",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "a76f4e8c-4aea-4100-aa76-5b8ee6d49737": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/a76f4e8c-4aea-4100-aa76-5b8ee6d49737",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "a7f3f1a8-f716-4a7e-ae96-fb93a7bbab65": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/a7f3f1a8-f716-4a7e-ae96-fb93a7bbab65",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "a83d70fc-5213-4e74-8836-909fcd6b5fae": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/a83d70fc-5213-4e74-8836-909fcd6b5fae",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "a8910ee6-c1e8-4454-98ca-aa35786da79f": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/a8910ee6-c1e8-4454-98ca-aa35786da79f",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "a89924d7-c8f4-4c77-84fc-d6591af296d8": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/a89924d7-c8f4-4c77-84fc-d6591af296d8",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "a8d325ed-15f6-4f3f-8259-5a00b3da2d94": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/a8d325ed-15f6-4f3f-8259-5a00b3da2d94",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "a8f72e44-243f-41c1-ad62-45e8a19a64c5": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/a8f72e44-243f-41c1-ad62-45e8a19a64c5",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "a93ea8c7-be02-4813-b773-48ddc24f187f": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/a93ea8c7-be02-4813-b773-48ddc24f187f",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "a94bad7d-28ef-4047-81a9-184e133ce8f4": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/a94bad7d-28ef-4047-81a9-184e133ce8f4",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "aa1203c2-1797-40fa-8c09-ae51d8530c24": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/aa1203c2-1797-40fa-8c09-ae51d8530c24",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "aa80eb0c-0894-4e29-a530-361a9dbcdf76": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/aa80eb0c-0894-4e29-a530-361a9dbcdf76",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "aab2b084-96c1-4958-a8c9-93d98325e2a2": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/aab2b084-96c1-4958-a8c9-93d98325e2a2",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "aab57193-6ac8-401e-a0cb-37016e4787a3": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/aab57193-6ac8-401e-a0cb-37016e4787a3",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "aac01a46-d1b8-4636-b5b5-c240eeea0d86": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/aac01a46-d1b8-4636-b5b5-c240eeea0d86",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "ab21882d-ec2f-4411-ae6f-3653b6b6d810": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/ab21882d-ec2f-4411-ae6f-3653b6b6d810",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "ac6d0798-5eff-4434-8373-fe4cf6251f14": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/ac6d0798-5eff-4434-8373-fe4cf6251f14",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "ada787ae-fce2-4c06-af4a-931cff00f715": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/ada787ae-fce2-4c06-af4a-931cff00f715",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "add72cd0-158f-45db-afaf-8f7950d719ab": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/add72cd0-158f-45db-afaf-8f7950d719ab",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "b073eead-f4d2-4c7a-b704-338b5e6ec1d9": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/b073eead-f4d2-4c7a-b704-338b5e6ec1d9",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "b0bc11c1-96ab-47f7-bdd1-adbfe8887230": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/b0bc11c1-96ab-47f7-bdd1-adbfe8887230",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "b15556db-b459-4ca9-9b98-4090ab51f33d": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/b15556db-b459-4ca9-9b98-4090ab51f33d",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "b1ed8b54-ce82-457c-8246-bf89d7a1a5c3": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/b1ed8b54-ce82-457c-8246-bf89d7a1a5c3",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "b315f719-ef2d-441f-a1b2-c1427c54c733": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/b315f719-ef2d-441f-a1b2-c1427c54c733",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "b46150b5-8453-4b9c-860f-39087b30a96c": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/b46150b5-8453-4b9c-860f-39087b30a96c",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "b488ddc6-20f9-43d1-a004-4fdbffb89acb": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/b488ddc6-20f9-43d1-a004-4fdbffb89acb",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "b57099a8-00a1-4312-9f4a-701ebe8f9160": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/b57099a8-00a1-4312-9f4a-701ebe8f9160",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "b5db3758-79fc-4287-aa1b-264e5a94e444": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/b5db3758-79fc-4287-aa1b-264e5a94e444",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "b5f4c345-108c-468e-a8b5-bccf79fbf538": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/b5f4c345-108c-468e-a8b5-bccf79fbf538",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "b616d330-cc91-4e91-b6da-cf40fb3de485": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/b616d330-cc91-4e91-b6da-cf40fb3de485",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "b6e29fe0-1891-4677-ae0c-61cf18fe350d": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/b6e29fe0-1891-4677-ae0c-61cf18fe350d",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "b7296acf-7d16-4cef-8c6a-bee7b9804ca5": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/b7296acf-7d16-4cef-8c6a-bee7b9804ca5",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "b85f7bdf-cb63-4643-85c6-a092764423d0": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/b85f7bdf-cb63-4643-85c6-a092764423d0",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "b8bdcb60-be61-4167-9af2-9c3e3be687d7": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/b8bdcb60-be61-4167-9af2-9c3e3be687d7",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "b96ce0bc-528d-4840-b903-bfff275d0e38": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/b96ce0bc-528d-4840-b903-bfff275d0e38",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "b976aede-d52d-4742-86d8-0c424872feaa": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/b976aede-d52d-4742-86d8-0c424872feaa",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "b9ba9a86-d730-4a7c-a394-ff94c1e6c799": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/b9ba9a86-d730-4a7c-a394-ff94c1e6c799",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "ba616f7f-d715-4651-aeca-1128e686450e": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/ba616f7f-d715-4651-aeca-1128e686450e",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "baca01da-04b9-413f-b770-d6b010135431": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/baca01da-04b9-413f-b770-d6b010135431",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "bad37770-b140-40f2-8da3-0dedd8c0da30": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/bad37770-b140-40f2-8da3-0dedd8c0da30",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "bc0ade61-7587-4ffc-88ca-2f2605c2f13c": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/bc0ade61-7587-4ffc-88ca-2f2605c2f13c",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "bc809d15-86e9-48d8-acd7-3fd105fb2d18": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/bc809d15-86e9-48d8-acd7-3fd105fb2d18",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "bc95896f-a0c2-4006-bd82-5d19be77db57": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/bc95896f-a0c2-4006-bd82-5d19be77db57",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "bd4f8734-105e-4dd0-aacb-5b87e5aa9f47": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/bd4f8734-105e-4dd0-aacb-5b87e5aa9f47",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "be3c851e-4d01-4673-8d7f-0c124c6a70ec": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/be3c851e-4d01-4673-8d7f-0c124c6a70ec",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "be48a194-05e7-4bfb-9ea4-3a166b90abf8": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/be48a194-05e7-4bfb-9ea4-3a166b90abf8",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "be5f6c1e-cd07-411d-bf6a-2494a51827cc": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/be5f6c1e-cd07-411d-bf6a-2494a51827cc",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "be6de8fb-bc4d-4f41-840c-514b9f66c2ca": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/be6de8fb-bc4d-4f41-840c-514b9f66c2ca",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "beec3c15-62a9-4588-824c-c7ac37072ea1": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/beec3c15-62a9-4588-824c-c7ac37072ea1",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "bfbebb1c-dce6-40fe-8ad5-4934ab9080bd": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/bfbebb1c-dce6-40fe-8ad5-4934ab9080bd",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "bff5a535-bab2-46d9-9fe1-f83519aa5010": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/bff5a535-bab2-46d9-9fe1-f83519aa5010",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "c00e676a-91e2-4fe1-aeef-9649789bd4e0": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/c00e676a-91e2-4fe1-aeef-9649789bd4e0",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "c03293d5-856a-4a8f-ad4a-2dd4e248dd2a": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/c03293d5-856a-4a8f-ad4a-2dd4e248dd2a",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "c05ea6b7-c5a1-4b69-a22b-7e600c5ccb93": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/c05ea6b7-c5a1-4b69-a22b-7e600c5ccb93",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "c2d7b1ae-45da-4265-b250-1e9b4e54e3e1": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/c2d7b1ae-45da-4265-b250-1e9b4e54e3e1",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "c351e415-4357-4f28-ab12-ee15ae3d3284": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/c351e415-4357-4f28-ab12-ee15ae3d3284",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "c3764414-4f1d-49d1-8b4f-e582c2e05729": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/c3764414-4f1d-49d1-8b4f-e582c2e05729",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "c42ab46e-4e49-43b5-8208-122a1b40979a": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/c42ab46e-4e49-43b5-8208-122a1b40979a",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "c46a2ebf-30f1-4889-981f-ec4bdfa3d93a": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/c46a2ebf-30f1-4889-981f-ec4bdfa3d93a",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "c501cac2-8d7d-44e3-8f77-6b00e9be539b": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/c501cac2-8d7d-44e3-8f77-6b00e9be539b",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "c5403f6c-5e64-43cb-8a98-b07922f3d479": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/c5403f6c-5e64-43cb-8a98-b07922f3d479",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "c5d14580-b53a-4bc3-b130-8f85c0dc63f0": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/c5d14580-b53a-4bc3-b130-8f85c0dc63f0",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "c67c1451-3d19-4a4d-96b4-ff03b2ab0764": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/c67c1451-3d19-4a4d-96b4-ff03b2ab0764",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "c7deee48-d55a-498d-b341-a88e7604677f": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/c7deee48-d55a-498d-b341-a88e7604677f",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "c8457d49-541c-40a9-aa49-b1bac7823ae0": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/c8457d49-541c-40a9-aa49-b1bac7823ae0",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "c8e38053-9372-414f-8ba3-20c592037e85": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/c8e38053-9372-414f-8ba3-20c592037e85",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "c950e7b8-0528-45a0-bed9-04a98a86d3e8": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/c950e7b8-0528-45a0-bed9-04a98a86d3e8",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "c9e1bb9e-3f74-48a5-b9aa-551112d66f6a": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/c9e1bb9e-3f74-48a5-b9aa-551112d66f6a",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "cae5ac42-0ff7-490b-82d5-ae1dad6ef88e": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/cae5ac42-0ff7-490b-82d5-ae1dad6ef88e",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "cbdb4182-91cc-4052-ab2e-15b74d054f1e": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/cbdb4182-91cc-4052-ab2e-15b74d054f1e",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "ce1f9c6b-98e7-4951-8589-941c7a2343a2": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/ce1f9c6b-98e7-4951-8589-941c7a2343a2",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "ce383cf3-3681-4fa9-8c24-988b22472b16": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/ce383cf3-3681-4fa9-8c24-988b22472b16",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "cee08b8e-dcc9-45c5-8193-ef4be6f5d616": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/cee08b8e-dcc9-45c5-8193-ef4be6f5d616",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "cee9b7e9-0b79-441f-8289-e2b39446fe01": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/cee9b7e9-0b79-441f-8289-e2b39446fe01",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "d0e8a98c-5a8d-46a0-bea2-d13d2b63bf8c": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/d0e8a98c-5a8d-46a0-bea2-d13d2b63bf8c",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "d1825031-b019-4e60-8ac7-79e7bf6e59b1": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/d1825031-b019-4e60-8ac7-79e7bf6e59b1",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "d1e0fb90-a025-4cc4-8ab7-de24b5d92d8c": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/d1e0fb90-a025-4cc4-8ab7-de24b5d92d8c",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "d2719d87-6cfc-4c57-9478-ae63a1d896a7": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/d2719d87-6cfc-4c57-9478-ae63a1d896a7",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "d27e6501-ba02-4c54-96af-0f27731754cf": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/d27e6501-ba02-4c54-96af-0f27731754cf",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "d2c29974-ae75-473c-b0c4-b8db696e693a": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/d2c29974-ae75-473c-b0c4-b8db696e693a",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "d3828a8e-f705-41e7-ae13-321735f9461f": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/d3828a8e-f705-41e7-ae13-321735f9461f",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "d3bb643a-69ae-4b9c-8fe3-59d78c6550a0": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/d3bb643a-69ae-4b9c-8fe3-59d78c6550a0",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "d3c63e90-d510-4da6-b676-6cc4feb7f33c": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/d3c63e90-d510-4da6-b676-6cc4feb7f33c",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "d483cc89-1bdf-4fe1-a6b2-fb69288db999": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/d483cc89-1bdf-4fe1-a6b2-fb69288db999",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "d4f0b8b7-b556-473a-af4e-e38aa3521960": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/d4f0b8b7-b556-473a-af4e-e38aa3521960",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "d6645c95-121c-433d-8345-7d061d9bd63a": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/d6645c95-121c-433d-8345-7d061d9bd63a",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "d727eef3-8033-4453-97dc-a819e4682976": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/d727eef3-8033-4453-97dc-a819e4682976",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "d741b6df-2bba-46f0-ac1e-e87ef68ffeaf": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/d741b6df-2bba-46f0-ac1e-e87ef68ffeaf",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "d96c4d34-70d9-4667-a458-5aec7e69b8d3": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/d96c4d34-70d9-4667-a458-5aec7e69b8d3",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "d979e0ab-b5da-40b6-9496-f6150fd96088": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/d979e0ab-b5da-40b6-9496-f6150fd96088",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "d9a90222-ae53-421f-9b9a-9f8df97b34d3": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/d9a90222-ae53-421f-9b9a-9f8df97b34d3",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "da2bdeb3-a330-4f38-b8ec-267467020c5b": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/da2bdeb3-a330-4f38-b8ec-267467020c5b",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "dba369f8-ae56-4739-b132-28dcf986eb07": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/dba369f8-ae56-4739-b132-28dcf986eb07",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "dc133a75-13a6-48df-9197-e98527c1256b": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/dc133a75-13a6-48df-9197-e98527c1256b",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "dc2dd247-d7ee-43f2-a857-1abd069bb4f4": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/dc2dd247-d7ee-43f2-a857-1abd069bb4f4",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "dc920490-afc1-40c2-ab77-c5f44c06363b": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/dc920490-afc1-40c2-ab77-c5f44c06363b",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "dcdf313f-7576-4ee7-9b2a-5f5617412e88": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/dcdf313f-7576-4ee7-9b2a-5f5617412e88",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "dcf96cd9-3eb4-4055-908b-138c7d6c55e1": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/dcf96cd9-3eb4-4055-908b-138c7d6c55e1",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "df1fbf42-5bc6-4256-8107-b44fec7972b8": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/df1fbf42-5bc6-4256-8107-b44fec7972b8",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "df9696dc-2c66-4a42-b8cb-9f5f57aa4f10": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/df9696dc-2c66-4a42-b8cb-9f5f57aa4f10",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "dfd916aa-b3d5-4ddc-886d-e252d6577c76": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/dfd916aa-b3d5-4ddc-886d-e252d6577c76",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "dfe5e89c-1d2a-472a-8c7f-18a7a70f1fab": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/dfe5e89c-1d2a-472a-8c7f-18a7a70f1fab",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "e03e8536-5301-49d5-b6eb-d0db2ca02230": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/e03e8536-5301-49d5-b6eb-d0db2ca02230",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "e0404c33-4239-450a-8ad9-7bacb47f5f73": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/e0404c33-4239-450a-8ad9-7bacb47f5f73",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "e0749ce5-ae32-46e8-84fc-304f7775fed1": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/e0749ce5-ae32-46e8-84fc-304f7775fed1",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "e08cd55d-5c24-44b6-a4f0-4c37a6d10b62": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/e08cd55d-5c24-44b6-a4f0-4c37a6d10b62",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "e1434c69-9a5f-4761-ba28-cc4067c610b0": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/e1434c69-9a5f-4761-ba28-cc4067c610b0",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "e1cb6536-02ee-4009-a1d0-b8a22ca92875": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/e1cb6536-02ee-4009-a1d0-b8a22ca92875",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "e20828e8-4c32-4a90-8740-6d91d0056896": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/e20828e8-4c32-4a90-8740-6d91d0056896",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "e22bc845-d458-4ba1-b94c-3f96b67122d5": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/e22bc845-d458-4ba1-b94c-3f96b67122d5",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "e2bd895d-dd6d-486a-af8b-a2e805f9b9bd": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/e2bd895d-dd6d-486a-af8b-a2e805f9b9bd",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "e2ddbe8d-e86a-49e3-8a0b-a41b40ff3b88": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/e2ddbe8d-e86a-49e3-8a0b-a41b40ff3b88",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "e50a545a-2502-411d-9175-63255f36680b": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/e50a545a-2502-411d-9175-63255f36680b",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "e51f4b28-fe77-449f-b0fa-76190fb00f2c": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/e51f4b28-fe77-449f-b0fa-76190fb00f2c",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "e54b65ff-8676-4873-841f-23d97745b2c0": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/e54b65ff-8676-4873-841f-23d97745b2c0",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "e59f03a4-bdf9-4ec3-840d-0943a318f5bb": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/e59f03a4-bdf9-4ec3-840d-0943a318f5bb",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "e5c08eb2-814c-475d-bc85-79ee137c8472": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/e5c08eb2-814c-475d-bc85-79ee137c8472",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "e5f1f223-6d70-4bae-b4bd-e6bf0adcf8f4": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/e5f1f223-6d70-4bae-b4bd-e6bf0adcf8f4",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "e6779b86-5bf4-4ab0-b7dc-291c788043ae": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/e6779b86-5bf4-4ab0-b7dc-291c788043ae",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "e743f3f7-9514-4284-8e7f-50b1303a478a": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/e743f3f7-9514-4284-8e7f-50b1303a478a",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "e85c9aff-1c11-4f2a-9dd9-d2990080879c": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/e85c9aff-1c11-4f2a-9dd9-d2990080879c",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "e8f1577f-3135-413d-9e98-86a365c766d3": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/e8f1577f-3135-413d-9e98-86a365c766d3",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "e919e1cf-6581-47e8-a5b3-4fef6eb3b518": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/e919e1cf-6581-47e8-a5b3-4fef6eb3b518",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "e92ae30a-bf1c-47c2-bcf9-2fa2aa462b4a": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/e92ae30a-bf1c-47c2-bcf9-2fa2aa462b4a",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "e9ce6b50-68eb-41a9-bc00-269ca2e94778": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/e9ce6b50-68eb-41a9-bc00-269ca2e94778",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "e9f65ad7-41e8-403b-ae8c-8a04d42c50bf": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/e9f65ad7-41e8-403b-ae8c-8a04d42c50bf",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "ea3efbba-dd3b-4da4-b7b6-6e73e27b64fe": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/ea3efbba-dd3b-4da4-b7b6-6e73e27b64fe",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "ea4cfb37-d5e2-4e88-b403-cab4037a6aaa": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/ea4cfb37-d5e2-4e88-b403-cab4037a6aaa",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "eb3d78bd-b6d9-4f9c-b3f0-152b04748327": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/eb3d78bd-b6d9-4f9c-b3f0-152b04748327",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "ece92df6-fce8-4a23-a69b-73687dc40baa": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/ece92df6-fce8-4a23-a69b-73687dc40baa",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "ed03ec9a-7ed3-43c9-a0a7-da3199e368d7": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/ed03ec9a-7ed3-43c9-a0a7-da3199e368d7",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "ed421759-ef6b-4d96-ae8e-457ab87e9794": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/ed421759-ef6b-4d96-ae8e-457ab87e9794",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "ee42b2e6-ae05-4c79-9815-847e1eeabe09": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/ee42b2e6-ae05-4c79-9815-847e1eeabe09",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "ee9c24e1-ab11-47e7-8ae1-604052635ded": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/ee9c24e1-ab11-47e7-8ae1-604052635ded",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "ef8f9d80-49f5-42ee-be11-34b53dbddfd2": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/ef8f9d80-49f5-42ee-be11-34b53dbddfd2",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "f0ec37da-e589-4968-af46-06bb3b4748a6": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/f0ec37da-e589-4968-af46-06bb3b4748a6",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "f132d093-c720-4786-a327-6327ae1f00e5": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/f132d093-c720-4786-a327-6327ae1f00e5",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "f14d2954-6ca4-468b-8cb8-5a2bef82f78d": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/f14d2954-6ca4-468b-8cb8-5a2bef82f78d",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "f1b1bbd7-3a75-4bdb-bc5f-d80af2c33e06": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/f1b1bbd7-3a75-4bdb-bc5f-d80af2c33e06",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "f1beeb02-96d0-4066-b9b6-e7d7273ff59f": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/f1beeb02-96d0-4066-b9b6-e7d7273ff59f",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "f1c24a65-bd85-4b62-bdc8-93edc2250ffa": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/f1c24a65-bd85-4b62-bdc8-93edc2250ffa",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "f208a56f-4f29-4bc9-b9a2-79a84b370f8f": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/f208a56f-4f29-4bc9-b9a2-79a84b370f8f",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "f24a865f-14c7-4f77-bc31-9d3a124533eb": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/f24a865f-14c7-4f77-bc31-9d3a124533eb",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "f2d55641-6ed5-4c23-9a1c-d43979a954e2": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/f2d55641-6ed5-4c23-9a1c-d43979a954e2",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "f5194761-e6f7-4582-8728-ee28a773f0dd": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/f5194761-e6f7-4582-8728-ee28a773f0dd",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "f538516c-f4d7-4633-adf0-a4ca57cfe3ec": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/f538516c-f4d7-4633-adf0-a4ca57cfe3ec",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "f5b5110d-f1b0-4651-8ae9-0c5272a0d624": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/f5b5110d-f1b0-4651-8ae9-0c5272a0d624",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "f629191a-c847-4221-8685-fc73e9664924": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/f629191a-c847-4221-8685-fc73e9664924",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "f65004ea-7fe3-4950-9c98-8ee478761b57": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/f65004ea-7fe3-4950-9c98-8ee478761b57",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "f6fe3f61-3718-45dd-9d8d-aa1ddeedaf9a": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/f6fe3f61-3718-45dd-9d8d-aa1ddeedaf9a",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "f770bbec-dd93-46c1-b2e8-a1c09784e103": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/f770bbec-dd93-46c1-b2e8-a1c09784e103",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "f79f68a1-173b-4f3a-ad1a-02fdd276cd61": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/f79f68a1-173b-4f3a-ad1a-02fdd276cd61",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "f7bd60c5-5cfc-4a44-952e-313561837712": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/f7bd60c5-5cfc-4a44-952e-313561837712",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "f7dd431e-3bcf-48e7-a391-224a2ed9160a": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/f7dd431e-3bcf-48e7-a391-224a2ed9160a",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "f86f9357-6dda-4d77-8700-a15b14ba02bd": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/f86f9357-6dda-4d77-8700-a15b14ba02bd",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "f8949d44-1573-485b-8249-afb2fb4cd35d": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/f8949d44-1573-485b-8249-afb2fb4cd35d",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "f8982296-3cc3-4063-9fbc-39819d5d2c37": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/f8982296-3cc3-4063-9fbc-39819d5d2c37",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "f8aa847c-2cb0-4588-a0a6-afde5629393f": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/f8aa847c-2cb0-4588-a0a6-afde5629393f",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "f8cc29c8-9c9a-49f9-8c43-0b682c1518ec": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/f8cc29c8-9c9a-49f9-8c43-0b682c1518ec",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "f8f1d6c0-ab60-4fc0-90ff-42b0d1b7b11b": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/f8f1d6c0-ab60-4fc0-90ff-42b0d1b7b11b",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "f91c5bca-474d-49e6-969a-b76df7082960": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/f91c5bca-474d-49e6-969a-b76df7082960",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "fba76b96-d1e8-4ed4-81b3-445de9648db2": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/fba76b96-d1e8-4ed4-81b3-445de9648db2",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "fd0d5ba6-724c-41ad-a8c8-019b091d3b05": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/fd0d5ba6-724c-41ad-a8c8-019b091d3b05",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "fd7348b4-1f5c-4847-abd1-eb42af8478f5": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/fd7348b4-1f5c-4847-abd1-eb42af8478f5",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "fdcd5b6a-7390-4db9-b328-47a6b98e6d70": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/fdcd5b6a-7390-4db9-b328-47a6b98e6d70",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "fdd8fac2-7c74-4bd5-ad9b-1df23f23342b": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/fdd8fac2-7c74-4bd5-ad9b-1df23f23342b",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "fe47f511-aaec-4f6f-ae25-67580ea3577b": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/fe47f511-aaec-4f6f-ae25-67580ea3577b",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "fe4e0d74-6eb9-4f45-8176-40fdaadb0263": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/fe4e0d74-6eb9-4f45-8176-40fdaadb0263",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "fe60ee1a-6751-410d-82f1-10505dc28e0d": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/fe60ee1a-6751-410d-82f1-10505dc28e0d",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "fe74f183-7ebd-46cf-a50f-f96d1c58f064": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/fe74f183-7ebd-46cf-a50f-f96d1c58f064",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "fee69623-0c71-476f-b4c9-0cd455c2f443": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/fee69623-0c71-476f-b4c9-0cd455c2f443",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "ff4bb213-25d6-4f17-a701-39698fde06db": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/ff4bb213-25d6-4f17-a701-39698fde06db",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "ff7c9116-1699-4c0d-b46e-17a8063a0e5f": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/ff7c9116-1699-4c0d-b46e-17a8063a0e5f",
+      "zip": "agent-arena-gemini",
+      "status": "pending",
+      "error": null
+    },
+    "ffeadc1d-c3d8-417b-adff-66bc1e1b49d8": {
+      "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/ffeadc1d-c3d8-417b-adff-66bc1e1b49d8",
+      "zip": "agent-arena-gemini",
       "status": "pending",
       "error": null
     }
