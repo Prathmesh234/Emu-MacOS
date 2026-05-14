@@ -2924,11 +2924,9 @@
     "c67c1451-3d19-4a4d-96b4-ff03b2ab0764": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/c67c1451-3d19-4a4d-96b4-ff03b2ab0764",
       "zip": "agent-arena-gemini",
-      "status": "in_progress",
+      "status": "done",
       "error": null,
-      "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 8594. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}",
-      "claimed_at": 1778793722.5684917,
-      "claimed_by": 42535
+      "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 8594. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "c7deee48-d55a-498d-b341-a88e7604677f": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/c7deee48-d55a-498d-b341-a88e7604677f",
@@ -2940,533 +2938,533 @@
     "c8457d49-541c-40a9-aa49-b1bac7823ae0": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/c8457d49-541c-40a9-aa49-b1bac7823ae0",
       "zip": "agent-arena-gemini",
-      "status": "in_progress",
+      "status": "done",
       "error": null,
-      "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 8594. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}",
-      "claimed_at": 1778793751.3190792,
-      "claimed_by": 42537
+      "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 8594. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "c8e38053-9372-414f-8ba3-20c592037e85": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/c8e38053-9372-414f-8ba3-20c592037e85",
       "zip": "agent-arena-gemini",
-      "status": "in_progress",
+      "status": "done",
       "error": null,
-      "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 8594. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}",
-      "claimed_at": 1778793880.8505232,
-      "claimed_by": 42536
+      "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 8594. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "c950e7b8-0528-45a0-bed9-04a98a86d3e8": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/c950e7b8-0528-45a0-bed9-04a98a86d3e8",
       "zip": "agent-arena-gemini",
-      "status": "in_progress",
+      "status": "done",
       "error": null,
-      "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 8594. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}",
-      "claimed_at": 1778793943.0899198,
-      "claimed_by": 42534
+      "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 8594. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "c9e1bb9e-3f74-48a5-b9aa-551112d66f6a": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/c9e1bb9e-3f74-48a5-b9aa-551112d66f6a",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 8594. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "cae5ac42-0ff7-490b-82d5-ae1dad6ef88e": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/cae5ac42-0ff7-490b-82d5-ae1dad6ef88e",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 8594. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "cbdb4182-91cc-4052-ab2e-15b74d054f1e": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/cbdb4182-91cc-4052-ab2e-15b74d054f1e",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 8594. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "ce1f9c6b-98e7-4951-8589-941c7a2343a2": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/ce1f9c6b-98e7-4951-8589-941c7a2343a2",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 8594. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "ce383cf3-3681-4fa9-8c24-988b22472b16": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/ce383cf3-3681-4fa9-8c24-988b22472b16",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 8594. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "cee08b8e-dcc9-45c5-8193-ef4be6f5d616": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/cee08b8e-dcc9-45c5-8193-ef4be6f5d616",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 8594. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "cee9b7e9-0b79-441f-8289-e2b39446fe01": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/cee9b7e9-0b79-441f-8289-e2b39446fe01",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 8594. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "d0e8a98c-5a8d-46a0-bea2-d13d2b63bf8c": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/d0e8a98c-5a8d-46a0-bea2-d13d2b63bf8c",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 8594. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "d1825031-b019-4e60-8ac7-79e7bf6e59b1": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/d1825031-b019-4e60-8ac7-79e7bf6e59b1",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 8594. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "d1e0fb90-a025-4cc4-8ab7-de24b5d92d8c": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/d1e0fb90-a025-4cc4-8ab7-de24b5d92d8c",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 8594. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "d2719d87-6cfc-4c57-9478-ae63a1d896a7": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/d2719d87-6cfc-4c57-9478-ae63a1d896a7",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 8594. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "d27e6501-ba02-4c54-96af-0f27731754cf": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/d27e6501-ba02-4c54-96af-0f27731754cf",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 8594. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "d2c29974-ae75-473c-b0c4-b8db696e693a": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/d2c29974-ae75-473c-b0c4-b8db696e693a",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 8594. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "d3828a8e-f705-41e7-ae13-321735f9461f": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/d3828a8e-f705-41e7-ae13-321735f9461f",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 8594. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "d3bb643a-69ae-4b9c-8fe3-59d78c6550a0": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/d3bb643a-69ae-4b9c-8fe3-59d78c6550a0",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 8594. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "d3c63e90-d510-4da6-b676-6cc4feb7f33c": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/d3c63e90-d510-4da6-b676-6cc4feb7f33c",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 8594. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "d483cc89-1bdf-4fe1-a6b2-fb69288db999": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/d483cc89-1bdf-4fe1-a6b2-fb69288db999",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 8594. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "d4f0b8b7-b556-473a-af4e-e38aa3521960": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/d4f0b8b7-b556-473a-af4e-e38aa3521960",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 8594. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "d6645c95-121c-433d-8345-7d061d9bd63a": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/d6645c95-121c-433d-8345-7d061d9bd63a",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 8594. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "d727eef3-8033-4453-97dc-a819e4682976": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/d727eef3-8033-4453-97dc-a819e4682976",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 6747. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "d741b6df-2bba-46f0-ac1e-e87ef68ffeaf": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/d741b6df-2bba-46f0-ac1e-e87ef68ffeaf",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 8594. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "d96c4d34-70d9-4667-a458-5aec7e69b8d3": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/d96c4d34-70d9-4667-a458-5aec7e69b8d3",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 6747. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "d979e0ab-b5da-40b6-9496-f6150fd96088": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/d979e0ab-b5da-40b6-9496-f6150fd96088",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 6747. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "d9a90222-ae53-421f-9b9a-9f8df97b34d3": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/d9a90222-ae53-421f-9b9a-9f8df97b34d3",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 8594. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "da2bdeb3-a330-4f38-b8ec-267467020c5b": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/da2bdeb3-a330-4f38-b8ec-267467020c5b",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 6747. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "dba369f8-ae56-4739-b132-28dcf986eb07": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/dba369f8-ae56-4739-b132-28dcf986eb07",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 6747. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "dc133a75-13a6-48df-9197-e98527c1256b": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/dc133a75-13a6-48df-9197-e98527c1256b",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 8594. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "dc2dd247-d7ee-43f2-a857-1abd069bb4f4": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/dc2dd247-d7ee-43f2-a857-1abd069bb4f4",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 6747. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "dc920490-afc1-40c2-ab77-c5f44c06363b": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/dc920490-afc1-40c2-ab77-c5f44c06363b",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 6747. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "dcdf313f-7576-4ee7-9b2a-5f5617412e88": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/dcdf313f-7576-4ee7-9b2a-5f5617412e88",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 8594. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "dcf96cd9-3eb4-4055-908b-138c7d6c55e1": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/dcf96cd9-3eb4-4055-908b-138c7d6c55e1",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 6747. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "df1fbf42-5bc6-4256-8107-b44fec7972b8": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/df1fbf42-5bc6-4256-8107-b44fec7972b8",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 6747. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "df9696dc-2c66-4a42-b8cb-9f5f57aa4f10": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/df9696dc-2c66-4a42-b8cb-9f5f57aa4f10",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 8594. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "dfd916aa-b3d5-4ddc-886d-e252d6577c76": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/dfd916aa-b3d5-4ddc-886d-e252d6577c76",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 6747. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "dfe5e89c-1d2a-472a-8c7f-18a7a70f1fab": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/dfe5e89c-1d2a-472a-8c7f-18a7a70f1fab",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 6747. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "e03e8536-5301-49d5-b6eb-d0db2ca02230": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/e03e8536-5301-49d5-b6eb-d0db2ca02230",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 8594. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "e0404c33-4239-450a-8ad9-7bacb47f5f73": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/e0404c33-4239-450a-8ad9-7bacb47f5f73",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 6747. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "e0749ce5-ae32-46e8-84fc-304f7775fed1": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/e0749ce5-ae32-46e8-84fc-304f7775fed1",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 6747. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "e08cd55d-5c24-44b6-a4f0-4c37a6d10b62": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/e08cd55d-5c24-44b6-a4f0-4c37a6d10b62",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 8594. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "e1434c69-9a5f-4761-ba28-cc4067c610b0": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/e1434c69-9a5f-4761-ba28-cc4067c610b0",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 6747. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "e1cb6536-02ee-4009-a1d0-b8a22ca92875": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/e1cb6536-02ee-4009-a1d0-b8a22ca92875",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 6747. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "e20828e8-4c32-4a90-8740-6d91d0056896": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/e20828e8-4c32-4a90-8740-6d91d0056896",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 8594. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "e22bc845-d458-4ba1-b94c-3f96b67122d5": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/e22bc845-d458-4ba1-b94c-3f96b67122d5",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 6747. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "e2bd895d-dd6d-486a-af8b-a2e805f9b9bd": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/e2bd895d-dd6d-486a-af8b-a2e805f9b9bd",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 6747. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "e2ddbe8d-e86a-49e3-8a0b-a41b40ff3b88": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/e2ddbe8d-e86a-49e3-8a0b-a41b40ff3b88",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 8594. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "e50a545a-2502-411d-9175-63255f36680b": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/e50a545a-2502-411d-9175-63255f36680b",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 6747. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "e51f4b28-fe77-449f-b0fa-76190fb00f2c": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/e51f4b28-fe77-449f-b0fa-76190fb00f2c",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 6747. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "e54b65ff-8676-4873-841f-23d97745b2c0": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/e54b65ff-8676-4873-841f-23d97745b2c0",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 8594. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "e59f03a4-bdf9-4ec3-840d-0943a318f5bb": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/e59f03a4-bdf9-4ec3-840d-0943a318f5bb",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 6747. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "e5c08eb2-814c-475d-bc85-79ee137c8472": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/e5c08eb2-814c-475d-bc85-79ee137c8472",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 6747. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "e5f1f223-6d70-4bae-b4bd-e6bf0adcf8f4": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/e5f1f223-6d70-4bae-b4bd-e6bf0adcf8f4",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 8594. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "e6779b86-5bf4-4ab0-b7dc-291c788043ae": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/e6779b86-5bf4-4ab0-b7dc-291c788043ae",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 6747. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "e743f3f7-9514-4284-8e7f-50b1303a478a": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/e743f3f7-9514-4284-8e7f-50b1303a478a",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 6747. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "e85c9aff-1c11-4f2a-9dd9-d2990080879c": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/e85c9aff-1c11-4f2a-9dd9-d2990080879c",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 6747. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "e8f1577f-3135-413d-9e98-86a365c766d3": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/e8f1577f-3135-413d-9e98-86a365c766d3",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 8594. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "e919e1cf-6581-47e8-a5b3-4fef6eb3b518": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/e919e1cf-6581-47e8-a5b3-4fef6eb3b518",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 6747. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "e92ae30a-bf1c-47c2-bcf9-2fa2aa462b4a": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/e92ae30a-bf1c-47c2-bcf9-2fa2aa462b4a",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 6747. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "e9ce6b50-68eb-41a9-bc00-269ca2e94778": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/e9ce6b50-68eb-41a9-bc00-269ca2e94778",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 6747. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "e9f65ad7-41e8-403b-ae8c-8a04d42c50bf": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/e9f65ad7-41e8-403b-ae8c-8a04d42c50bf",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 8594. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "ea3efbba-dd3b-4da4-b7b6-6e73e27b64fe": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/ea3efbba-dd3b-4da4-b7b6-6e73e27b64fe",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 6747. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "ea4cfb37-d5e2-4e88-b403-cab4037a6aaa": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/ea4cfb37-d5e2-4e88-b403-cab4037a6aaa",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 6747. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "eb3d78bd-b6d9-4f9c-b3f0-152b04748327": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/eb3d78bd-b6d9-4f9c-b3f0-152b04748327",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 6747. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "ece92df6-fce8-4a23-a69b-73687dc40baa": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/ece92df6-fce8-4a23-a69b-73687dc40baa",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 2442. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "ed03ec9a-7ed3-43c9-a0a7-da3199e368d7": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/ed03ec9a-7ed3-43c9-a0a7-da3199e368d7",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 6747. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "ed421759-ef6b-4d96-ae8e-457ab87e9794": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/ed421759-ef6b-4d96-ae8e-457ab87e9794",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 6747. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "ee42b2e6-ae05-4c79-9815-847e1eeabe09": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/ee42b2e6-ae05-4c79-9815-847e1eeabe09",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 2442. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "ee9c24e1-ab11-47e7-8ae1-604052635ded": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/ee9c24e1-ab11-47e7-8ae1-604052635ded",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 2442. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "ef8f9d80-49f5-42ee-be11-34b53dbddfd2": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/ef8f9d80-49f5-42ee-be11-34b53dbddfd2",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "in_progress",
       "error": null,
-      "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 6747. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
+      "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 6747. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}",
+      "claimed_at": 1778797009.3421538,
+      "claimed_by": 42537
     },
     "f0ec37da-e589-4968-af46-06bb3b4748a6": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/f0ec37da-e589-4968-af46-06bb3b4748a6",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "in_progress",
       "error": null,
-      "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 2442. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
+      "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 2442. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}",
+      "claimed_at": 1778797027.1185956,
+      "claimed_by": 42535
     },
     "f132d093-c720-4786-a327-6327ae1f00e5": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/f132d093-c720-4786-a327-6327ae1f00e5",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 2442. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "f14d2954-6ca4-468b-8cb8-5a2bef82f78d": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/f14d2954-6ca4-468b-8cb8-5a2bef82f78d",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "done",
       "error": null,
       "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 2442. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
     },
     "f1b1bbd7-3a75-4bdb-bc5f-d80af2c33e06": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/f1b1bbd7-3a75-4bdb-bc5f-d80af2c33e06",
       "zip": "agent-arena-gemini",
-      "status": "pending",
+      "status": "in_progress",
       "error": null,
-      "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 6747. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}"
+      "last_error": "Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 6747. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None}}, 'user_id': 'user_2zbpTvEzpixHGssMgTA7VV4F2KX'}",
+      "claimed_at": 1778797161.868872,
+      "claimed_by": 42534
     },
     "f1beeb02-96d0-4066-b9b6-e7d7273ff59f": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/agent-arena-gemini/f1beeb02-96d0-4066-b9b6-e7d7273ff59f",
