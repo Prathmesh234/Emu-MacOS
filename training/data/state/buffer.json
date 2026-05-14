@@ -4137,10 +4137,8 @@
     "6f81754e-285d-4ce0-b59e-af7edb02d108": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/results_agent_s2_gemini_15steps/6f81754e-285d-4ce0-b59e-af7edb02d108",
       "zip": "results_agent_s2_gemini_15steps",
-      "status": "in_progress",
-      "error": null,
-      "claimed_by": 42536,
-      "claimed_at": 1778801058.3832474
+      "status": "done",
+      "error": null
     },
     "70745df8-f2f5-42bd-8074-fbc10334fcc5": {
       "path": "/mnt/c/Users/pratbhatt/OneDrive - Microsoft/Desktop/Emu-MacOS/training/data/real_trajs/results_agent_s2_gemini_15steps/70745df8-f2f5-42bd-8074-fbc10334fcc5",
