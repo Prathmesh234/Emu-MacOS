@@ -36,7 +36,7 @@ from tinker_cookbook.supervised.types import (
 
 # ---- config knobs (edit here) ------------------------------------------------
 
-MODEL_NAME = "Qwen/Qwen3.5-397B-A17B"     # user-confirmed VLM
+MODEL_NAME = "Qwen/Qwen3-VL-235B-A22B-Instruct"  # largest Qwen VLM in Tinker
 RENDERER_NAME = "qwen3_vl_instruct"
 LOG_PATH = "~/logs/emu-vlm-sft"
 LEARNING_RATE = 1e-4
