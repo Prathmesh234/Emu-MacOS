@@ -1,9 +1,10 @@
-"""Vision SFT of Qwen3.5-397B-A17B on OSWorld synthetic trajectories.
+"""Vision SFT of Qwen3-VL on OSWorld synthetic trajectories.
 
 Reads data/synth/synth_trajectories.json, replaces each '[screenshot]'
 placeholder with the matching screenshot from data/real_trajs/<zip>/<task_id>/,
 converts Anthropic-style content blocks to Qwen3-VL messages, and runs
-LoRA SFT via tinker-cookbook.
+LoRA SFT via tinker-cookbook. Default model is Qwen3-VL-235B-A22B-Instruct;
+override with --model.
 
 Prerequisite: run `prefetch_screenshots.py` first to populate
 data/real_trajs/.
@@ -214,6 +215,9 @@ class EmuVisionDatasetBuilder(SupervisedDatasetBuilder):
         trajectories = json.loads(SYNTH_PATH.read_text())
         datums: list[tinker.Datum] = []
         n_skipped_no_imgs = n_skipped_arena = 0
+        n_trajs_processed = 0
+        print(f"[builder] building datums from {len(trajectories)} "
+              f"trajectories...", file=sys.stderr, flush=True)
 
         for item in trajectories:
             if (self.max_trajectories
@@ -248,7 +252,6 @@ class EmuVisionDatasetBuilder(SupervisedDatasetBuilder):
                 i for i, m in enumerate(conv.messages)
                 if m.get("role") == "assistant"
             ]
-            traj_datums = 0
             for ai in assistant_idxs:
                 sub = conv.messages[: ai + 1]
                 try:
@@ -266,10 +269,15 @@ class EmuVisionDatasetBuilder(SupervisedDatasetBuilder):
                     reduction="mean",
                 )
                 datums.append(datum)
-                traj_datums += 1
                 if (self.max_trajectories
                         and len(datums) >= self.max_trajectories):
                     break
+
+            n_trajs_processed += 1
+            if n_trajs_processed % 25 == 0:
+                print(f"[builder] {n_trajs_processed}/{len(trajectories)} "
+                      f"trajs processed, {len(datums)} datums so far",
+                      file=sys.stderr, flush=True)
 
         print(f"[builder] kept {len(datums)} datums "
               f"(arena_skipped={n_skipped_arena}, "
