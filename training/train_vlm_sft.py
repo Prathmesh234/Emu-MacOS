@@ -22,6 +22,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
+import chz
 import tinker
 from tinker_cookbook import renderers, tokenizer_utils
 from tinker_cookbook.image_processing_utils import get_image_processor
@@ -143,7 +144,7 @@ def _convert_messages(item: dict, screenshots: list[Path]) -> _ConvResult:
                             if img_cursor < len(screenshots):
                                 parts.append(ImagePart(
                                     type="image",
-                                    image=str(screenshots[img_cursor]),
+                                    image=screenshots[img_cursor].as_uri(),
                                 ))
                                 img_cursor += 1
                             else:
@@ -193,16 +194,16 @@ class _EmuVisionDataset(SupervisedDataset):
         random.Random(seed).shuffle(self._datums)
 
 
+@chz.chz
 class EmuVisionDatasetBuilder(SupervisedDatasetBuilder):
     """Build train/eval datasets from synth_trajectories.json + real_trajs/."""
 
-    def __init__(self, *, model_name: str, renderer_name: str,
-                 batch_size: int, max_length: int, eval_fraction: float):
-        self.model_name = model_name
-        self.renderer_name = renderer_name
-        self.batch_size = batch_size
-        self.max_length = max_length
-        self.eval_fraction = eval_fraction
+    model_name: str
+    renderer_name: str
+    batch_size: int
+    max_length: int
+    eval_fraction: float
+    max_trajectories: int = 0
 
     def __call__(self) -> tuple[SupervisedDataset, SupervisedDataset | None]:
         tokenizer = tokenizer_utils.get_tokenizer(self.model_name)
@@ -215,6 +216,9 @@ class EmuVisionDatasetBuilder(SupervisedDatasetBuilder):
         n_skipped_no_imgs = n_skipped_arena = 0
 
         for item in trajectories:
+            if (self.max_trajectories
+                    and len(datums) >= self.max_trajectories):
+                break
             meta = item.get("_meta", {})
             source_zip = (meta.get("source_zip")
                           or meta.get("osworld", {}).get("source_zip", ""))
@@ -235,24 +239,37 @@ class EmuVisionDatasetBuilder(SupervisedDatasetBuilder):
                 n_skipped_no_imgs += 1
                 continue
 
-            try:
-                model_input, weights = renderer.build_supervised_example(
-                    conv.messages,
-                    train_on_what=TrainOnWhat.ALL_ASSISTANT_MESSAGES,
+            # qwen3_vl_instruct doesn't satisfy the extension property, so
+            # we cannot train on all assistant messages of a multi-turn
+            # conversation in one pass. Per the Tinker docs, emit one
+            # Datum per assistant turn with the prefix up through it,
+            # training only on that last assistant message.
+            assistant_idxs = [
+                i for i, m in enumerate(conv.messages)
+                if m.get("role") == "assistant"
+            ]
+            traj_datums = 0
+            for ai in assistant_idxs:
+                sub = conv.messages[: ai + 1]
+                try:
+                    model_input, weights = renderer.build_supervised_example(
+                        sub,
+                        train_on_what=TrainOnWhat.LAST_ASSISTANT_MESSAGE,
+                    )
+                except Exception as e:  # noqa: BLE001
+                    print(f"[builder] {task_id}@a{ai} render failed: {e}",
+                          file=sys.stderr)
+                    continue
+                datum = datum_from_model_input_weights(
+                    model_input, weights,
+                    max_length=self.max_length,
+                    reduction="mean",
                 )
-            except Exception as e:  # noqa: BLE001
-                print(f"[builder] {task_id} render failed: {e}",
-                      file=sys.stderr)
-                continue
-
-            # Canonical Datum builder: handles truncation to max_length,
-            # right-shift to produce target_tokens, and weight normalization.
-            datum = datum_from_model_input_weights(
-                model_input, weights,
-                max_length=self.max_length,
-                reduction="mean",
-            )
-            datums.append(datum)
+                datums.append(datum)
+                traj_datums += 1
+                if (self.max_trajectories
+                        and len(datums) >= self.max_trajectories):
+                    break
 
         print(f"[builder] kept {len(datums)} datums "
               f"(arena_skipped={n_skipped_arena}, "
@@ -277,23 +294,40 @@ class EmuVisionDatasetBuilder(SupervisedDatasetBuilder):
 
 
 def main() -> None:
+    import argparse
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--model", default=MODEL_NAME, help="Model name override.")
+    ap.add_argument("--renderer", default=RENDERER_NAME)
+    ap.add_argument("--log-path", default=LOG_PATH)
+    ap.add_argument("--batch-size", type=int, default=BATCH_SIZE)
+    ap.add_argument("--max-length", type=int, default=MAX_LENGTH)
+    ap.add_argument("--num-epochs", type=int, default=NUM_EPOCHS)
+    ap.add_argument("--lora-rank", type=int, default=LORA_RANK)
+    ap.add_argument("--learning-rate", type=float, default=LEARNING_RATE)
+    ap.add_argument("--max-trajectories", type=int, default=0,
+                    help="Cap on number of trajectories used (0 = no cap). "
+                         "Useful for smoke tests.")
+    ap.add_argument("--wandb-project", default="emu-vlm-sft")
+    args = ap.parse_args()
+
     config = train.Config(
-        log_path=LOG_PATH,
-        model_name=MODEL_NAME,
-        renderer_name=RENDERER_NAME,
+        log_path=args.log_path,
+        model_name=args.model,
+        renderer_name=args.renderer,
         dataset_builder=EmuVisionDatasetBuilder(
-            model_name=MODEL_NAME,
-            renderer_name=RENDERER_NAME,
-            batch_size=BATCH_SIZE,
-            max_length=MAX_LENGTH,
+            model_name=args.model,
+            renderer_name=args.renderer,
+            batch_size=args.batch_size,
+            max_length=args.max_length,
             eval_fraction=EVAL_FRACTION,
+            max_trajectories=args.max_trajectories,
         ),
-        learning_rate=LEARNING_RATE,
-        lora_rank=LORA_RANK,
-        num_epochs=NUM_EPOCHS,
+        learning_rate=args.learning_rate,
+        lora_rank=args.lora_rank,
+        num_epochs=args.num_epochs,
         save_every=SAVE_EVERY,
         eval_every=EVAL_EVERY,
-        wandb_project="emu-vlm-sft",
+        wandb_project=args.wandb_project,
     )
     asyncio.run(train.main(config))
 

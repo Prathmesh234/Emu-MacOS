@@ -15,10 +15,25 @@ from __future__ import annotations
 
 import json
 import sys
+import re
 from collections import defaultdict
 from pathlib import Path
 
 from tqdm import tqdm
+
+_STEP_RE = re.compile(r"step[_-]?(\d+)", re.IGNORECASE)
+
+
+def _is_real_png(name: str) -> bool:
+    """Skip macOS AppleDouble resource-fork files and dotfiles."""
+    base = Path(name).name
+    return base.lower().endswith(".png") and not base.startswith(".")
+
+
+def _step_sort_key(name: str) -> tuple[int, str]:
+    """Numeric sort by embedded step index; falls back to lexical."""
+    m = _STEP_RE.search(name)
+    return (int(m.group(1)) if m else 1_000_000, name)
 
 # Reuse the HF-zip plumbing from dataset.py
 from dataset import REAL_TRAJS_DIR, _UUID_RE, _open_zip
@@ -68,7 +83,7 @@ def fetch_pngs_for_zip(zip_name: str, task_ids: set[str]) -> tuple[int, int]:
     with _open_zip(zip_name) as zf:
         png_by_task: dict[str, list[str]] = defaultdict(list)
         for entry in zf.namelist():
-            if not entry.lower().endswith(".png"):
+            if not _is_real_png(entry):
                 continue
             m = _UUID_RE.search(entry)
             if not m:
@@ -80,11 +95,7 @@ def fetch_pngs_for_zip(zip_name: str, task_ids: set[str]) -> tuple[int, int]:
         for tid, entries in tqdm(png_by_task.items(), desc=f"png:{zip_stem[:24]}"):
             out_dir = REAL_TRAJS_DIR / zip_stem / tid
             out_dir.mkdir(parents=True, exist_ok=True)
-            # Sort so step ordering on disk matches in-zip ordering. The
-            # in-zip names typically include a step index (step_0.png ...);
-            # lexical sort matches numeric order when zero-padded, and is at
-            # least deterministic when not.
-            for entry in sorted(entries):
+            for entry in sorted(entries, key=_step_sort_key):
                 out_path = out_dir / Path(entry).name
                 if out_path.exists() and out_path.stat().st_size > 0:
                     continue
@@ -93,9 +104,13 @@ def fetch_pngs_for_zip(zip_name: str, task_ids: set[str]) -> tuple[int, int]:
                     written += 1
                 except Exception as e:  # noqa: BLE001
                     print(f"[prefetch] skip {entry}: {e}", file=sys.stderr)
-            # Manifest of PNG basenames in deterministic order. The training
-            # loader maps the Nth '[screenshot]' placeholder to manifest[N].
-            manifest = sorted(p.name for p in out_dir.glob("*.png"))
+            # Manifest of real PNG basenames in step-numeric order. The
+            # training loader maps the Nth '[screenshot]' placeholder to
+            # manifest[N].
+            manifest = sorted(
+                (p.name for p in out_dir.glob("*.png") if _is_real_png(p.name)),
+                key=_step_sort_key,
+            )
             (out_dir / "screenshots.json").write_text(json.dumps(manifest, indent=2))
             if manifest:
                 tasks_seen.add(tid)
@@ -103,7 +118,28 @@ def fetch_pngs_for_zip(zip_name: str, task_ids: set[str]) -> tuple[int, int]:
 
 
 def main() -> None:
+    import argparse
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--limit", type=int, default=0,
+                    help="Only prefetch the first N task_ids across all zips "
+                         "(0 = no limit).")
+    args = ap.parse_args()
+
     targets = collect_targets()
+    if args.limit:
+        capped: dict[str, set[str]] = {}
+        remaining = args.limit
+        for z, tids in targets.items():
+            if remaining <= 0:
+                break
+            take = sorted(tids)[:remaining]
+            capped[z] = set(take)
+            remaining -= len(take)
+        targets = capped
+        print(f"[prefetch] --limit {args.limit}: capped to "
+              f"{sum(len(v) for v in targets.values())} task ids across "
+              f"{len(targets)} zips", file=sys.stderr)
+
     if not targets:
         print("[prefetch] no OSWorld targets — nothing to do.", file=sys.stderr)
         return
