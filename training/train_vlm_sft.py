@@ -3,8 +3,8 @@
 Reads data/synth/synth_trajectories.json, replaces each '[screenshot]'
 placeholder with the matching screenshot from data/real_trajs/<zip>/<task_id>/,
 converts Anthropic-style content blocks to Qwen3-VL messages, and runs
-LoRA SFT via tinker-cookbook. Default model is Qwen3-VL-235B-A22B-Instruct;
-override with --model.
+LoRA SFT via tinker-cookbook. Default model is Qwen3.5-397B-A17B
+(Hybrid + Vision MoE); override with --model.
 
 Prerequisite: run `prefetch_screenshots.py` first to populate
 data/real_trajs/.
@@ -37,8 +37,8 @@ from tinker_cookbook.supervised.types import (
 
 # ---- config knobs (edit here) ------------------------------------------------
 
-MODEL_NAME = "Qwen/Qwen3-VL-235B-A22B-Instruct"  # largest Qwen VLM in Tinker
-RENDERER_NAME = "qwen3_vl_instruct"
+MODEL_NAME = "Qwen/Qwen3.5-397B-A17B"  # Hybrid + Vision MoE, largest Qwen VLM in Tinker
+RENDERER_NAME = "qwen3_5_disable_thinking"
 LOG_PATH = "~/logs/emu-vlm-sft"
 LEARNING_RATE = 1e-4
 LORA_RANK = 32
