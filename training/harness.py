@@ -130,7 +130,7 @@ PERSONAS: list[dict] = [
     {
         "USER.md": """\
 # USER.md
-- Name: Priya Bhatt
+- Name: John Doe
 - Role: Software engineer, infra team
 - Timezone: America/Los_Angeles (PT)
 - Primary apps: VS Code, Chrome, Terminal, Slack, Notion
@@ -152,7 +152,7 @@ PERSONAS: list[dict] = [
     {
         "USER.md": """\
 # USER.md
-- Name: Marcus Lee
+- Name: Jane Smith
 - Role: Product manager
 - Timezone: Europe/London (UK)
 - Primary apps: Figma, Linear, Slack, Gmail, Sheets
@@ -171,7 +171,7 @@ PERSONAS: list[dict] = [
     {
         "USER.md": """\
 # USER.md
-- Name: Aiko Tanaka
+- Name: Jack Wilson
 - Role: Data scientist
 - Timezone: Asia/Tokyo (JST)
 - Primary apps: VS Code, Jupyter, Chrome, Slack, iTerm
