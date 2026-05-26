@@ -1,0 +1,22 @@
+{
+  "name": "emu-messaging",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Inbound messaging bridges (WhatsApp + iMessage) for Emu. Runs as a child of the Electron main process and forwards messages from allowlisted senders to the local agent backend.",
+  "license": "ISC",
+  "main": "runner.js",
+  "scripts": {
+    "start": "node runner.js",
+    "selfcheck": "node runner.js --selfcheck"
+  },
+  "dependencies": {
+    "@whiskeysockets/baileys": "^6.7.9",
+    "better-sqlite3": "^11.3.0",
+    "pino": "^9.5.0",
+    "qrcode-terminal": "^0.12.0",
+    "ws": "^8.18.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

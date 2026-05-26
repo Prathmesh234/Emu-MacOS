@@ -4,6 +4,7 @@ const psProcess = require('./frontend/process/psProcess');
 const backendProcess = require('./frontend/process/backendProcess');
 const emuCuaDriverProcess = require('./frontend/process/EmuCuaDriverProcess');
 const daemonInstaller = require('./frontend/process/daemonInstaller');
+const messagingProcess = require('./frontend/process/messagingProcess');
 const { resolveEmuRoot } = require('./frontend/emu/root');
 const { initEmu } = require('./frontend/emu');
 const pkg = require('./package.json');
@@ -367,6 +368,11 @@ app.whenReady().then(() => {
   // The backend writes .emu/.auth_token on startup; the renderer reads
   // it for every HTTP/WS call. See frontend/services/api.js.
   backendProcess.start({ app, emuRoot: EMU_ROOT });
+  // Spawn the inbound messaging bridge runner (WhatsApp + iMessage).
+  // No-ops if the user hasn't created .emu/messaging/allowlist.json or
+  // EMU_DISABLE_MESSAGING=1 is set. Waits for the backend's auth token to
+  // appear before launching, so it never races backend startup.
+  messagingProcess.start({ app, emuRoot: EMU_ROOT });
   // Coworker execution talks to the emu-cua-driver daemon socket from the
   // backend rather than through renderer IPC.
   createWindow();
@@ -388,6 +394,7 @@ app.on('will-quit', () => {
   // Close WebSocket first to prevent reconnect loop, then kill the shell process
   try { require('./frontend/services/websocket').closeWebSocket(); } catch (_) {}
   psProcess.stop();
+  messagingProcess.stop();
   backendProcess.stop();
   emuCuaDriverProcess.stop();
 });

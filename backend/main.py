@@ -514,6 +514,67 @@ async def get_session(session_id: str):
     return {"session_id": session_id, "status": "active"}
 
 
+# ── Session metadata ────────────────────────────────────────────────────────
+# A side-channel for tagging sessions with a stable `kind` (e.g.
+# "remote_control") and a human label. The messaging/ bridge calls this once
+# when it provisions its singleton remote-control session so the History
+# sidebar can pin and badge it.
+
+_ALLOWED_SESSION_KINDS = {"remote_control"}
+
+
+@app.post("/agent/session/{session_id}/metadata")
+async def set_session_metadata(session_id: str, payload: dict):
+    import re
+    if not re.match(r"^[a-zA-Z0-9_-]+$", session_id):
+        return JSONResponse(status_code=400, content={"detail": "Invalid session_id"})
+
+    kind = str(payload.get("kind", "")).strip()
+    label = str(payload.get("label", "")).strip()
+    if kind and kind not in _ALLOWED_SESSION_KINDS:
+        return JSONResponse(
+            status_code=400,
+            content={"detail": f"Unsupported kind: {kind!r}"},
+        )
+    if len(label) > 200:
+        label = label[:200]
+
+    session_dir = ensure_session_dir(session_id)
+    metadata_path = session_dir / "metadata.json"
+    metadata: dict = {}
+    if metadata_path.exists():
+        try:
+            metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, OSError):
+            metadata = {}
+    if kind:
+        metadata["kind"] = kind
+    if label:
+        metadata["label"] = label
+    metadata["updated_at"] = time.time()
+    metadata_path.write_text(json.dumps(metadata, indent=2), encoding="utf-8")
+    print(f"[session-metadata] {session_id}  kind={metadata.get('kind')}  label={metadata.get('label')}")
+    return {"session_id": session_id, "metadata": metadata}
+
+
+@app.get("/agent/session/{session_id}/metadata")
+async def get_session_metadata(session_id: str):
+    import re
+    if not re.match(r"^[a-zA-Z0-9_-]+$", session_id):
+        return JSONResponse(status_code=400, content={"detail": "Invalid session_id"})
+    from workspace import get_sessions_dir
+    metadata_path = get_sessions_dir() / session_id / "metadata.json"
+    if not metadata_path.exists():
+        return {"session_id": session_id, "metadata": {}}
+    try:
+        return {
+            "session_id": session_id,
+            "metadata": json.loads(metadata_path.read_text(encoding="utf-8")),
+        }
+    except (json.JSONDecodeError, OSError):
+        return {"session_id": session_id, "metadata": {}}
+
+
 @app.post("/agent/step")
 async def agent_step(req: AgentRequest):
     """
@@ -567,7 +628,7 @@ async def agent_step(req: AgentRequest):
     print(f"\n{'=' * 60}")
     print(
         f"[agent/step] session={session_id}  mode={'screenshot' if has_screenshot else 'text'}"
-        f"  agent_mode={req.agent_mode}  provider={active_provider}  model={active_model}"
+        f"  agent_mode={req.agent_mode}  source={req.source}  provider={active_provider}  model={active_model}"
         f"  chain={len(history)}"
     )
     if has_text:
@@ -1190,25 +1251,65 @@ async def sessions_history():
         if not _re.match(r'^[a-zA-Z0-9_-]+$', session_dir.name) or session_dir.is_symlink():
             continue
         conv_path = session_dir / "logs" / "conversation.json"
+        # Load optional metadata (kind/label) for sidebar pinning + badging.
+        metadata: dict = {}
+        metadata_path = session_dir / "metadata.json"
+        if metadata_path.exists():
+            try:
+                metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
+            except (json.JSONDecodeError, OSError):
+                metadata = {}
         if not conv_path.exists():
+            # Sessions with metadata but no conversation yet (e.g. a freshly
+            # provisioned remote-control session) should still appear so the
+            # user can see the channel is wired up.
+            if metadata.get("kind"):
+                results.append({
+                    "session_id": session_dir.name,
+                    "preview": metadata.get("label", "Remote control"),
+                    "message_count": 0,
+                    "last_active": metadata.get("updated_at", session_dir.stat().st_mtime),
+                    "kind": metadata.get("kind"),
+                    "label": metadata.get("label"),
+                })
             continue
         try:
             with open(conv_path, "r", encoding="utf-8") as f:
                 data = json.load(f)
             messages = data.get("messages", [])
-            if not messages:
+            if not messages and not metadata.get("kind"):
                 continue
-            # Find the first user message for the preview
-            first_user = next((m for m in messages if m.get("role") == "user" and m.get("content", "").strip() and m["content"] != "<screenshot>"), None)
-            if not first_user:
+            # Find the first user message for the preview. Strip the
+            # [whatsapp:…] / [imessage:…] origin prefix the bridge prepends
+            # so the sidebar shows the actual question, not the routing tag.
+            first_user_content = ""
+            for m in messages:
+                if m.get("role") != "user":
+                    continue
+                raw = (m.get("content") or "").strip()
+                if not raw or raw == "<screenshot>":
+                    continue
+                first_user_content = _re.sub(
+                    r'^\[(?:whatsapp|imessage|discord):[^\]]+\]\s*',
+                    '',
+                    raw,
+                )
+                break
+            preview = first_user_content or metadata.get("label") or ""
+            if not preview:
                 continue
             mtime = conv_path.stat().st_mtime
-            results.append({
+            entry = {
                 "session_id": session_dir.name,
-                "preview": first_user["content"][:80],
+                "preview": preview[:80],
                 "message_count": len(messages),
                 "last_active": mtime,
-            })
+            }
+            if metadata.get("kind"):
+                entry["kind"] = metadata["kind"]
+            if metadata.get("label"):
+                entry["label"] = metadata["label"]
+            results.append(entry)
         except (json.JSONDecodeError, KeyError):
             continue
 

@@ -118,6 +118,14 @@ class AgentRequest(BaseModel):
         description="Selected frontend collaboration mode"
     )
 
+    # Origin of the request. "local" = in-app chat; "whatsapp"/"imessage" = inbound
+    # via the messaging/ bridge runner. Used for logging and for the model prompt
+    # so the agent can adapt its tone for off-host channels.
+    source: Literal["local", "whatsapp", "imessage", "discord"] = Field(
+        default="local",
+        description="Transport that originated this request"
+    )
+
     # Screen metadata
     display_scale: float = Field(
         default=1.0, gt=0,

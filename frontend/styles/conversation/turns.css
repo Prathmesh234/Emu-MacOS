@@ -27,6 +27,29 @@
   flex-direction: column;
 }
 
+/* Origin chip shown above a "You" message that arrived via WhatsApp /
+ * iMessage. Renders between the "You" label and the body text so the
+ * conversation reads naturally without surprising prefix tags. */
+.turn-origin-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  align-self: flex-start;
+  margin-bottom: 6px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--ink-08, rgba(0, 0, 0, 0.06));
+  color: var(--ink-55);
+  font-family: var(--font-sans);
+  font-size: var(--size-xs, 12px);
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.turn-origin-whatsapp { color: #128c7e; }
+.turn-origin-imessage { color: #0a7cff; }
+.turn-origin-discord  { color: #5865f2; }
+
 /* User text: large serif, comfortable reading line */
 .turn-you-text {
   font-size: var(--size-lg);      /* 19px */

@@ -122,6 +122,27 @@ Long-running terminal/code tasks can be delegated to a locally-installed
 The Hermes child process inherits a minimal env (PATH/HOME/LANG/TERM only) —
 provider API keys are never forwarded.
 
+### Inbound messaging bridge (WhatsApp + iMessage)
+
+Message Emu from your phone — every allowlisted inbound message from
+WhatsApp or iMessage funnels into a **single, persistent "Remote control"
+session** that shows up in the History sidebar. See `messaging/README.md`
+for full setup. Quick install:
+
+```bash
+cd messaging && npm install
+```
+
+Then create `~/.emu/messaging/allowlist.json` (mode 0600):
+
+```json
+{ "whatsapp": ["+15551234567"], "imessage": ["+15551234567"] }
+```
+
+The bridge is gated by the allowlist — without it, no inbound messages are
+accepted. iMessage requires Full Disk Access and Automation → Messages
+grants on Emu (see `messaging/imessage/README.md`).
+
 ### Provider support
 
 Auto-detected providers, in order:
@@ -226,6 +247,7 @@ mounted-image path.
 | `frontend/coworker-driver/` | Coworker mode operator docs |
 | `backend/` | FastAPI agent harness, providers, tools, prompts |
 | `daemon/` | Memory daemon runtime, policy, state, launchd installer |
+| `messaging/` | Inbound messaging bridge runner (WhatsApp + iMessage) |
 | `backend.sh`, `frontend.sh` | One-command startup scripts |
 
 ## Additional docs

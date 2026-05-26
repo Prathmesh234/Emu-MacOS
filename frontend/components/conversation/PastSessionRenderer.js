@@ -19,6 +19,38 @@ const { TurnEmu } = require('./TurnEmu');
 const { StepCard, FileCard, SkillCard } = require('../index');
 const { formatToolTrace } = require('../../services/traceLabels');
 
+// Messages dispatched by the messaging/ bridge are prefixed with their
+// origin (e.g. "[whatsapp:+15551234567] open Safari and …"). Past-session
+// replay strips the prefix and renders it as a small origin chip above
+// the message so the conversation reads naturally.
+const ORIGIN_RE = /^\[(whatsapp|imessage|discord):([^\]]+)\]\s*/;
+
+function _extractOrigin(content) {
+    const raw = String(content || '');
+    const m = raw.match(ORIGIN_RE);
+    if (!m) return { content: raw, origin: null };
+    return {
+        content: raw.slice(m[0].length),
+        origin: { platform: m[1], handle: m[2] },
+    };
+}
+
+function _appendOriginChip(turnEl, origin) {
+    if (!turnEl || !origin) return;
+    const chip = document.createElement('div');
+    chip.className = `turn-origin-chip turn-origin-${origin.platform}`;
+    const icon = origin.platform === 'imessage' ? '💬' : '📱';
+    chip.textContent = `${icon} ${origin.platform} · ${origin.handle}`;
+    chip.title = `via ${origin.platform}`;
+    // Insert below the "You" label, above the body text.
+    const label = turnEl.querySelector('.turn-label');
+    if (label && label.nextSibling) {
+        turnEl.insertBefore(chip, label.nextSibling);
+    } else {
+        turnEl.appendChild(chip);
+    }
+}
+
 function renderPastSession(chatWrapper, messages, addMessage) {
     if (!messages || messages.length === 0) return;
 
@@ -117,7 +149,9 @@ function renderPastSession(chatWrapper, messages, addMessage) {
 
         if (role === 'user') {
             flushAssistantBubble();
-            addMessage('user', content);
+            const { content: cleanContent, origin } = _extractOrigin(content);
+            const userTurnEl = addMessage('user', cleanContent);
+            if (origin) _appendOriginChip(userTurnEl, origin);
             return;
         }
 

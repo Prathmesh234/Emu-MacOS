@@ -223,6 +223,18 @@
   color: var(--ink);
 }
 
+/* Remote-control session pinned to the top (WhatsApp / iMessage) */
+.history-item-pinned {
+  background: var(--ink-04, rgba(0, 0, 0, 0.04));
+}
+
+.history-item-glyph {
+  flex-shrink: 0;
+  font-size: 13px;
+  line-height: 1;
+  opacity: 0.85;
+}
+
 /* Empty state */
 .history-empty {
   padding: 12px 16px;

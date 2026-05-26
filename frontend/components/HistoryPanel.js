@@ -113,8 +113,23 @@ function HistoryPanel({ onNewChat, onSelectSession, onContinueSession, onToggle 
             return;
         }
 
+        // The remote-control session (inbound from WhatsApp / iMessage) is
+        // pinned to the top with a distinct label, regardless of date —
+        // it's intentionally a single long-lived session, not a chat
+        // bucket. All other sessions group by date as usual.
+        const pinned = sessions.filter(s => s.kind === 'remote_control');
+        const regular = sessions.filter(s => s.kind !== 'remote_control');
+
+        if (pinned.length) {
+            const groupEl = document.createElement('div');
+            groupEl.className = 'history-group-label';
+            groupEl.textContent = 'Remote';
+            list.appendChild(groupEl);
+            pinned.forEach(session => list.appendChild(_renderItem(session, { pinned: true })));
+        }
+
         // Group sessions by date bucket
-        const groups = _groupByDate(sessions);
+        const groups = _groupByDate(regular);
 
         for (const [label, items] of groups) {
             if (!items.length) continue;
@@ -124,49 +139,64 @@ function HistoryPanel({ onNewChat, onSelectSession, onContinueSession, onToggle 
             groupEl.textContent = label;
             list.appendChild(groupEl);
 
-            items.forEach(session => {
-                const item = document.createElement('div');
-                item.className = 'history-item' + (session.session_id === _activeId ? ' active' : '');
-                item.dataset.sessionId = session.session_id;
-                item.setAttribute('role', 'button');
-                item.tabIndex = 0;
-
-                // Pulsing dot for active session
-                if (session.session_id === _activeId) {
-                    const dot = document.createElement('span');
-                    dot.className = 'history-item-dot';
-                    item.appendChild(dot);
-                }
-
-                const text = document.createElement('span');
-                text.className = 'history-item-text';
-                text.textContent = session.preview || 'Untitled';
-                item.appendChild(text);
-
-                const continueBtn = document.createElement('button');
-                continueBtn.className = 'history-item-continue-btn';
-                continueBtn.title = 'Continue this session';
-                continueBtn.textContent = '↩';
-                continueBtn.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    if (onContinueSession) onContinueSession(session.session_id);
-                });
-                item.appendChild(continueBtn);
-
-                const selectSession = () => {
-                    setActive(session.session_id);
-                    if (onSelectSession) onSelectSession(session.session_id);
-                };
-
-                item.addEventListener('click', selectSession);
-                item.addEventListener('keydown', (e) => {
-                    if (e.key !== 'Enter' && e.key !== ' ') return;
-                    e.preventDefault();
-                    selectSession();
-                });
-                list.appendChild(item);
-            });
+            items.forEach(session => list.appendChild(_renderItem(session, { pinned: false })));
         }
+    }
+
+    function _renderItem(session, { pinned }) {
+        const item = document.createElement('div');
+        item.className = 'history-item' + (session.session_id === _activeId ? ' active' : '');
+        if (pinned) item.classList.add('history-item-pinned');
+        item.dataset.sessionId = session.session_id;
+        item.setAttribute('role', 'button');
+        item.tabIndex = 0;
+
+        // Pulsing dot for active session
+        if (session.session_id === _activeId) {
+            const dot = document.createElement('span');
+            dot.className = 'history-item-dot';
+            item.appendChild(dot);
+        }
+
+        if (pinned) {
+            const glyph = document.createElement('span');
+            glyph.className = 'history-item-glyph';
+            glyph.setAttribute('aria-hidden', 'true');
+            glyph.textContent = '📱';
+            item.appendChild(glyph);
+        }
+
+        const text = document.createElement('span');
+        text.className = 'history-item-text';
+        text.textContent = pinned
+            ? (session.label || 'Remote control')
+            : (session.preview || 'Untitled');
+        item.appendChild(text);
+
+        const continueBtn = document.createElement('button');
+        continueBtn.className = 'history-item-continue-btn';
+        continueBtn.title = pinned
+            ? 'Open the remote-control session'
+            : 'Continue this session';
+        continueBtn.textContent = '↩';
+        continueBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (onContinueSession) onContinueSession(session.session_id);
+        });
+        item.appendChild(continueBtn);
+
+        const selectSession = () => {
+            setActive(session.session_id);
+            if (onSelectSession) onSelectSession(session.session_id);
+        };
+
+        item.addEventListener('click', selectSession);
+        item.addEventListener('keydown', (e) => {
+            if (e.key !== 'Enter' && e.key !== ' ') return;
+            e.preventDefault();
+            selectSession();
+        });
+        return item;
     }
 
     return { element: panel, populate, setActive };
