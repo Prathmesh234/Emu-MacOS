@@ -203,4 +203,23 @@ async function saveProviderSettings({ provider, model, apiKey }) {
     }
 }
 
-module.exports = { BACKEND_URL, createSession, continueSession, postStep, notifyActionComplete, stopAgent, compactContext, fetchSessionHistory, fetchSessionMessages, getProviderSettings, getProviderModelOptions, saveProviderSettings };
+// Returns the singleton remote-control session id provisioned by the
+// messaging bridge, or null when the bridge hasn't run yet (no allowlist
+// entries, never paired, etc.). The desktop UI uses this to open a
+// passive observer WebSocket so WhatsApp / iMessage activity shows up in
+// the History sidebar in real time.
+async function fetchRemoteSessionId() {
+    try {
+        const res = await fetchWithTimeout(`${BACKEND_URL}/messaging/remote_session_id`, {
+            headers: authHeaders(),
+        }, 5_000);
+        if (!res.ok) return null;
+        const data = await res.json();
+        return data.session_id || null;
+    } catch (err) {
+        console.warn('[api] fetchRemoteSessionId failed:', err.message);
+        return null;
+    }
+}
+
+module.exports = { BACKEND_URL, createSession, continueSession, postStep, notifyActionComplete, stopAgent, compactContext, fetchSessionHistory, fetchSessionMessages, fetchRemoteSessionId, getProviderSettings, getProviderModelOptions, saveProviderSettings };
