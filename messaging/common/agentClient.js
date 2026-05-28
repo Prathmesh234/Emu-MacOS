@@ -81,6 +81,55 @@ async function postStep({ sessionId, userMessage, source, agentMode = 'coworker'
     return res.json().catch(() => ({}));
 }
 
+// Best-effort stop of any in-flight step on the given session. Used by the
+// bridge when an allowlisted user issues `/new` mid-turn — we want the
+// model loop on the OLD session to bail out instead of continuing to act
+// on whatever task the user just abandoned.
+async function stopSession(sessionId, { timeoutMs = 5_000 } = {}) {
+    const controller = new AbortController();
+    const timer = timeoutMs > 0 ? setTimeout(() => controller.abort(), timeoutMs) : null;
+    try {
+        const res = await fetch(`${BACKEND_URL}/agent/stop`, {
+            method: 'POST',
+            headers: _headers(),
+            body: JSON.stringify({ session_id: sessionId }),
+            signal: controller.signal,
+        });
+        if (!res.ok) {
+            const text = await res.text().catch(() => '');
+            throw new Error(`stopSession failed: ${res.status} ${text}`);
+        }
+        return res.json().catch(() => ({}));
+    } finally {
+        if (timer) clearTimeout(timer);
+    }
+}
+
+// Returns { mime, buffer } for the most recent screenshot on the session,
+// or null when none is cached. Used by the messaging bridge to attach a
+// current desktop frame to outbound replies on WhatsApp.
+async function fetchLatestScreenshot(sessionId, { timeoutMs = 10_000 } = {}) {
+    const controller = new AbortController();
+    const timer = timeoutMs > 0 ? setTimeout(() => controller.abort(), timeoutMs) : null;
+    try {
+        const id = encodeURIComponent(sessionId);
+        const res = await fetch(`${BACKEND_URL}/sessions/${id}/latest_screenshot`, {
+            method: 'GET',
+            headers: { 'X-Emu-Token': readToken() },
+            signal: controller.signal,
+        });
+        if (res.status === 404) return null;
+        if (!res.ok) {
+            throw new Error(`latest_screenshot failed: ${res.status}`);
+        }
+        const mime = res.headers.get('content-type') || 'image/png';
+        const arrBuf = await res.arrayBuffer();
+        return { mime, buffer: Buffer.from(arrBuf) };
+    } finally {
+        if (timer) clearTimeout(timer);
+    }
+}
+
 // connectStream(sessionId, handler) → { close }
 // handler({ type, message, ... }) receives every WS frame for the session.
 // Reconnects automatically with exponential backoff (capped at 30s).
@@ -132,6 +181,8 @@ module.exports = {
     createSession,
     setSessionMetadata,
     postStep,
+    stopSession,
+    fetchLatestScreenshot,
     connectStream,
     BACKEND_URL,
 };
