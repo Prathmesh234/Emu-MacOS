@@ -67,6 +67,20 @@ function _scrubbedEnv({ emuRoot, authToken }) {
         'EMU_MESSAGING_AGENT_MODE',
         'EMU_MESSAGING_DRY_RUN',
         'EMU_MESSAGING_DEBUG',
+        // Per-platform inbound mode (`bot` default, `self-chat` opt-in).
+        // Self-chat mode lets the operator drive the agent from their own
+        // personal account by messaging themselves; see
+        // messaging/common/replyPrefix.js for the anti-loop layers.
+        'EMU_MESSAGING_WHATSAPP_MODE',
+        'EMU_MESSAGING_IMESSAGE_MODE',
+        // Override the JIDs / handles that count as "the operator's own
+        // self-chat" when self-chat mode is on. Optional; sensible defaults
+        // are derived from sock.user (WhatsApp) / the allowlist (iMessage).
+        'EMU_MESSAGING_WHATSAPP_SELF_JIDS',
+        'EMU_MESSAGING_IMESSAGE_SELF_HANDLES',
+        // Override the outbound reply prefix used for echo suppression.
+        // Optional; defaults to "🤖 *Emu*\n────────\n" (see replyPrefix.js).
+        'EMU_MESSAGING_REPLY_PREFIX',
         'IMESSAGE_DB',
     ]) {
         if (process.env[key] != null) env[key] = process.env[key];
