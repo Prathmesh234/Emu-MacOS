@@ -111,15 +111,66 @@ EMU_MESSAGING_DRY_RUN=1 node messaging/runner.js
 
 Environment switches read by `runner.js`:
 
-| Variable                     | Effect                                                       |
-|------------------------------|--------------------------------------------------------------|
-| `EMU_DISABLE_MESSAGING=1`    | Skip the runner entirely.                                    |
-| `EMU_DISABLE_WHATSAPP=1`     | Run iMessage only.                                           |
-| `EMU_DISABLE_IMESSAGE=1`     | Run WhatsApp only.                                           |
-| `EMU_MESSAGING_AGENT_MODE`   | `coworker` (default) or `remote`.                            |
-| `EMU_MESSAGING_DRY_RUN=1`    | Log inbound, skip backend post.                              |
-| `EMU_MESSAGING_DEBUG=1`      | Emit debug lines from each bridge.                           |
-| `IMESSAGE_DB`                | Override `~/Library/Messages/chat.db` (testing).             |
+| Variable                                  | Effect                                                                                       |
+|-------------------------------------------|----------------------------------------------------------------------------------------------|
+| `EMU_DISABLE_MESSAGING=1`                 | Skip the runner entirely.                                                                    |
+| `EMU_DISABLE_WHATSAPP=1`                  | Run iMessage only.                                                                           |
+| `EMU_DISABLE_IMESSAGE=1`                  | Run WhatsApp only.                                                                           |
+| `EMU_MESSAGING_AGENT_MODE`                | `coworker` (default) or `remote`.                                                            |
+| `EMU_MESSAGING_DRY_RUN=1`                 | Log inbound, skip backend post.                                                              |
+| `EMU_MESSAGING_DEBUG=1`                   | Emit debug lines from each bridge.                                                           |
+| `EMU_MESSAGING_WHATSAPP_MODE`             | `bot` (default) or `self-chat`. See **Self-chat mode** below.                                |
+| `EMU_MESSAGING_IMESSAGE_MODE`             | `bot` (default) or `self-chat`. See **Self-chat mode** below.                                |
+| `EMU_MESSAGING_WHATSAPP_SELF_JIDS`        | Comma-separated JIDs to treat as the operator's own self-chat (defaults to `sock.user.id` + `.lid`). |
+| `EMU_MESSAGING_IMESSAGE_SELF_HANDLES`     | Comma-separated handles to treat as Note-to-Self chats (defaults to the iMessage allowlist). |
+| `EMU_MESSAGING_REPLY_PREFIX`              | Override the outbound reply prefix (default `🤖 *Emu*\n────────\n`). Use literal `\n` for newlines. |
+| `IMESSAGE_DB`                             | Override `~/Library/Messages/chat.db` (testing).                                             |
+
+## Self-chat mode
+
+Default deployment assumes a **dedicated bot account** per platform: a
+second WhatsApp number and/or a second Apple ID. That's still the
+recommended setup — it has no loop risk and doesn't sit anywhere near
+WhatsApp's third-party-client TOS line.
+
+When that's not practical (hobbyist setup, no spare SIM), set
+`EMU_MESSAGING_WHATSAPP_MODE=self-chat` and/or
+`EMU_MESSAGING_IMESSAGE_MODE=self-chat`. The bridge then accepts messages
+the operator sends to themselves — WhatsApp's "Message yourself" chat,
+iMessage's "Note to Self" — and treats those as agent commands.
+
+Three layers prevent the agent from replying to its own messages and
+looping forever:
+
+1. **Reply prefix** (`common/replyPrefix.js`) — every outbound message is
+   prepended with `EMU_MESSAGING_REPLY_PREFIX`. Inbound messages whose
+   body starts with that prefix are recognised as echoes and dropped at
+   the bridge boundary.
+2. **Recently-sent ID cache** (WhatsApp only — Baileys returns
+   `result.key.id` on send). The bridge keeps a bounded Set of the last
+   200 outbound message IDs and rejects matching inbound events even if
+   the prefix was somehow stripped.
+3. **Scope restriction** — self-chat mode only accepts `fromMe` traffic
+   from the configured self-chat thread. Random contacts messaging the
+   operator's personal number never trigger the agent.
+
+Pattern adopted from [NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent)
+`scripts/whatsapp-bridge/bridge.js` (MIT). Their bridge documents the same
+three-layer approach.
+
+### iMessage self-chat caveat
+
+A single Mac sending an iMessage to itself in the same Note-to-Self chat
+does **not** generate a new `chat.db` row on that Mac — the message is
+treated as local UI state. To actually drive Emu in iMessage self-chat
+mode you need a second device on the same Apple ID (iPhone, iPad, or a
+second Mac) so the message arrives via iCloud sync, which is what
+populates `chat.db` with `is_from_me=1`. Without that second device
+iMessage self-chat mode is a no-op.
+
+WhatsApp self-chat mode does NOT have this caveat — Baileys connects as a
+linked device and receives `append` events for everything the user sends
+from any device (including the same machine).
 
 ## Security
 
