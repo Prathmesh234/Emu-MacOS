@@ -17,11 +17,68 @@ const { execFile } = require('child_process');
 const { platformDir } = require('../common/paths');
 const { makeLogger } = require('../common/log');
 const allowlist = require('../common/allowlist');
+const replyPrefix = require('../common/replyPrefix');
 
 const PLATFORM = 'imessage';
 const CHAT_DB = process.env.IMESSAGE_DB || path.join(os.homedir(), 'Library', 'Messages', 'chat.db');
 const APPLESCRIPT_PATH = path.join(__dirname, 'send.applescript');
 const POLL_INTERVAL_MS = 1500;
+
+// MODE: "bot" (default, legacy) or "self-chat".
+//
+//   bot       — chat.db only surfaces messages from other contacts. Our
+//               own outbound sends (via osascript) are ignored. This is
+//               the safe default for any deployment where the agent has
+//               its own iMessage account / Apple ID.
+//
+//   self-chat — the bridge accepts messages with `is_from_me = 1` so the
+//               operator can drive the agent from any iMessage chat that
+//               syncs across their Apple ID (Note to Self, or a chat with
+//               their own number from a second device). Anti-loop is
+//               enforced by:
+//                 (a) restricting accepted chats to a configured "self
+//                     handles" set (defaults to the imessage allowlist —
+//                     in self-chat mode the operator's own handle is the
+//                     command surface), and
+//                 (b) dropping any inbound message whose body starts with
+//                     Emu's reply prefix (those are our own osascript
+//                     sends, replayed to us via the iCloud message sync).
+//
+// Implementation parallels the WhatsApp self-chat path so operators get
+// the same env shape on both platforms.
+function _mode() {
+    const raw = String(process.env.EMU_MESSAGING_IMESSAGE_MODE || 'bot').toLowerCase();
+    return raw === 'self-chat' ? 'self-chat' : 'bot';
+}
+
+// Build the normalised set of chat identifiers that count as "the
+// operator's own chat" for self-chat mode. Source precedence:
+//   1. EMU_MESSAGING_IMESSAGE_SELF_HANDLES (comma-separated). Lets the
+//      operator narrow to a specific chat if they have multiple handles.
+//   2. Fallback: the imessage allowlist. In self-chat mode the operator's
+//      OWN handle is what they put in the allowlist; using the allowlist
+//      as the self-handle source is the zero-config experience.
+function _buildSelfHandleSet(logger) {
+    const set = new Set();
+    const raw = String(process.env.EMU_MESSAGING_IMESSAGE_SELF_HANDLES || '').trim();
+    if (raw) {
+        for (const piece of raw.split(',')) {
+            const normalized = allowlist._normalize(piece);
+            if (normalized) set.add(normalized);
+        }
+    }
+    if (set.size === 0) {
+        for (const handle of allowlist.loadAllowlist().imessage) {
+            set.add(handle);
+        }
+    }
+    if (set.size === 0 && logger) {
+        logger.warn('self-chat-no-self-handle-resolved', {
+            hint: 'add your own handle to .emu/messaging/allowlist.json or set EMU_MESSAGING_IMESSAGE_SELF_HANDLES=+15551234567',
+        });
+    }
+    return set;
+}
 
 let Database;
 
@@ -87,17 +144,25 @@ function _openDb(logger) {
 
 // Returns rows for messages with ROWID > cursor, in ascending order.
 //
-// `is_from_me = 0` filters out our own outbound replies.
-// `cache_has_attachments = 0` and `text IS NOT NULL` keep us to plain text.
-// `handle.id` is the buddy. Group chats are excluded by joining only
-// 1:1 chats from chat_message_join with chat_handle_join cardinality of 1.
+// We deliberately do NOT filter on `is_from_me` in SQL anymore — the JS
+// tick loop decides based on the configured mode. `bot` mode drops
+// `is_from_me=1`, `self-chat` mode does the opposite. Pulling both keeps
+// the bridge mode switchable without touching the prepared statement.
+//
+// `cache_has_attachments = 0` is not enforced; we only require non-empty
+// text. `handle.id` is the buddy; `chat.chat_identifier` is the chat's
+// canonical address (used in self-chat mode to confirm Note-to-Self).
+// Group chats are excluded by joining only 1:1 chats from
+// chat_handle_join with cardinality 1.
 const QUERY = `
     SELECT
         m.ROWID            AS rowid,
         m.text             AS text,
         m.attributedBody   AS attributed_body,
+        m.is_from_me       AS is_from_me,
         h.id               AS handle_id,
         c.guid             AS chat_guid,
+        c.chat_identifier  AS chat_identifier,
         m.date             AS date,
         (
             SELECT COUNT(*) FROM chat_handle_join chj
@@ -108,7 +173,6 @@ const QUERY = `
     JOIN chat c                ON c.ROWID = cmj.chat_id
     LEFT JOIN handle h         ON h.ROWID = m.handle_id
     WHERE m.ROWID > ?
-      AND m.is_from_me = 0
       AND m.text IS NOT NULL
       AND m.text != ''
     ORDER BY m.ROWID ASC
@@ -149,6 +213,14 @@ async function startIMessage({ dispatcher }) {
     }
 
     const select = db.prepare(QUERY);
+    const mode = _mode();
+    // Built once at startup; not hot-reloaded if the operator edits the
+    // allowlist mid-run. Matches the WhatsApp bridge's selfJids semantics.
+    const selfHandles = mode === 'self-chat' ? _buildSelfHandleSet(logger) : new Set();
+    logger.info('mode-selected', {
+        mode,
+        selfHandles: mode === 'self-chat' ? Array.from(selfHandles) : undefined,
+    });
 
     let stopped = false;
     let timer = null;
@@ -175,16 +247,60 @@ async function startIMessage({ dispatcher }) {
                 logger.debug('skip-group-chat', { rowid: row.rowid });
                 continue;
             }
-            const handle = _normalizeAppleHandle(row.handle_id);
-            if (!handle) continue;
+            const fromMe = row.is_from_me === 1;
             const text = String(row.text || '').trim();
             if (!text) continue;
+
+            let handle;
+            if (mode === 'self-chat') {
+                // Scope: self-chat mode ignores third-party inbound. The
+                // operator's own personal Apple ID is the only command
+                // surface; messages from contacts go nowhere even if the
+                // contact happens to be allowlisted.
+                if (!fromMe) {
+                    logger.debug('self-chat-drop-not-from-me', { rowid: row.rowid });
+                    continue;
+                }
+                // Echo suppression: anything starting with our reply
+                // prefix is an osascript send we just made, replayed back
+                // to us via iCloud message sync.
+                if (replyPrefix.isPrefixed(text)) {
+                    logger.debug('self-chat-drop-prefixed-echo', {
+                        rowid: row.rowid,
+                        preview: text.slice(0, 40),
+                    });
+                    continue;
+                }
+                // Scope check: the chat must be one of the operator's own
+                // self-chat threads (typically Note-to-Self, where the
+                // chat_identifier is the operator's own phone/email).
+                const chatId = allowlist._normalize(row.chat_identifier);
+                if (!chatId || !selfHandles.has(chatId)) {
+                    logger.debug('self-chat-drop-not-self-chat', {
+                        rowid: row.rowid,
+                        chat_identifier: row.chat_identifier,
+                        selfHandlesSize: selfHandles.size,
+                    });
+                    continue;
+                }
+                handle = chatId;
+            } else {
+                // bot mode (legacy): drop our own outbound, accept anything
+                // else and let the dispatcher's allowlist gate decide.
+                if (fromMe) {
+                    logger.debug('bot-mode-drop-from-me', { rowid: row.rowid });
+                    continue;
+                }
+                handle = _normalizeAppleHandle(row.handle_id);
+                if (!handle) continue;
+            }
+
             try {
                 await dispatcher.handleInbound({
                     platform: PLATFORM,
                     handle,
                     text,
-                    meta: { rowid: row.rowid, chat_guid: row.chat_guid },
+                    meta: { rowid: row.rowid, chat_guid: row.chat_guid, mode },
                 });
             } catch (err) {
                 logger.error('inbound-dispatch-failed', { error: err.message });
@@ -221,9 +337,15 @@ async function startIMessage({ dispatcher }) {
     // fallback are unreliable enough that we'd rather skip cleanly.
     dispatcher.registerSender(PLATFORM, {
         sendText: async (handle, text) => {
+            // Always prefix outbound. In self-chat mode this is what the
+            // tick loop uses to recognise + drop our own echoes via
+            // chat.db sync. In bot mode the prefix is cosmetic but keeps
+            // both modes byte-identical so operators don't see different
+            // formatting when they flip modes.
+            const body = replyPrefix.wrap(text);
             try {
-                await _send(handle, text);
-                logger.info('sent', { handle, length: text.length });
+                await _send(handle, body);
+                logger.info('sent', { handle, length: body.length, mode });
             } catch (err) {
                 logger.error('send-failed', { handle, error: err.message });
                 throw err;
