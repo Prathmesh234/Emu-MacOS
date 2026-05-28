@@ -215,14 +215,20 @@ async function startIMessage({ dispatcher }) {
         });
     }
 
-    dispatcher.registerSender(PLATFORM, async (handle, text) => {
-        try {
-            await _send(handle, text);
-            logger.info('sent', { handle, length: text.length });
-        } catch (err) {
-            logger.error('send-failed', { handle, error: err.message });
-            throw err;
-        }
+    // iMessage outbound is text-only. We deliberately omit sendImage so
+    // the router falls back to text+caption when an attachment was
+    // requested (see outboundRouter.sendImageToActive). Images over SMS
+    // fallback are unreliable enough that we'd rather skip cleanly.
+    dispatcher.registerSender(PLATFORM, {
+        sendText: async (handle, text) => {
+            try {
+                await _send(handle, text);
+                logger.info('sent', { handle, length: text.length });
+            } catch (err) {
+                logger.error('send-failed', { handle, error: err.message });
+                throw err;
+            }
+        },
     });
 
     logger.info('imessage-bridge-started', { cursor, dbPath: CHAT_DB });
