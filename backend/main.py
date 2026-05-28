@@ -549,6 +549,11 @@ async def set_session_metadata(session_id: str, payload: dict):
             metadata = {}
     if kind:
         metadata["kind"] = kind
+    elif "kind" in payload and payload["kind"] in ("", None):
+        # Explicit clear: caller sent kind="" or kind=null to demote a
+        # previously-tagged session (used when rotating the remote-control
+        # session so old ones drop out of the pinned sidebar group).
+        metadata.pop("kind", None)
     if label:
         metadata["label"] = label
     metadata["updated_at"] = time.time()
@@ -573,6 +578,39 @@ async def get_session_metadata(session_id: str):
         }
     except (json.JSONDecodeError, OSError):
         return {"session_id": session_id, "metadata": {}}
+
+
+@app.get("/messaging/remote_session_id")
+async def get_remote_session_id():
+    """
+    Return the singleton remote-control session id that the messaging
+    bridge has provisioned, or ``null`` when none exists yet.
+
+    Used by the Electron renderer to open a passive observer WebSocket
+    against that session so WhatsApp / iMessage activity shows up live in
+    the desktop UI's History sidebar with the same fidelity as a session
+    started locally.
+    """
+    remote_file = get_emu_path() / "messaging" / "remote_session.json"
+    if not remote_file.exists():
+        return {"session_id": None}
+    try:
+        data = json.loads(remote_file.read_text(encoding="utf-8"))
+        sid = data.get("session_id")
+        if not isinstance(sid, str) or not sid:
+            return {"session_id": None}
+        # Defense in depth: re-validate the id shape even though the
+        # bridge writes it.
+        import re
+        if not re.match(r"^[a-zA-Z0-9_-]+$", sid):
+            return {"session_id": None}
+        return {
+            "session_id": sid,
+            "label": data.get("label") or "",
+            "kind": data.get("kind") or "",
+        }
+    except (json.JSONDecodeError, OSError):
+        return {"session_id": None}
 
 
 @app.post("/agent/step")
@@ -1334,6 +1372,29 @@ async def session_messages(session_id: str):
         return data
     except (json.JSONDecodeError, KeyError):
         return {"messages": []}
+
+
+@app.get("/sessions/{session_id}/latest_screenshot")
+async def session_latest_screenshot(session_id: str):
+    """
+    Return raw bytes of the most recent screenshot captured for a session.
+
+    Used by the messaging bridge to attach a current frame to outbound
+    replies (e.g. a WhatsApp "done" message gets the final desktop snapshot
+    so the remote sender can confirm the agent's outcome visually).
+    """
+    import re
+    from starlette.responses import Response
+
+    if not re.match(r'^[a-zA-Z0-9_-]+$', session_id):
+        return JSONResponse(status_code=400, content={"detail": "Invalid session_id"})
+
+    cached = context_manager.get_latest_screenshot(session_id)
+    if not cached:
+        return JSONResponse(status_code=404, content={"detail": "No screenshot available"})
+
+    mime, body = cached
+    return Response(content=body, media_type=mime or "image/png")
 
 
 @app.post("/agent/session/continue")
