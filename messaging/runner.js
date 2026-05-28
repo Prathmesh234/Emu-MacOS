@@ -30,6 +30,10 @@ function _summary() {
         imessageAllowlistSize: a.imessage.length,
         whatsappDisabled: process.env.EMU_DISABLE_WHATSAPP === '1',
         imessageDisabled: process.env.EMU_DISABLE_IMESSAGE === '1',
+        // Per-platform mode surfaces in --selfcheck so operators can
+        // confirm self-chat is actually engaged before staring at logs.
+        whatsappMode: (process.env.EMU_MESSAGING_WHATSAPP_MODE || 'bot').toLowerCase(),
+        imessageMode: (process.env.EMU_MESSAGING_IMESSAGE_MODE || 'bot').toLowerCase(),
     };
 }
 
