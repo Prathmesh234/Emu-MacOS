@@ -182,6 +182,11 @@ class ContextManager:
         # Per-session active (pid, window_id) tracked for coworker-mode
         # per-turn AX perception injection (see PLAN §4.6).
         self._coworker_target: dict[str, tuple[int, int]] = {}
+        # Cache of the most recent screenshot per session, kept as
+        # (mime_type, raw_bytes). Used by GET /sessions/{id}/latest_screenshot
+        # so the messaging bridge can attach a current frame to outbound
+        # replies without scanning the full history each time.
+        self._latest_screenshot: dict[str, tuple[str, bytes]] = {}
         self.remote_validator = RemoteActionValidator()
         self.coworker_validator = CoworkerActionValidator()
 
@@ -344,6 +349,18 @@ class ContextManager:
             else:
                 mime = "image/png"
             base64_screenshot = f"data:{mime};base64,{base64_screenshot}"
+
+        # Cache the raw bytes for the GET /sessions/{id}/latest_screenshot
+        # endpoint. We decode once here so the HTTP path is a constant-time
+        # lookup + write instead of base64-decoding on every request.
+        try:
+            import base64 as _b64
+            header, b64body = base64_screenshot.split(",", 1)
+            mime_part = header.split(";", 1)[0].split(":", 1)[1] if ":" in header else "image/png"
+            self._latest_screenshot[session_id] = (mime_part, _b64.b64decode(b64body))
+        except Exception:
+            # Don't let cache failures break the agent loop.
+            pass
 
         annotations = None
 
@@ -578,8 +595,13 @@ class ContextManager:
         self._agent_mode.pop(session_id, None)
         self._active_model.pop(session_id, None)
         self._coworker_target.pop(session_id, None)
+        self._latest_screenshot.pop(session_id, None)
         self.remote_validator.clear(session_id)
         self.coworker_validator.clear(session_id)
+
+    def get_latest_screenshot(self, session_id: str) -> tuple[str, bytes] | None:
+        """Return (mime_type, raw_bytes) of the most recent screenshot, or None."""
+        return self._latest_screenshot.get(session_id)
 
     def preload_from_conversation(self, session_id: str, old_messages: list[dict]) -> None:
         """
