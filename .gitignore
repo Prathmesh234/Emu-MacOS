@@ -28,6 +28,9 @@ build/
 
 # ── .emu workspace (user-specific, runtime) ───────────────────────
 .emu/
+# Defensive: never commit messaging allowlist even if .emu/ rule changes.
+.emu/messaging/allowlist.json
+**/.emu/messaging/allowlist.json
 
 # ── Environment & secrets ─────────────────────────────────────────
 .env
