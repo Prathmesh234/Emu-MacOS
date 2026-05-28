@@ -85,6 +85,14 @@ function HistoryPanel({ onNewChat, onSelectSession, onContinueSession, onToggle 
     // ── State ─────────────────────────────────────────────────────────────
     let _activeId = null;
 
+    // Sessions currently generating in the background (i.e. driven by the
+    // messaging bridge). Stored separately from _activeId so a remote
+    // session can be "live" while the user is viewing a local session.
+    const _liveIds = new Set();
+    // Latest preview text per session, used by setLivePreview() to update
+    // the sidebar item without re-running populate().
+    const _previews = new Map();
+
     function setActive(sessionId) {
         _activeId = sessionId;
         list.querySelectorAll('.history-item').forEach(el => {
@@ -100,6 +108,50 @@ function HistoryPanel({ onNewChat, onSelectSession, onContinueSession, onToggle 
                 dot.remove();
             }
         });
+    }
+
+    // Mark a session as actively generating in the background. Adds a
+    // pulsing "live" badge to the sidebar item (distinct from the active
+    // pulsing dot used for the currently-viewed session). Used by the
+    // remoteSessionObserver so WhatsApp / iMessage activity surfaces
+    // even when the user is looking at a different session.
+    function setLive(sessionId, isLive) {
+        if (!sessionId) return;
+        if (isLive) _liveIds.add(sessionId); else _liveIds.delete(sessionId);
+        const el = list.querySelector(`.history-item[data-session-id="${CSS.escape(sessionId)}"]`);
+        if (!el) return;
+        el.classList.toggle('history-item-live', isLive);
+        let badge = el.querySelector('.history-item-live-badge');
+        if (isLive && !badge) {
+            badge = document.createElement('span');
+            badge.className = 'history-item-live-badge';
+            badge.title = 'Generating now';
+            badge.textContent = '●';
+            el.appendChild(badge);
+        } else if (!isLive && badge) {
+            badge.remove();
+        }
+    }
+
+    // Update the preview text shown on a sidebar item without rebuilding
+    // the list. No-ops silently when the session isn't currently rendered
+    // (e.g. user closed the sidebar before activity arrived).
+    function setLivePreview(sessionId, text) {
+        if (!sessionId || !text) return;
+        _previews.set(sessionId, text);
+        const el = list.querySelector(`.history-item[data-session-id="${CSS.escape(sessionId)}"]`);
+        if (!el) return;
+        const textEl = el.querySelector('.history-item-text');
+        if (!textEl) return;
+        // Pinned items keep their fixed label; only update the regular
+        // preview text so we don't clobber "Remote control".
+        if (el.classList.contains('history-item-pinned')) {
+            // For pinned items, prepend a subdued live preview line below
+            // the label by stashing it as a title — minimal DOM churn.
+            el.title = text;
+            return;
+        }
+        textEl.textContent = text;
     }
 
     function populate(sessions) {
@@ -147,6 +199,7 @@ function HistoryPanel({ onNewChat, onSelectSession, onContinueSession, onToggle 
         const item = document.createElement('div');
         item.className = 'history-item' + (session.session_id === _activeId ? ' active' : '');
         if (pinned) item.classList.add('history-item-pinned');
+        if (_liveIds.has(session.session_id)) item.classList.add('history-item-live');
         item.dataset.sessionId = session.session_id;
         item.setAttribute('role', 'button');
         item.tabIndex = 0;
@@ -168,10 +221,27 @@ function HistoryPanel({ onNewChat, onSelectSession, onContinueSession, onToggle 
 
         const text = document.createElement('span');
         text.className = 'history-item-text';
+        const cachedPreview = _previews.get(session.session_id);
         text.textContent = pinned
             ? (session.label || 'Remote control')
-            : (session.preview || 'Untitled');
+            : (cachedPreview || session.preview || 'Untitled');
         item.appendChild(text);
+
+        if (pinned && cachedPreview) {
+            item.title = cachedPreview;
+        }
+
+        // Live badge: a small pulsing dot at the right edge indicating
+        // the backend is currently generating for this session. Used by
+        // the remoteSessionObserver to surface WhatsApp / iMessage
+        // activity in the sidebar.
+        if (_liveIds.has(session.session_id)) {
+            const badge = document.createElement('span');
+            badge.className = 'history-item-live-badge';
+            badge.title = 'Generating now';
+            badge.textContent = '●';
+            item.appendChild(badge);
+        }
 
         const continueBtn = document.createElement('button');
         continueBtn.className = 'history-item-continue-btn';
@@ -199,7 +269,7 @@ function HistoryPanel({ onNewChat, onSelectSession, onContinueSession, onToggle 
         return item;
     }
 
-    return { element: panel, populate, setActive };
+    return { element: panel, populate, setActive, setLive, setLivePreview };
 }
 
 // ── Date grouping helpers ─────────────────────────────────────────────────
