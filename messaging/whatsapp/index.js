@@ -167,24 +167,58 @@ async function startWhatsApp({ dispatcher }) {
 
     sock = _open();
 
-    dispatcher.registerSender(PLATFORM, async (handle, text) => {
-        if (!sock || !sock.user) {
-            logger.warn('send-skipped-no-socket', { handle });
-            return;
-        }
-        const digits = String(handle || '').replace(/[^0-9]/g, '');
-        if (!digits) {
-            logger.warn('send-skipped-bad-handle', { handle });
-            return;
-        }
-        const jid = `${digits}@s.whatsapp.net`;
-        try {
-            await sock.sendMessage(jid, { text });
-            logger.info('sent', { handle, length: text.length });
-        } catch (err) {
-            logger.error('send-failed', { handle, error: err.message });
-            throw err;
-        }
+    dispatcher.registerSender(PLATFORM, {
+        sendText: async (handle, text) => {
+            if (!sock || !sock.user) {
+                logger.warn('send-skipped-no-socket', { handle });
+                return;
+            }
+            const digits = String(handle || '').replace(/[^0-9]/g, '');
+            if (!digits) {
+                logger.warn('send-skipped-bad-handle', { handle });
+                return;
+            }
+            const jid = `${digits}@s.whatsapp.net`;
+            try {
+                await sock.sendMessage(jid, { text });
+                logger.info('sent', { handle, length: text.length });
+            } catch (err) {
+                logger.error('send-failed', { handle, error: err.message });
+                throw err;
+            }
+        },
+        sendImage: async (handle, image, caption) => {
+            if (!sock || !sock.user) {
+                logger.warn('send-image-skipped-no-socket', { handle });
+                return;
+            }
+            const digits = String(handle || '').replace(/[^0-9]/g, '');
+            if (!digits) {
+                logger.warn('send-image-skipped-bad-handle', { handle });
+                return;
+            }
+            if (!image || !Buffer.isBuffer(image.buffer)) {
+                logger.warn('send-image-skipped-bad-payload', { handle });
+                return;
+            }
+            const jid = `${digits}@s.whatsapp.net`;
+            // Baileys accepts a Buffer for the `image` field. WhatsApp
+            // re-encodes server-side, so we don't need to convert mime
+            // types; PNG and JPEG both work.
+            const msg = { image: image.buffer };
+            if (caption) msg.caption = caption;
+            try {
+                await sock.sendMessage(jid, msg);
+                logger.info('sent-image', {
+                    handle,
+                    bytes: image.buffer.length,
+                    captionLength: caption ? caption.length : 0,
+                });
+            } catch (err) {
+                logger.error('send-image-failed', { handle, error: err.message });
+                throw err;
+            }
+        },
     });
 
     return {
