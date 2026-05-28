@@ -235,6 +235,25 @@
   opacity: 0.85;
 }
 
+/* Live badge — shown on a session whose backend is currently
+   generating, even when the user is viewing a different session.
+   Distinct from .history-item-dot (which marks the actively-viewed
+   session). Used by the remote-session observer so WhatsApp /
+   iMessage activity surfaces in real time. */
+.history-item-live-badge {
+  flex-shrink: 0;
+  margin-left: 4px;
+  color: #16a34a;          /* tailwind green-600 — legible on light + dark */
+  font-size: 10px;
+  line-height: 1;
+  animation: emuPulse 1.4s ease-in-out infinite;
+}
+
+.history-item-live {
+  /* Subtle background tint so the row is scannable without the badge. */
+  box-shadow: inset 2px 0 0 #16a34a;
+}
+
 /* Empty state */
 .history-empty {
   padding: 12px 16px;
