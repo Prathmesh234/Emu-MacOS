@@ -30,6 +30,7 @@ const { formatToolTrace, hasDedicatedToolEvent } = require('../services/traceLab
 const store = require('../state/store');
 const api = require('../services/api');
 const { initWebSocket, setMessageHandler } = require('../services/websocket');
+const remoteSessionObserver = require('../services/remoteSessionObserver');
 
 // ── DOM refs (populated in mount) ────────────────────────────────────────
 
@@ -480,10 +481,32 @@ async function refreshHistory() {
     try {
         const sessions = await api.fetchSessionHistory();
         if (historyPanel) historyPanel.populate(sessions);
+        // Re-apply live state to whichever pinned item just got
+        // re-rendered (populate() wipes and rebuilds DOM).
+        if (historyPanel && _remoteObserver && _remoteObserver.sessionId) {
+            historyPanel.setLive(_remoteObserver.sessionId, _remoteObserver.live);
+        }
     } catch (err) {
         console.warn('[history] failed to load:', err.message);
     }
 }
+
+// Debounced sidebar refresh, used by the remote-session observer so
+// bursty step events don't trigger a /sessions/history call per event.
+let _refreshHistoryTimer = null;
+function refreshHistorySoon() {
+    if (_refreshHistoryTimer) return;
+    _refreshHistoryTimer = setTimeout(() => {
+        _refreshHistoryTimer = null;
+        // Only fetch when the sidebar is open (or about to be) — otherwise
+        // we'd be doing pointless network work for an invisible panel.
+        if (_historyPanelOpen) refreshHistory();
+    }, 750);
+}
+
+// Passive observer for the messaging bridge's singleton remote-control
+// session. Started in initSession() once the local session is up.
+let _remoteObserver = null;
 
 async function loadPastSession(sessionId, prefetchedMessages = null) {
     try {
@@ -1281,6 +1304,28 @@ async function initSession() {
         console.log('[session] created successfully:', id);
         // Backend is up — load session history for the sidebar
         refreshHistory();
+        // Start the passive observer for the messaging bridge's remote-
+        // control session. This is what makes WhatsApp / iMessage activity
+        // surface in the desktop sidebar in real time, matching the parity
+        // promise: a session driven by a phone message looks indistinguishable
+        // from one started locally.
+        if (!_remoteObserver) {
+            _remoteObserver = remoteSessionObserver.start({
+                onActivity: ({ sessionId: remoteId, preview }) => {
+                    if (!historyPanel) return;
+                    if (preview) historyPanel.setLivePreview(remoteId, preview);
+                    refreshHistorySoon();
+                },
+                onStateChange: ({ live, sessionId: remoteId, rotated }) => {
+                    if (!historyPanel) return;
+                    historyPanel.setLive(remoteId, live);
+                    // On rotation OR on turn-end, pull the sidebar so the
+                    // new pinned item appears (rotation) or `last_active`
+                    // sort order updates (turn-end).
+                    if (rotated || !live) refreshHistorySoon();
+                },
+            });
+        }
     } catch (err) {
         console.warn('[session] failed:', err.message);
         console.log('[session] retrying in 2s... (is backend running on localhost:8000?)');
