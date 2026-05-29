@@ -352,6 +352,15 @@ async function startWhatsApp({ dispatcher }) {
             // chat into the local cache; we only need new inbound messages.
             shouldSyncHistoryMessage: () => false,
             markOnlineOnConnect: false,
+            // Skip the post-connect "init queries" burst (fetchProps,
+            // contacts, chat metadata, blocklist, business profile, …).
+            // On flaky links these fan-out queries routinely time out
+            // (the dreaded `unexpected error in 'init queries' … 408
+            // Request Time-out` from chats.js:859), but NONE of the data
+            // they fetch is used by the bridge — we only consume live
+            // inbound `messages.upsert` events. Disabling the burst
+            // removes the noisy error AND speeds up reconnect.
+            fireInitQueries: false,
         });
         _attach(socket);
         return socket;

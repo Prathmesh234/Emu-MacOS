@@ -122,10 +122,25 @@ class Dispatcher {
         this.sessionId = null;
         this.stream = null;
         this.dryRun = process.env.EMU_MESSAGING_DRY_RUN === '1';
-        this.agentMode = (process.env.EMU_MESSAGING_AGENT_MODE || 'coworker').trim();
-        if (!['coworker', 'remote'].includes(this.agentMode)) {
-            this.logger.warn('invalid-agent-mode-falling-back', { value: this.agentMode });
-            this.agentMode = 'coworker';
+        // Messaging-sourced turns ALWAYS run in remote mode. Off-host
+        // operators (WhatsApp, iMessage) have no visible desktop to
+        // co-pilot against, so coworker mode — which targets a focused
+        // local app window and asks the human to keep eyes on it — is
+        // never the right surface. Remote mode runs against the full
+        // virtual desktop and surfaces progress as screenshots + text,
+        // which is exactly what we ship back to the phone. We hard-pin
+        // this here (no env override) so a misconfigured EMU_MESSAGING_AGENT_MODE
+        // can't silently downgrade an inbound WhatsApp task to coworker
+        // and start clicking at whatever the operator happens to have
+        // focused on their laptop.
+        this.agentMode = 'remote';
+        const overrideRaw = String(process.env.EMU_MESSAGING_AGENT_MODE || '').trim().toLowerCase();
+        if (overrideRaw && overrideRaw !== 'remote') {
+            this.logger.warn('agent-mode-override-ignored', {
+                requested: overrideRaw,
+                forced: 'remote',
+                reason: 'messaging bridges always run in remote mode',
+            });
         }
         // Per-turn throttle/state for step-progress pings. Reset every
         // turn-end so the next inbound message starts fresh.

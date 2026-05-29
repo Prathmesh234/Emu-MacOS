@@ -508,17 +508,61 @@ function refreshHistorySoon() {
 // session. Started in initSession() once the local session is up.
 let _remoteObserver = null;
 
+// Debounced refetch+re-render of the remote-control session, used when
+// the user is currently viewing that session and the bridge produces
+// new activity on a SECOND WebSocket the chat view doesn't listen to.
+// Without this the user sees their inbound WhatsApp/iMessage message
+// (loaded once when they opened the pin) but never the assistant reply
+// that lands seconds later via the remote-observer WS.
+//
+// We refetch /sessions/{id}/messages and replay through renderPastSession
+// rather than threading raw step events into handleWsMessage — the
+// latter is tightly coupled to live-generation state for the LOCAL
+// session and would mis-attribute coworker_target, generation IDs, etc.
+let _remoteRerenderTimer = null;
+function refreshRemoteSessionViewSoon(remoteId) {
+    if (!remoteId) return;
+    if (!_viewingPastSession || _pastSessionId !== remoteId) return;
+    if (_remoteRerenderTimer) return;
+    _remoteRerenderTimer = setTimeout(async () => {
+        _remoteRerenderTimer = null;
+        // Re-check on the trailing edge: the user may have navigated
+        // away (or to a different session) during the debounce window.
+        if (!_viewingPastSession || _pastSessionId !== remoteId) return;
+        try {
+            const messages = await api.fetchSessionMessages(remoteId);
+            if (!messages || messages.length === 0) return;
+            // Preserve scroll-at-bottom feel: if the user was already
+            // pinned to the bottom, snap back after re-render.
+            const wasAtBottom = chatContainer
+                ? (chatContainer.scrollHeight - chatContainer.scrollTop - chatContainer.clientHeight) < 32
+                : true;
+            store.hydrateSessionChat(remoteId, messages);
+            chatWrapper.innerHTML = '';
+            renderPastSession(chatWrapper, messages, addMessage);
+            if (wasAtBottom) scrollToBottom();
+        } catch (err) {
+            console.warn('[remote-observer] re-render failed:', err.message);
+        }
+    }, 400);
+}
+
 async function loadPastSession(sessionId, prefetchedMessages = null) {
     try {
         const messages = prefetchedMessages !== null
             ? prefetchedMessages
             : await api.fetchSessionMessages(sessionId);
-        if (!messages || messages.length === 0) return;
 
+        // Set "viewing" state even when there are no messages yet — the
+        // remote-control session can be opened from the sidebar BEFORE
+        // the bridge has processed its first inbound message, and we
+        // still need refreshRemoteSessionViewSoon() to fire when activity
+        // arrives. Bailing here previously left the chat view stuck on
+        // the local session while the user thought they'd switched.
         _viewingPastSession = true;
         _pastSessionId = sessionId || null;
         if (sessionId) {
-            store.hydrateSessionChat(sessionId, messages);
+            store.hydrateSessionChat(sessionId, messages || []);
             if (historyPanel) historyPanel.setActive(sessionId);
         }
         resetLiveTurnState();
@@ -532,9 +576,10 @@ async function loadPastSession(sessionId, prefetchedMessages = null) {
         // Delegate the (purely-presentational) rendering of past messages
         // to PastSessionRenderer so this module stays focused on live
         // session state. Behavior is byte-for-byte identical.
-        renderPastSession(chatWrapper, messages, addMessage);
-
-        scrollToBottom();
+        if (messages && messages.length > 0) {
+            renderPastSession(chatWrapper, messages, addMessage);
+            scrollToBottom();
+        }
     } catch (err) {
         console.warn('[history] failed to load session:', err.message);
     }
@@ -1315,6 +1360,11 @@ async function initSession() {
                     if (!historyPanel) return;
                     if (preview) historyPanel.setLivePreview(remoteId, preview);
                     refreshHistorySoon();
+                    // If the user is currently viewing this remote-control
+                    // session, refetch + re-render so step pings, assistant
+                    // replies, and turn-end cards land in the chat view in
+                    // near-real-time (debounced inside the helper).
+                    refreshRemoteSessionViewSoon(remoteId);
                 },
                 onStateChange: ({ live, sessionId: remoteId, rotated }) => {
                     if (!historyPanel) return;
@@ -1323,6 +1373,10 @@ async function initSession() {
                     // new pinned item appears (rotation) or `last_active`
                     // sort order updates (turn-end).
                     if (rotated || !live) refreshHistorySoon();
+                    // Turn-end is the most important refresh trigger: the
+                    // conversation.json on disk has just been finalized
+                    // with the assistant reply we want to show.
+                    if (!live) refreshRemoteSessionViewSoon(remoteId);
                 },
             });
         }

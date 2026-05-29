@@ -59,7 +59,7 @@ async function setSessionMetadata(sessionId, metadata) {
     return _fetch('POST', `/agent/session/${encodeURIComponent(sessionId)}/metadata`, metadata);
 }
 
-async function postStep({ sessionId, userMessage, source, agentMode = 'coworker' }) {
+async function postStep({ sessionId, userMessage, source, agentMode = 'remote' }) {
     // Do NOT timeout the step request. Agent steps can chain many tool calls
     // before returning; the bridge tracks completion via the WebSocket
     // `done` event, not by the HTTP response.

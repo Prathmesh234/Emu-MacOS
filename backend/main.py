@@ -1443,4 +1443,6 @@ async def websocket_endpoint(ws: WebSocket, session_id: str):
         while True:
             await ws.receive_text()
     except WebSocketDisconnect:
-        manager.disconnect(session_id)
+        # Pass the specific socket so the fan-out registry removes THIS
+        # subscriber rather than whichever happens to be at the tail.
+        manager.disconnect(session_id, ws)

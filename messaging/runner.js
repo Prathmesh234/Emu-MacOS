@@ -17,6 +17,12 @@
 
 const { makeLogger } = require('./common/log');
 const allowlist = require('./common/allowlist');
+const silenceLibsignal = require('./common/silenceLibsignal');
+
+// Filter Baileys/libsignal's raw `console.log` SessionEntry dumps before any
+// bridge module loads. Idempotent; safe under --selfcheck (no-op without
+// Baileys present).
+silenceLibsignal.install();
 
 const logger = makeLogger('runner');
 
@@ -24,7 +30,11 @@ function _summary() {
     const a = allowlist.loadAllowlist();
     return {
         emuRoot: process.env.EMU_ROOT || '<derived>',
-        agentMode: process.env.EMU_MESSAGING_AGENT_MODE || 'coworker',
+        // Hard-pinned to 'remote' (see Dispatcher constructor); env is
+        // surfaced here purely for the --selfcheck summary so operators
+        // can see what they tried to configure vs. what actually runs.
+        agentMode: 'remote (forced for messaging bridges)',
+        agentModeEnvRequested: process.env.EMU_MESSAGING_AGENT_MODE || '<unset>',
         dryRun: process.env.EMU_MESSAGING_DRY_RUN === '1',
         whatsappAllowlistSize: a.whatsapp.length,
         imessageAllowlistSize: a.imessage.length,
