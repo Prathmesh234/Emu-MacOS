@@ -110,6 +110,39 @@ function _buildSelfJidSet(sockUser, logger) {
     return set;
 }
 
+// Resolve the canonical "+phone" handle for self-chat dispatch. Per-message
+// remoteJid can arrive either as the classic phone JID (15551234567@s.whatsapp.net)
+// OR as a meaningless LID (67504034582761@lid) — the LID is a privacy-
+// preserving identifier with NO relationship to the phone number, so
+// digit-extracting it gives garbage like "+67504034582761" that will never
+// be in the operator's allowlist.
+//
+// In self-chat mode every accepted message routes back to the same operator,
+// so we resolve their handle ONCE (preferring sockUser.id which is the
+// classic phone JID, falling back to allowlist[0] if even that is LID-only).
+function _resolveSelfHandle(sockUser, allowlistEntries, logger) {
+    if (sockUser && typeof sockUser === 'object' && typeof sockUser.id === 'string') {
+        const bare = _bareJid(sockUser.id);
+        // Only trust the JID-derived handle if it's NOT a LID — LID digits
+        // are not a phone number and we'd be lying to the dispatcher.
+        if (bare && !bare.endsWith('@lid')) {
+            const h = _jidToHandle(bare);
+            if (h) return h;
+        }
+    }
+    // Fallback: the operator opted into self-chat by allowlisting their own
+    // number, so the first WhatsApp allowlist entry is by definition them.
+    const fallback = (allowlistEntries || []).find((h) => typeof h === 'string' && h.startsWith('+'));
+    if (fallback) return fallback;
+    if (logger) {
+        logger.warn('self-chat-no-self-handle-resolved', {
+            hint: 'add your +E.164 number to the WhatsApp allowlist',
+        });
+    }
+    return '';
+}
+
+
 function _extractText(msg) {
     const m = msg && msg.message;
     if (!m) return '';
@@ -163,13 +196,18 @@ async function startWhatsApp({ dispatcher }) {
     let qrShown = false;
     const mode = _mode();
     // self-chat mode bookkeeping:
-    //   selfJids — set of bare JIDs that count as "my own self-chat"; we
-    //              rebuild this every time the socket reconnects because
-    //              `sock.user` only populates on `connection: open`.
+    //   selfJids   — set of bare JIDs that count as "my own self-chat"; we
+    //                rebuild this every time the socket reconnects because
+    //                `sock.user` only populates on `connection: open`.
+    //   selfHandle — canonical "+phone" form for dispatcher routing,
+    //                resolved once at socket open. We do NOT derive it
+    //                per-message because msg.key.remoteJid can be a LID
+    //                (privacy-preserving identifier with garbage digits).
     //   recentlySent — IDs of messages we just sent, used to fast-drop
-    //              echo-backs on the rare path where prefix detection fails
-    //              (e.g. transport-level re-encoding strips the leading glyph).
+    //                echo-backs on the rare path where prefix detection fails
+    //                (e.g. transport-level re-encoding strips the leading glyph).
     let selfJids = new Set();
+    let selfHandle = '';
     const recentlySent = replyPrefix.createRecentlySentCache(200);
     logger.info('mode-selected', { mode });
 
@@ -189,10 +227,18 @@ async function startWhatsApp({ dispatcher }) {
             if (connection === 'open') {
                 qrShown = false;
                 selfJids = _buildSelfJidSet(socket.user, logger);
+                if (mode === 'self-chat') {
+                    selfHandle = _resolveSelfHandle(
+                        socket.user,
+                        (allowlist.loadAllowlist().whatsapp || []),
+                        logger,
+                    );
+                }
                 logger.info('connected', {
                     user: socket.user?.id,
                     mode,
                     selfJids: mode === 'self-chat' ? Array.from(selfJids) : undefined,
+                    selfHandle: mode === 'self-chat' ? selfHandle : undefined,
                 });
             }
             if (connection === 'close') {
@@ -258,10 +304,12 @@ async function startWhatsApp({ dispatcher }) {
                             continue;
                         }
                         // In self-chat mode the route target IS the
-                        // operator's own number — _jidToHandle on the
-                        // bareChat gives us that. The allowlist already
-                        // contains it (that's how the operator opted in).
-                        handle = _jidToHandle(bareChat);
+                        // operator themselves. We use the canonical
+                        // selfHandle resolved at socket-open rather than
+                        // _jidToHandle(bareChat), because bareChat can be
+                        // a LID like "67504034582761@lid" whose digits are
+                        // NOT a phone number and won't match the allowlist.
+                        handle = selfHandle;
                         if (!handle) {
                             logger.warn('self-chat-no-handle-derived', { jid, bareChat });
                             continue;
