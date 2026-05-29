@@ -251,6 +251,127 @@ def _build_merged_model(
     return output_dir
 
 
+def _download_raw_from_hf(repo_id: str, output_dir: Path,
+                          hf_token: str | None) -> Path:
+    """Rehydrate a previously-published raw Tinker checkpoint from HF.
+
+    Used when we want to convert an already-uploaded raw adapter into PEFT
+    format without paying for another `weights.download()` round-trip from
+    Tinker (which also burns a time-limited signed URL on the cookbook side).
+    """
+    from huggingface_hub import snapshot_download
+
+    output_dir.mkdir(parents=True, exist_ok=True)
+    print(f"[1/4] Rehydrating raw Tinker checkpoint from HF: {repo_id}",
+          flush=True)
+    print(f"      → {output_dir}", flush=True)
+    local = snapshot_download(
+        repo_id=repo_id,
+        repo_type="model",
+        local_dir=str(output_dir),
+        token=hf_token,
+        # The raw upload contains only adapter_model.safetensors,
+        # adapter_config.json, and README.md. Pull just those — no .git
+        # history, no orphaned files.
+        allow_patterns=["adapter_model*", "adapter_config*", "*.json",
+                        "*.safetensors"],
+    )
+    print(f"      ✓ {local}", flush=True)
+    return Path(local)
+
+
+def _write_peft_readme(peft_dir: Path, base_model: str, repo_id: str,
+                       checkpoint_uri: str,
+                       republished_from_raw: str | None) -> None:
+    """Overwrite the model card so the repo clearly advertises PEFT/vLLM
+    compatibility (overrides whatever tinker_cookbook generates).
+
+    Required when republishing a previously-raw repo: the repo name still
+    has 'tinker-raw' in it, and stale READMEs from the earlier raw upload
+    would otherwise confuse consumers about what they're loading.
+    """
+    rehydrate_note = ""
+    if republished_from_raw:
+        rehydrate_note = (
+            f"\n> **Republished:** this repo previously hosted a raw "
+            f"Tinker checkpoint at the same id "
+            f"(`{republished_from_raw}`). It has been replaced in-place "
+            f"with the PEFT/vLLM-compatible adapter below. The repo name "
+            f"still contains `tinker-raw` for backward compatibility with "
+            f"existing references, but the contents are now standard "
+            f"PEFT.\n"
+        )
+
+    readme = peft_dir / "README.md"
+    content = f"""---
+base_model: {base_model}
+library_name: peft
+pipeline_tag: text-generation
+tags:
+- peft
+- lora
+- vllm
+- vision-language-model
+- computer-use
+- desktop-agent
+- emu
+- osworld
+- sft
+datasets:
+- xlangai/ubuntu_osworld_verified_trajs
+- xlangai/computer-agent-arena
+license: apache-2.0
+language:
+- en
+---
+
+# {repo_id}
+
+**PEFT/vLLM-compatible LoRA adapter** for
+[{base_model}](https://huggingface.co/{base_model}),
+trained with [Tinker](https://thinkingmachines.ai/tinker) +
+[tinker-cookbook](https://github.com/thinking-machines-lab/tinker-cookbook)
+and converted to PEFT format with `weights.build_lora_adapter()`.
+{rehydrate_note}
+Original Tinker checkpoint: `{checkpoint_uri}`
+
+## Load with PEFT
+
+```python
+from peft import PeftModel
+from transformers import AutoModelForCausalLM
+
+base = AutoModelForCausalLM.from_pretrained(
+    "{base_model}", trust_remote_code=True
+)
+model = PeftModel.from_pretrained(base, "{repo_id}")
+```
+
+## Serve with vLLM
+
+```bash
+vllm serve {base_model} \\
+    --enable-lora \\
+    --lora-modules emu-step50={repo_id} \\
+    --trust-remote-code
+```
+
+Then point requests at `model="emu-step50"`.
+
+## Training
+
+- **Recipe:** vision SFT on real OSWorld + Computer-Agent-Arena Gemini
+  trajectories rewritten into Emu's remote-mode harness format. See
+  `training/train_vlm_sft.py` in the
+  [emu-macos repo](https://github.com/Prathmesh234/Emu-MacOS).
+- **Base:** `{base_model}` (Hybrid + Vision MoE, qwen3_5_moe family).
+- **LoRA rank:** 32
+- **Renderer:** `qwen3_5_disable_thinking`
+- **Checkpoint:** step 50
+"""
+    readme.write_text(content)
+
+
 def _publish(
     model_path: Path,
     repo_id: str,
@@ -431,6 +552,15 @@ def main() -> None:
                          "conversion needs 30-60 GB RAM). The consumer can "
                          "run build_lora_adapter() locally to produce the "
                          "PEFT format from this raw upload.")
+    ap.add_argument("--from-hf-raw", nargs="?", const="__same__",
+                    default=None, metavar="REPO_ID",
+                    help="Rehydrate the raw Tinker checkpoint from an "
+                         "existing HF repo instead of re-downloading from "
+                         "Tinker. Pass with no value to default to "
+                         "--repo-id (typical when republishing the same "
+                         "repo as PEFT/vLLM-compatible). Implies "
+                         "--skip-download and does NOT require "
+                         "TINKER_API_KEY.")
     ap.add_argument("--merge", action="store_true",
                     help="Also build a fully merged HF model (~800 GB bf16) "
                          "and publish it to <repo-id>-merged. Requires huge "
@@ -456,17 +586,32 @@ def main() -> None:
         print("[warn] HF_TOKEN not set (env or .env). publish_to_hf_hub "
               "will fall back to `hf auth login` cache.", file=sys.stderr,
               flush=True)
-    if not args.skip_download and not os.environ.get("TINKER_API_KEY"):
+
+    # Resolve --from-hf-raw sentinel ("" → use --repo-id).
+    from_hf_raw = args.from_hf_raw
+    if from_hf_raw == "__same__":
+        from_hf_raw = args.repo_id
+    if from_hf_raw and args.upload_raw:
+        raise SystemExit("--from-hf-raw and --upload-raw are mutually "
+                         "exclusive (the whole point of --from-hf-raw is "
+                         "to convert an already-uploaded raw checkpoint "
+                         "into PEFT format).")
+
+    if (not args.skip_download and not from_hf_raw
+            and not os.environ.get("TINKER_API_KEY")):
         raise SystemExit("TINKER_API_KEY not set (env or .env) — "
                          "needed by weights.download()")
 
-    # 1. Download from Tinker.
+    # 1. Download from Tinker (or rehydrate from a previously-uploaded
+    #    raw HF repo when --from-hf-raw is set).
     if args.skip_download:
         if not raw_dir.exists():
             raise SystemExit(f"--skip-download set but {raw_dir} is empty. "
                              "Run once without --skip-download first.")
         adapter_dir = raw_dir
         print(f"[1/4] Skipping download, reusing {adapter_dir}", flush=True)
+    elif from_hf_raw:
+        adapter_dir = _download_raw_from_hf(from_hf_raw, raw_dir, hf_token)
     else:
         adapter_dir = _download_checkpoint(args.checkpoint, raw_dir)
 
@@ -502,6 +647,13 @@ def main() -> None:
 
     # 2. Convert to PEFT format (small, no base weights downloaded).
     _build_peft_adapter(args.base_model, adapter_dir, peft_dir)
+
+    # 2c. Write our own README so the repo advertises PEFT/vLLM use
+    #     (overrides whatever tinker_cookbook would otherwise generate
+    #     during publish_to_hf_hub).
+    _write_peft_readme(peft_dir, args.base_model, args.repo_id,
+                       args.checkpoint,
+                       republished_from_raw=from_hf_raw)
 
     # 3. (optional) merge into a full HF model.
     if args.merge:
