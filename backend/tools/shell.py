@@ -51,7 +51,11 @@ _BLOCKED_PATTERNS = [
     re.compile(r"\brm\s+-[rfRF]{1,2}\b"),
     re.compile(r"\|\s*(bash|sh|zsh|ksh)\b"),
     re.compile(r"\b(bash|sh|zsh|ksh)\s+<\("),
-    re.compile(r">\s*/dev/"),
+    # Block writes to device nodes (e.g. `> /dev/sda`) while still allowing the
+    # safe-and-common stderr/stdout discard idioms (`2>/dev/null`, `>/dev/null`,
+    # `&>/dev/null`, `>/dev/stdout`, `>/dev/stderr`). Without the negative
+    # lookahead, agents constantly got false positives for `cmd 2>/dev/null`.
+    re.compile(r">\s*/dev/(?!null\b|stdout\b|stderr\b)"),
     re.compile(r"^\s*:\s*\(\s*\)\s*\{"),
 ]
 
