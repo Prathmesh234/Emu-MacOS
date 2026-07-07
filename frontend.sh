@@ -50,6 +50,25 @@ else
     info "node_modules exists — skipping install (run 'npm install' manually to update)"
 fi
 
+# ── Load .env if present ────────────────────────────────────────────────────
+#
+# Electron spawns both the backend AND the messaging runner as child
+# processes. Both inherit our env. Sourcing backend/.env here means
+# operator-tunable knobs (EMU_MESSAGING_*_MODE, reply-prefix overrides,
+# provider keys for the backend) all flow from one file.
+#
+# The messaging runner additionally goes through _scrubbedEnv in
+# frontend/process/messagingProcess.js, which allowlists only the
+# EMU_MESSAGING_* family — provider API keys are NOT forwarded to it.
+
+if [ -f "$SCRIPT_DIR/backend/.env" ]; then
+    info "Loading environment from backend/.env"
+    set -a
+    # shellcheck disable=SC1091
+    source "$SCRIPT_DIR/backend/.env"
+    set +a
+fi
+
 # ── Start Electron ──────────────────────────────────────────────────────────
 
 echo ""
