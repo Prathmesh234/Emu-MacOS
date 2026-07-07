@@ -172,11 +172,18 @@ function start({ onActivity, onStateChange } = {}, logger = console) {
         sessionId = nextId;
         backoff = 1000;
         if (idleTimer) { clearTimeout(idleTimer); idleTimer = null; }
-        // Close the old WS; its `onclose` handler is a no-op because we
-        // null out `ws` first so the reconnect targets the NEW id.
+        // Detach the old socket's handlers BEFORE closing it. Its `onclose`
+        // closes over `stopped`/`sessionId`, not the module `ws`, so nulling
+        // `ws` alone does NOT disarm the reconnect — the old socket's close
+        // would schedule another _connect(nextId) and leave two live sockets
+        // delivering the same session's events (doubled previews + a leaked
+        // orphan that reconnects on every subsequent rotation).
         const oldWs = ws;
         ws = null;
-        try { oldWs && oldWs.close(); } catch (_) { /* ignore */ }
+        if (oldWs) {
+            oldWs.onopen = oldWs.onmessage = oldWs.onerror = oldWs.onclose = null;
+            try { oldWs.close(); } catch (_) { /* ignore */ }
+        }
         _connect(nextId);
     };
 
