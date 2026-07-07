@@ -30,7 +30,11 @@ function register(ipcMain, getMainWindow) {
         const win = getMainWindow();
         if (!win) return { success: false };
         const wa = getActiveDisplay(screen, win).workArea;
-        originalBounds = win.getBounds();
+        // Only capture on the first side-panel move. A second call with no
+        // intervening restore would otherwise overwrite this with the already-
+        // shrunk 450px panel bounds, so window:centered would "restore" the
+        // window to a sliver instead of its real prior size.
+        if (!originalBounds) originalBounds = win.getBounds();
         const panelWidth = 450;
         const panelHeight = Math.round(wa.height * 0.75);
         win.setBounds({
@@ -50,6 +54,9 @@ function register(ipcMain, getMainWindow) {
         const wa = getActiveDisplay(screen, win).workArea;
         const newWidth  = originalBounds?.width  || 1040;
         const newHeight = originalBounds?.height || 760;
+        // Consume the saved bounds so the next side-panel move re-captures the
+        // real (restored) size rather than reusing this stale snapshot.
+        originalBounds = null;
         win.setBounds({
             x: wa.x + Math.round((wa.width  - newWidth)  / 2),
             y: wa.y + Math.round((wa.height - newHeight) / 2),
