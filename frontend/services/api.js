@@ -65,7 +65,11 @@ async function createSession() {
 
 async function postStep({ sessionId, userMessage, base64Screenshot, agentMode }) {
     if (pendingProviderSettingsSave) {
-        await pendingProviderSettingsSave;
+        // Wait for an in-flight settings save to land so the step uses the new
+        // provider/model — but don't let a failed save reject the send itself,
+        // or the user's message would silently never post under a confusing
+        // "Failed to save provider settings" error.
+        await pendingProviderSettingsSave.catch(() => {});
     }
     // Do not abort agent steps from the renderer. Coworker mode can run long
     // server-side tool chains while progress streams over WebSocket; aborting
