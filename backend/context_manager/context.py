@@ -91,7 +91,9 @@ history only: they describe what was attempted and observed, but they are NOT
 valid remote-mode commands and old element_index values are not usable here.
 
 Current mode: REMOTE. You do not have `cua_*` desktop-driver tools in this
-request. Use only the remote action JSON protocol from this system prompt:
+request. Use only the remote action JSON protocol from this system prompt —
+emitted as plain JSON text in your message content, NEVER as function/tool
+calls (only the function tools listed in <channels> may be tool calls):
   - `screenshot`: ask the harness for a fresh screen image.
   - `navigate_and_click` / `navigate_and_right_click` / `navigate_and_triple_click`:
     move to normalized screen coordinates and click.
