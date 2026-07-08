@@ -867,6 +867,12 @@ async function continueLoop() {
 
     if (!screenshot.success) {
         console.error('[continueLoop] screenshot failed:', screenshot.error);
+        // Persist the failure into the chat — a transient status pill is easy
+        // to miss and the loop otherwise appears to silently stop.
+        const failText = '⚠️ Stopped: screen capture failed — '
+            + (screenshot.error || 'unknown error');
+        store.pushMessage(chat.id, { role: 'assistant', content: failText });
+        addMessage('assistant', failText, chat.messages.length - 1);
         showStatus('Screenshot failed: ' + (screenshot.error || 'unknown'));
         await sleep(1500);
         removeStatus();
