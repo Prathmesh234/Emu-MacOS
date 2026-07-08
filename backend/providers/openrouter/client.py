@@ -135,6 +135,18 @@ def _build_messages(req: AgentRequest) -> tuple[str, list[dict]]:
                     "role": "user",
                     "content": [
                         {"type": "image_url", "image_url": {"url": pm.content}},
+                        {
+                            "type": "text",
+                            "text": (
+                                "[SCREENSHOT] Current screen state above. Reply with "
+                                "exactly ONE of: (a) one function tool call, or (b) one "
+                                "desktop action as plain JSON text in your message, e.g. "
+                                '{"action": {"type": "navigate_and_click", "coordinates": '
+                                '{"x": 0.5, "y": 0.5}}, "done": false}. Desktop actions '
+                                "(screenshot, clicks, type_text, key_press, scroll, drag, "
+                                "wait, done) are NEVER function tools."
+                            ),
+                        },
                     ],
                 })
             else:
