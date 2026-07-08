@@ -211,6 +211,14 @@ function register(ipcMain, { screen, getMainWindow }) {
     desktopCapturer = require('electron').desktopCapturer;
     nativeImageModule = require('electron').nativeImage;
     console.log(`[screenshot] register: desktopCapturer available = ${!!desktopCapturer}`);
+    if (process.platform === 'darwin') {
+        try {
+            const status = require('electron').systemPreferences.getMediaAccessStatus('screen');
+            console.log(`[screenshot] Screen Recording permission status: ${status}`);
+        } catch (err) {
+            console.warn(`[screenshot] could not query Screen Recording status: ${err.message}`);
+        }
+    }
 
     // Live active-display info. Unlike getScreenDimensions() / getDisplayOffset()
     // — which cache the most recent screenshot's values — this always reflects
@@ -239,6 +247,20 @@ function register(ipcMain, { screen, getMainWindow }) {
         try {
             if (!desktopCapturer) {
                 throw new Error('desktopCapturer not available — Electron main process API missing');
+            }
+
+            // macOS TCC preflight: without Screen Recording permission,
+            // getSources() returns no/black sources with no explanation.
+            // Fail fast with an actionable message instead.
+            if (process.platform === 'darwin') {
+                const status = require('electron').systemPreferences.getMediaAccessStatus('screen');
+                if (status !== 'granted') {
+                    throw new Error(
+                        `Screen Recording permission is "${status}" for this app. ` +
+                        'Grant it in System Settings → Privacy & Security → Screen Recording ' +
+                        '(add/enable the Emu/Electron app), then restart Emu.'
+                    );
+                }
             }
 
             const { getActiveDisplay, getLockedDisplay } = require('../display/activeDisplay');
