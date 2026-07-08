@@ -244,10 +244,15 @@ class CoworkerActionValidator:
         ):
             return False, (
                 f"`{name}` is only available in coworker mode. The current "
-                "mode is remote, so do not call emu-cua-driver tools. Use "
-                "remote desktop action JSON such as screenshot, "
-                "navigate_and_click, scroll, type_text, key_press, wait, or "
-                "done."
+                "mode is remote, so do not call emu-cua-driver tools. "
+                "Desktop actions in remote mode are NOT function tools: do "
+                "not emit another tool call for them. Instead reply with "
+                "plain JSON text in your message content, e.g. "
+                '{"action": {"type": "screenshot"}, "done": false}. '
+                "Valid remote action types: screenshot, navigate_and_click, "
+                "navigate_and_right_click, navigate_and_triple_click, "
+                "left_click, right_click, double_click, triple_click, "
+                "mouse_move, drag, scroll, type_text, key_press, wait, done."
             )
 
         if agent_mode == "coworker" and name in self._CLICK_TOOLS:
