@@ -437,6 +437,11 @@ async def execute_agent_tool(
             example_action = {"type": name}
         example_json = json.dumps({"action": example_action}, ensure_ascii=False)
 
+        coworker_only_tools = (
+            ", list_running_apps, and cua_* driver tools"
+            if agent_mode == "coworker"
+            else ""
+        )
         return (
             f"ERROR: '{name}' is NOT a function tool — it is a DESKTOP ACTION.\n"
             f"You called it as a function tool with arguments: {args_str}\n"
@@ -452,8 +457,7 @@ async def execute_agent_tool(
             f"Function tools are ONLY: update_plan, read_plan, write_session_file, "
             f"read_session_file, list_session_files, read_memory, use_skill, "
             f"create_skill, compact_context, shell_exec, invoke_hermes, check_hermes, "
-            f"cancel_hermes, list_hermes_jobs, raise_app, bring_app_frontmost, "
-            f"list_running_apps, "
-            f"and (coworker mode only) cua_* driver tools."
+            f"cancel_hermes, list_hermes_jobs, raise_app, bring_app_frontmost"
+            f"{coworker_only_tools}."
         )
 
