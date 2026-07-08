@@ -971,7 +971,26 @@ async def agent_step(req: AgentRequest):
         # payload is not evidence the task is complete. Instead, nudge the
         # model to re-orient with a fresh screenshot and try again.
         if response.action.type == ActionType.UNKNOWN:
-            preview = (response.final_message or "").strip()[:200]
+            reply_text = (response.final_message or "").strip()
+
+            # ── Conversational reply, not a garbled action ──────────────────
+            # In a text turn (no screenshot in play) the model is chatting with
+            # the user, not driving the desktop. A plain-language answer is the
+            # expected output there — surface it as an assistant message and end
+            # the turn instead of forcing a screenshot retry (which otherwise
+            # swallows the reply and nudges the model into spurious desktop
+            # actions). Reuse the truncated-action heuristic so genuinely
+            # garbled JSON still falls through to the retry path below.
+            looks_like_prose = bool(reply_text) and \
+                context_manager.remote_validator.validate_done_response(reply_text)[0]
+            if not has_screenshot and looks_like_prose:
+                print(f"[agent/step] plain-text reply in text mode — surfacing as message")
+                response.action = Action(type=ActionType.DONE)
+                response.done = True
+                response.final_message = reply_text
+                break
+
+            preview = reply_text[:200]
             print(f"[agent/step] unknown action received, requesting retry: {preview!r}")
             context_manager.add_assistant_turn(
                 session_id,
