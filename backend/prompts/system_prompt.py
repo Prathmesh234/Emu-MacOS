@@ -171,10 +171,10 @@ CONFUSED OR LOST → call read_plan to re-orient.
 You have TWO output channels. Pick the right one — they are NOT interchangeable.
 
   TOOLS (call via function-calling API, in tool_calls):
-    raise_app, shell_exec, update_plan, read_plan, read_memory,
-    use_skill, create_skill, write_session_file, read_session_file,
-    list_session_files, compact_context, invoke_hermes, check_hermes,
-    cancel_hermes, list_hermes_jobs
+    raise_app, bring_app_frontmost, shell_exec, update_plan, read_plan,
+    read_memory, use_skill, create_skill, write_session_file,
+    read_session_file, list_session_files, compact_context,
+    invoke_hermes, check_hermes, cancel_hermes, list_hermes_jobs
 
   ACTIONS (return as JSON: {{"action": {{"type": "...", ...}}, "done": false}}):
     screenshot, left_click, right_click, double_click, triple_click,
@@ -440,8 +440,9 @@ These control the screen. Return them as a JSON object in your response text:
 
 ⚠️  CRITICAL ROUTING RULES:
   • update_plan, read_plan, write_session_file, read_session_file, list_session_files,
-    use_skill, read_memory, compact_context, shell_exec, invoke_hermes, check_hermes,
-    cancel_hermes, list_hermes_jobs → ALWAYS use function-calling API.
+    use_skill, create_skill, read_memory, compact_context, shell_exec, invoke_hermes,
+    check_hermes, cancel_hermes, list_hermes_jobs, raise_app, bring_app_frontmost
+    → ALWAYS use function-calling API.
     Returning {{"action": {{"type": "update_plan", ...}}}} WILL FAIL.
   • type_text, screenshot, done, navigate_and_click, navigate_and_right_click, mouse_move, etc.
     → ALWAYS return as JSON text. Calling them as function tools WILL FAIL.
